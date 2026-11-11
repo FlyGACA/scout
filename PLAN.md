@@ -14,7 +14,7 @@
 
 ## Principles
 
-1. **Measure before spending.** Neither flygaca.com nor captadel.com records which ad a signup came from today: there is no UTM capture and no analytics in either codebase. Fixing that comes first, or no channel can be judged.
+1. **Measure before spending.** Nothing today ties an ad to an account or to a learner who actually used the product. FlyGACA has a third-party analytics path (Vercel Analytics or GA4, when configured) for page views and funnel events, but it links no campaign to a signup. Captain Adel records nothing, and its chat is anonymous because client sign-up is switched off. Fixing that comes first, or no channel can be judged.
 2. **Advertise only what exists today.** Start with the free entry points: the GACAR library on flygaca.com and the Captain Adel free tier.
    - FlightBag's shop waits for its own go-live checklist.
    - The ELPT and AIP iOS apps wait until they leave TestFlight.
@@ -33,7 +33,7 @@
 | Phase | Who | What | Done when |
 | --- | --- | --- | --- |
 | **0. Set up** | Owner, about an hour | Install scout (cloud setup script and computer). Set a spending cap on every ad account. Decide the test budget and the first 2–3 channels. | `/advisor` shows Fable 5.2, and each account has a cap |
-| **1. Measure** | Claude drafts, owner approves | Separate draft PRs in FlyGACA and Captain-Adel to store the first-touch `utm_*` values with each new account. This stays first-party: no pixel and no third-party script. Define three conversions: signup, first question or first study session, and mock exam started. | A test signup from a tagged link shows its campaign |
+| **1. Measure** | Claude drafts, owner approves | Two separate draft PRs, both first-party, with no pixel and no third-party script. **FlyGACA:** keep the first-visit `utm_*` tags in the browser, then store them with the account after any kind of signup, in a table erased with the account. Add a report query: signups and activated learners per campaign. **Captain Adel:** daily aggregate counts per campaign of `visit` and `first_question`, once per browser, with nothing stored per person. | A test signup from a tagged link shows its campaign on FlyGACA, and a tagged first question shows in Captain Adel's daily counts |
 | **2. Read-only** | Claude | Connect read-only: Google's official server is read-only, and Snapchat's is reported read-only. Meta uses a view-only login. Claude writes a weekly report across channels: spend, clicks, signups, activated learners, cost per activated learner. | Two weekly reports match the platform dashboards |
 | **3. Small tests** | Claude drafts, owner publishes | 2–3 channels, the same budget each, a fixed window (for example 14 days). Copy goes through the checker, then the owner reviews it and publishes in the platform UI. | Each channel has a cost per activated learner |
 | **4. Scale or stop** | Owner | Keep the channels under the owner's target cost per activated learner and stop the rest. Only then consider letting Claude make paused drafts through a write-enabled login. | A written decision |
