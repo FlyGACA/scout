@@ -1,0 +1,75 @@
+{
+  "_read_me": "Text limits per ad format, in characters. max = the platform rejects longer text (error); recommended = longer text gets cut off in some placements (warning). verified=false: written from general knowledge on 2026-11-11, not yet checked against each platform's current docs. Check, then set verified=true and add the source URL.",
+  "google_search_rsa": {
+    "platform": "Google Ads, responsive search ad",
+    "utm_source": "google",
+    "verified": false,
+    "source": null,
+    "fields": {
+      "headline": { "max": 30 },
+      "description": { "max": 90 },
+      "path": { "max": 15 }
+    }
+  },
+  "microsoft_search_rsa": {
+    "platform": "Microsoft Advertising, responsive search ad",
+    "utm_source": "bing",
+    "verified": false,
+    "source": null,
+    "fields": {
+      "headline": { "max": 30 },
+      "description": { "max": 90 },
+      "path": { "max": 15 }
+    }
+  },
+  "meta_feed": {
+    "platform": "Meta (Facebook and Instagram) feed ad",
+    "utm_source": "facebook|instagram",
+    "verified": false,
+    "source": null,
+    "fields": {
+      "primary_text": { "recommended": 125 },
+      "headline": { "recommended": 40 },
+      "description": { "recommended": 30 }
+    }
+  },
+  "tiktok_infeed": {
+    "platform": "TikTok in-feed ad",
+    "utm_source": "tiktok",
+    "verified": false,
+    "source": null,
+    "fields": {
+      "ad_text": { "max": 100 },
+      "display_name": { "max": 40 }
+    }
+  },
+  "snapchat_single": {
+    "platform": "Snapchat single image or video ad",
+    "utm_source": "snapchat",
+    "verified": false,
+    "source": null,
+    "fields": {
+      "headline": { "max": 34 },
+      "brand_name": { "max": 25 }
+    }
+  },
+  "x_promoted": {
+    "platform": "X promoted post",
+    "utm_source": "x|twitter",
+    "verified": false,
+    "source": null,
+    "fields": {
+      "text": { "max": 280 }
+    }
+  },
+  "linkedin_single_image": {
+    "platform": "LinkedIn single image ad",
+    "utm_source": "linkedin",
+    "verified": false,
+    "source": null,
+    "fields": {
+      "intro_text": { "max": 600, "recommended": 150 },
+      "headline": { "max": 200, "recommended": 70 }
+    }
+  }
+}

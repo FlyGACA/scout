@@ -1,0 +1,66 @@
+{
+  "campaign": "captain-adel-free-test",
+  "offer": "captain-adel-free",
+  "_status": "EXAMPLE DRAFT. Not reviewed, not live. Wording and accuracy need the owner's review before any use.",
+  "variants": [
+    {
+      "id": "google-en",
+      "format": "google_search_rsa",
+      "lang": "en",
+      "fields": {
+        "headline": [
+          "Captain Adel: GACAR Study Aid",
+          "Ask in Arabic or English",
+          "Answers Cite GACAR Sections",
+          "Start Free on captadel.com"
+        ],
+        "description": [
+          "Study aviation regulations with answers that cite the GACAR section. Try it free.",
+          "Not affiliated with GACA. Always verify against the latest official GACA publication."
+        ],
+        "path": ["study", "gacar"]
+      },
+      "url": "https://captadel.com/?utm_source=google&utm_medium=cpc&utm_campaign=captain-adel-free-test&utm_content=google-en"
+    },
+    {
+      "id": "google-ar",
+      "format": "google_search_rsa",
+      "lang": "ar",
+      "fields": {
+        "headline": [
+          "كابتن عادل لمذاكرة GACAR",
+          "اسأل بالعربي أو الإنجليزي",
+          "إجابات تستشهد بأقسام GACAR",
+          "ابدأ مجانًا على captadel.com"
+        ],
+        "description": [
+          "ذاكر لوائح الطيران مع مساعد يستشهد بالقسم من GACAR. جرّب الخطة المجانية.",
+          "غير تابع للهيئة العامة للطيران المدني — تحقّق دائماً من المصدر الرسمي"
+        ],
+        "path": ["study", "gacar"]
+      },
+      "url": "https://captadel.com/?utm_source=google&utm_medium=cpc&utm_campaign=captain-adel-free-test&utm_content=google-ar"
+    },
+    {
+      "id": "snap-ar",
+      "format": "snapchat_single",
+      "lang": "ar",
+      "fields": {
+        "headline": "اسأل كابتن عادل عن لوائح GACAR",
+        "brand_name": "Captain Adel"
+      },
+      "disclaimer_in": "creative",
+      "url": "https://captadel.com/?utm_source=snapchat&utm_medium=paid_social&utm_campaign=captain-adel-free-test&utm_content=snap-ar"
+    },
+    {
+      "id": "tiktok-ar",
+      "format": "tiktok_infeed",
+      "lang": "ar",
+      "fields": {
+        "ad_text": "ذاكر لوائح الطيران بالعربي مع كابتن عادل. غير تابع للهيئة العامة للطيران المدني.",
+        "display_name": "Captain Adel"
+      },
+      "url": "https://captadel.com/?utm_source=tiktok&utm_medium=paid_social&utm_campaign=captain-adel-free-test&utm_content=tiktok-ar"
+    }
+  ]
+}

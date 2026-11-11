@@ -1,0 +1,17 @@
+{
+  "advisorModel": "fable",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "^mcp__",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$HOME/.claude/hooks/scout-ads-guard.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
