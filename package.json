@@ -1,0 +1,15 @@
+{
+  "name": "scout",
+  "private": true,
+  "description": "FlyGACA's Claude Code setup and ad-operations guardrails",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node tools/build-install.mjs",
+    "lint:copy": "node tools/ad-copy-lint.mjs",
+    "test": "node --test \"test/*.test.mjs\"",
+    "check": "node tools/build-install.mjs --check && node tools/ad-copy-lint.mjs && node --test \"test/*.test.mjs\""
+  }
+}

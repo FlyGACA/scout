@@ -1,0 +1,32 @@
+{
+  "_read_me": "Only the owner edits this file. tools/ad-copy-lint.mjs accepts only the offers, prices, domains and disclaimers listed here. An empty prices list means no price may appear in any ad.",
+  "offers": {
+    "flygaca-library-free": {
+      "what": "The full GACAR regulatory library on flygaca.com, free",
+      "free": true,
+      "source": "iflygaca/FlyGACA src/i18n/ar.json: \"المكتبة التنظيمية كاملة مجانية للأبد\""
+    },
+    "captain-adel-free": {
+      "what": "Captain Adel bilingual study assistant, free tier with a question limit",
+      "free": true,
+      "source": "iflygaca/Captain-Adel src/quota/quota.js: metered free and anonymous questions"
+    }
+  },
+  "prices": [],
+  "landing_domains": [
+    "flygaca.com",
+    "captadel.com"
+  ],
+  "disclaimers": {
+    "en": [
+      "Not affiliated with GACA. Always verify against the latest official GACA publication.",
+      "Fly GACA is an independent educational platform, not affiliated with, endorsed by, or operated by GACA or the Government of Saudi Arabia.",
+      "Captain Adel is not affiliated with, endorsed by, or operated by the General Authority of Civil Aviation (GACA)."
+    ],
+    "ar": [
+      "غير تابعة لـ GACA. تحقّق دائمًا من أحدث منشور رسمي صادر عن GACA.",
+      "Fly GACA مستقلّة وغير تابعة لـGACA. تحقّق دائمًا من المصدر الرسمي.",
+      "غير تابع للهيئة العامة للطيران المدني — تحقّق دائماً من المصدر الرسمي"
+    ]
+  }
+}
