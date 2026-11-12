@@ -8,6 +8,19 @@ FlyGACA's Claude Code setup and ad-operations guardrails. It covers three jobs:
 
 العربية: [README.ar.md](README.ar.md) · The plan: [PLAN.md](PLAN.md) · Ads playbook: [ads/PLAYBOOK.md](ads/PLAYBOOK.md)
 
+## From ad draft to review
+
+Use the [ads playbook](ads/PLAYBOOK.md) for the review process. Run `npm run check` after changing the hook or copy checks. The hook checks the draft against repository rules before human review.
+
+```mermaid
+flowchart LR
+    N0["Ad draft"]
+    N1["Copy checks"]
+    N2["Human review"]
+    N0 --> N1
+    N1 --> N2
+```
+
 ## Install
 
 **Cloud sessions** (claude.ai/code and the Claude app):
