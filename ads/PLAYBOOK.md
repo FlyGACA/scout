@@ -48,13 +48,17 @@ Also set the connector's own tool permissions in claude.ai (Settings → Connect
 | `utm_content` | the variant id |
 
 **Conversions,** defined once and used on every platform:
-1. Signup (new account).
-2. Activation: first question to Captain Adel, or first study session on FlyGACA.
+1. Signup: a new FlyGACA account. Captain Adel has no client sign-up, so it has none.
+2. Activation: on FlyGACA, the learner's first study activity, as defined in FlyGACA's attribution report. On Captain Adel, the browser's first answered question.
 3. Mock exam started.
 
 The headline number is **cost per activated learner**. Clicks and signups alone reward the wrong ads.
 
-**First-party only, to start.** Store the first-touch UTM values with the new account in our own database. This needs a small change in FlyGACA and in Captain-Adel; neither captures UTM today. No pixel and no third-party analytics script until a PDPL review says yes. captadel.com's CSP is hand-maintained, so any script there is a deliberate change anyway.
+**First-party, to start.** Two small changes in our own systems:
+- FlyGACA stores the first-visit UTM values with the new account in our own database.
+- Captain Adel keeps daily counts per campaign, with nothing stored per person.
+
+FlyGACA's existing analytics path (Vercel Analytics or GA4, when configured) sees page views but links no campaign to an account, and it sends data to a third party outside the Kingdom. Don't extend it for ads, and add no pixel, until a PDPL review says yes. captadel.com's CSP is hand-maintained, so any script there is a deliberate change anyway.
 
 ## 4. What to advertise
 
