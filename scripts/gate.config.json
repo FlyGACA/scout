@@ -1,0 +1,19 @@
+{
+  "name": "scout",
+  "description": "scout: content citations, links, source freshness.",
+  "gacar": {
+    "include": ["**/*.md"],
+    "maxPart": 199
+  },
+  "links": {
+    "include": ["**/*.md"],
+    "exclude": ["node_modules/**"],
+    "external": false,
+    "maxExternal": 25
+  },
+  "sources": {
+    "include": ["**/*.md"],
+    "maxAgeDays": 365,
+    "required": []
+  }
+}
