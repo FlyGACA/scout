@@ -13,7 +13,7 @@
   },
   "sources": {
     "include": ["**/*.md"],
-    "maxAgeDays": 365,
+    "maxAgeDays": 180,
     "required": []
   }
 }
