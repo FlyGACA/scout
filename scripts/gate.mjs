@@ -449,7 +449,7 @@ export function loadConfig(root, configPath) {
   }
   throw new Error(
     `No gate config found. Looked for: ${candidates.join(', ')}. ` +
-      'Run ./install.sh <repo> --config <name> or pass --config <file>.',
+      'Use a complete scout checkout containing scripts/gate.config.json (no separate content-pack install is required), or pass --config <file>.',
   );
 }
 
