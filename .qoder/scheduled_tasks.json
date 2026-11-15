@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-14",
-  "expiresAt": "2026-11-21",
+  "generatedAt": "2026-11-15",
+  "expiresAt": "2026-11-22",
   "regenerateWith": "node scripts/regenerate-scheduled-tasks.mjs",
   "notes": "Qoder scheduled tasks expire 7 days after generatedAt. Run the regenerator to extend them. Durable schedules (weekly external-link check, PR gate) live in .github/workflows/qoder-gate.yml and do not expire.",
   "tasks": [

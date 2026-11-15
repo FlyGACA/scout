@@ -1,14 +1,17 @@
 # CLAUDE.md — FlyGACA/scout
 
-FlyGACA's Claude Code setup (advisor, `repo-scout` agent, ads guard hook, installer) and the ads playbook with its copy checker. See `README.md`, `PLAN.md` and `ads/PLAYBOOK.md`.
+FlyGACA's Claude Code setup (advisor, `repo-scout` agent, ads guard hook, installer), the ads playbook with its copy checker, and the FlyGACA content gate for Markdown, which Qoder also runs. See `README.md`, `PLAN.md`, `ads/PLAYBOOK.md` and, for the content policies, `AGENTS.md` and `.qoder/rules/`.
 
 ## Commands
 
 | Task | Command |
 | --- | --- |
-| Everything CI runs | `npm run check` |
+| Local checks and the test workflow | `npm run check` (installer up to date, copy checker, content gate, tests) |
 | Regenerate the installer | `npm run build` (after editing `claude-code/agents/`, `claude-code/hooks/` or `claude-code/install.template.sh`) |
 | Check ad copy | `node tools/ad-copy-lint.mjs [file]` |
+| Check Markdown content | `node scripts/gate.mjs` (`--strict` also fails on warnings; `--only links --external` fetches external links) |
+| Count the tests | `npm test` (the `tests` summary line) |
+| Extend the Qoder scheduled tasks | `node scripts/regenerate-scheduled-tasks.mjs` |
 
 No dependencies. Node 20 or later, POSIX `sh`, `python3`.
 
@@ -27,6 +30,10 @@ No dependencies. Node 20 or later, POSIX `sh`, `python3`.
   - No unconfirmed prices.
   - Arabic and English together.
   - Every copy file passes the checker before review.
+- **Content policies:** before editing Markdown, read `AGENTS.md` (the shared baseline) and the matching `.qoder/rules/*.mdc` file; where they conflict, the more specific `.qoder/rules` file wins. `scripts/gate.config.json` decides which checks the gate runs and with what limits.
+  - Never edit `scripts/gate.mjs` or `test/gate.test.mjs` to make a finding disappear. Fix the content, or leave the finding for the owner.
+  - Never invent a GACAR citation, part number or `source-verified` date.
+- **Qoder scheduled tasks** (`.qoder/scheduled_tasks.json`, prompts in `.qoder/prompts/`) stop at `expiresAt`. Extending them is `node scripts/regenerate-scheduled-tasks.mjs`; the separate, non-expiring weekly external-link check is in `.github/workflows/qoder-gate.yml`.
 - **Branches and publishing:** work on a new branch per task and open draft PRs. Never merge to `main`. Never connect, publish or change a live ad account, and never deploy, without the owner's explicit approval.
 - **Other repositories:** do not modify them (FlyGACA, Captain-Adel, Office, …) without the owner's permission. The UTM-capture work in PLAN.md phase 1 is separate PRs there.
 - **Secrets:** never commit them. Ad-platform credentials belong in the connectors, not in this repo.
