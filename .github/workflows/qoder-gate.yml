@@ -23,10 +23,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Verify the gate is installed
+      - name: Verify the gate is present
         run: |
-          if [ ! -f scripts/gate.mjs ]; then
-            echo "scripts/gate.mjs not found. Install the content pack first: ./install.sh <repo> --config <name>" >&2
+          if [ ! -f scripts/gate.mjs ] || [ ! -f scripts/gate.config.json ]; then
+            echo "scripts/gate.mjs or scripts/gate.config.json is missing. Use a complete scout checkout containing both tracked files; no separate content-pack install is required." >&2
             exit 1
           fi
       - name: Run gate (SARIF)
