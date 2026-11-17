@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Schedule and plan · الجدولة والخطة — Scout</title>
-<meta name="description" content="Qoder scheduled tasks with expiry, and plan progress.">
+<title>Schedule · الجدولة — Scout</title>
+<meta name="description" content="Qoder scheduled tasks with expiry.">
 <link rel="icon" href="ufuq/scout-mark.svg">
 <link rel="stylesheet" href="ufuq/ufuq.css">
 <link rel="stylesheet" href="ufuq/ufuq.components.css">
@@ -12,10 +12,11 @@
 <script src="ufuq/ufuq.shell.js"></script>
 <script src="scout.js" defer></script>
 </head>
-<body class="page">
+<body class="page" data-page="schedule">
+<a class="skip-link" href="#main"><span class="ufuq-en">Skip to content</span><span class="ufuq-ar" lang="ar">انتقل إلى المحتوى</span></a>
 <header class="ufuq-shell">
   <a class="ufuq-shell__brand" href="index.html"><img class="on-night" src="ufuq/scout-mark.svg" alt="" width="32" height="32"><img class="on-day" src="ufuq/scout-mark-ink.svg" alt="" width="32" height="32"><span class="ufuq-en">Scout</span><span class="ufuq-ar" lang="ar">الكشّاف</span></a>
-  <nav class="ufuq-shell__nav" aria-label="Pages" data-label-en="Pages" data-label-ar="الصفحات"><a href="index.html"><span class="ufuq-en">Overview</span><span class="ufuq-ar" lang="ar">نظرة عامة</span></a><a href="ads.html"><span class="ufuq-en">Ads</span><span class="ufuq-ar" lang="ar">الإعلانات</span></a><a href="gate.html"><span class="ufuq-en">Content gate</span><span class="ufuq-ar" lang="ar">بوابة المحتوى</span></a><a href="schedule.html" aria-current="page"><span class="ufuq-en">Schedule and plan</span><span class="ufuq-ar" lang="ar">الجدولة والخطة</span></a></nav>
+  <nav class="ufuq-shell__nav" aria-label="Pages" data-label-en="Pages" data-label-ar="الصفحات"><a href="index.html"><span class="ufuq-en">Overview</span><span class="ufuq-ar" lang="ar">نظرة عامة</span></a><a href="ads.html"><span class="ufuq-en">Ads</span><span class="ufuq-ar" lang="ar">الإعلانات</span></a><a href="limits.html"><span class="ufuq-en">Limits</span><span class="ufuq-ar" lang="ar">الحدود</span></a><a href="playbook.html"><span class="ufuq-en">Playbook</span><span class="ufuq-ar" lang="ar">دليل الإعلانات</span></a><a href="gate.html"><span class="ufuq-en">Content gate</span><span class="ufuq-ar" lang="ar">بوابة المحتوى</span></a><a href="plan.html"><span class="ufuq-en">Plan</span><span class="ufuq-ar" lang="ar">الخطة</span></a><a href="schedule.html" aria-current="page"><span class="ufuq-en">Schedule</span><span class="ufuq-ar" lang="ar">الجدولة</span></a><a href="checks.html"><span class="ufuq-en">Run the checks</span><span class="ufuq-ar" lang="ar">تشغيل الفحوص</span></a><a href="copycheck.html"><span class="ufuq-en">Copy self-check</span><span class="ufuq-ar" lang="ar">فحص النص ذاتيًا</span></a></nav>
   <div class="ufuq-shell__tools">
     <span class="ufuq-shell__who" data-shell-who hidden></span>
     <a class="ufuq-shell__tool" data-shell-out hidden><span class="ufuq-en">Sign out</span><span class="ufuq-ar" lang="ar">خروج</span></a>
@@ -23,10 +24,10 @@
     <button type="button" class="ufuq-shell__tool" data-shell-lang><span class="ufuq-en" lang="ar">العربية</span><span class="ufuq-ar" lang="en">English</span></button>
   </div>
 </header>
-<main class="ufuq-container wrap">
+<main class="ufuq-container wrap" id="main" tabindex="-1">
 <section aria-labelledby="t">
-  <p class="ufuq-eyebrow"><span class="ufuq-en">Schedule and plan</span><span class="ufuq-ar" lang="ar">الجدولة والخطة</span></p>
-  <h1 id="t"><span class="ufuq-en">Scheduled tasks and plan progress</span><span class="ufuq-ar" lang="ar">المهام المجدولة وتقدم الخطة</span></h1>
+  <p class="ufuq-eyebrow"><span class="ufuq-en">Schedule</span><span class="ufuq-ar" lang="ar">الجدولة</span></p>
+  <h1 id="t"><span class="ufuq-en">Scheduled tasks</span><span class="ufuq-ar" lang="ar">المهام المجدولة</span></h1>
   <p class="ufuq-label built"><span class="ufuq-en">Checker results captured <bdi dir="ltr">2026-11-17</bdi></span><span class="ufuq-ar" lang="ar">نتائج الفحص التُقطت بتاريخ <bdi dir="ltr">2026-11-17</bdi></span></p>
 </section>
 <section id="tasks" aria-labelledby="q">
@@ -37,34 +38,15 @@
 <tr><td class="mono ltr">source-refresh</td><td class="ltr">Weekly GACAR / AIP source refresh</td><td class="mono ltr">0 8 * * 1</td><td class="mono ltr">.qoder/prompts/weekly-source-refresh.md</td><td class="mono ltr nowrap">2026-11-22</td><td><span data-expires="2026-11-22"><span class="ufuq-en">expires <bdi dir="ltr">2026-11-22</bdi></span><span class="ufuq-ar" lang="ar">تنتهي في <bdi dir="ltr">2026-11-22</bdi></span></span></td><td><span class="ufuq-badge ufuq-badge--neutral" data-expires-badge="2026-11-22"><span class="ufuq-en">Check the date</span><span class="ufuq-ar" lang="ar">تحقق من التاريخ</span></span></td></tr>
 <tr><td class="mono ltr">register-audit</td><td class="ltr">Weekly repository register audit</td><td class="mono ltr">0 9 * * 1</td><td class="mono ltr">.qoder/prompts/weekly-register-audit.md</td><td class="mono ltr nowrap">2026-11-22</td><td><span data-expires="2026-11-22"><span class="ufuq-en">expires <bdi dir="ltr">2026-11-22</bdi></span><span class="ufuq-ar" lang="ar">تنتهي في <bdi dir="ltr">2026-11-22</bdi></span></span></td><td><span class="ufuq-badge ufuq-badge--neutral" data-expires-badge="2026-11-22"><span class="ufuq-en">Check the date</span><span class="ufuq-ar" lang="ar">تحقق من التاريخ</span></span></td></tr>
 </tbody></table></div>
+  <p class="scroll-hint"><span class="ufuq-en">Scroll the table sideways to see every column.</span><span class="ufuq-ar" lang="ar">مرّر الجدول جانبيًا لرؤية كل الأعمدة.</span></p>
   <p><span class="ufuq-en">Generated on</span><span class="ufuq-ar" lang="ar">أُنشئت في</span> <span class="mono ltr">2026-11-15</span>. <span class="ufuq-en">To extend the tasks, a person runs this command; this site never runs it:</span><span class="ufuq-ar" lang="ar">لتمديد المهام يشغّل شخص هذا الأمر، ولا يشغّله هذا الموقع أبدًا:</span></p>
   <code class="cmd" dir="ltr">node scripts/regenerate-scheduled-tasks.mjs</code>
   <p class="src"><span class="ufuq-en">The file says:</span><span class="ufuq-ar" lang="ar">يقول الملف:</span></p><div class="out" dir="ltr" lang="en"><p>Qoder scheduled tasks expire 7 days after generatedAt. Run the regenerator to extend them. Durable schedules (weekly external-link check, PR gate) live in .github/workflows/qoder-gate.yml and do not expire.</p></div>
   <p class="src"><span class="ufuq-en">Read from</span><span class="ufuq-ar" lang="ar">مقروء من</span> <code class="mono ltr">.qoder/scheduled_tasks.json</code></p>
 </section>
-<section id="plan" aria-labelledby="pl">
-  <h2 id="pl"><span class="ufuq-en">Plan progress</span><span class="ufuq-ar" lang="ar">تقدم الخطة</span></h2>
-  <p class="panel-note"><span class="ufuq-en">PLAN.md has no status column, so each phase is shown as the file writes it, with its "Done when" text. The page does not mark a phase done on its own.</span><span class="ufuq-ar" lang="ar">لا يحتوي PLAN.md على عمود للحالة، لذلك تظهر كل مرحلة كما كتبها الملف مع نص «يكتمل عندما». ولا تضع الصفحة علامة الإنجاز على أي مرحلة من تلقاء نفسها.</span></p>
-  <div class="ufuq-table-wrap table-wrap" tabindex="0" role="region" aria-label="Plan phases" data-label-en="Plan phases" data-label-ar="مراحل الخطة"><table class="ufuq-table"><thead><tr><th scope="col"><span class="ufuq-en">Phase</span><span class="ufuq-ar" lang="ar">المرحلة</span></th><th scope="col"><span class="ufuq-en">Who</span><span class="ufuq-ar" lang="ar">من</span></th><th scope="col"><span class="ufuq-en">What</span><span class="ufuq-ar" lang="ar">ماذا</span></th><th scope="col"><span class="ufuq-en">Done when</span><span class="ufuq-ar" lang="ar">يكتمل عندما</span></th></tr></thead><tbody>
-<tr><td class="ltr"><strong>0. Set up</strong></td><td class="ltr">Owner, about an hour</td><td class="ltr">Install scout (cloud setup script and computer). Set a spending cap on every ad account. Decide the test budget and the first 2–3 channels.</td><td class="ltr">/advisor shows Fable 5.2, and each account has a cap</td></tr>
-<tr><td class="ltr"><strong>1. Measure</strong></td><td class="ltr">Claude drafts, owner approves</td><td class="ltr">Two separate draft PRs, both first-party, with no pixel and no third-party script. FlyGACA: keep the first-visit utm_* tags in the browser, then store them with the account after any kind of signup, in a table erased with the account. Add a report query: signups and activated learners per campaign. Captain Adel: daily aggregate counts per campaign of visit and first_question, once per browser, with nothing stored per person.</td><td class="ltr">A test signup from a tagged link shows its campaign on FlyGACA, and a tagged first question shows in Captain Adel's daily counts. PRs: FlyGACA#367, Captain-Adel#144. Both merged; Captain Adel stores its counts in Supabase through increment_campaign_count (migration 0031). Before data flows: apply migrations 0030 and 0031, deploy, and set SUPABASE_URL and SUPABASE_SECRET_KEY on Captain Adel's Vercel project.</td></tr>
-<tr><td class="ltr"><strong>2. Read-only</strong></td><td class="ltr">Claude</td><td class="ltr">Connect read-only: Google's official server is read-only, and Snapchat's is reported read-only. Meta uses a view-only login. Claude writes a weekly report across channels: spend, clicks, signups, activated learners, cost per activated learner.</td><td class="ltr">Two weekly reports match the platform dashboards</td></tr>
-<tr><td class="ltr"><strong>3. Small tests</strong></td><td class="ltr">Claude drafts, owner publishes</td><td class="ltr">2–3 channels, the same budget each, a fixed window (for example 14 days). Copy goes through the checker, then the owner reviews it and publishes in the platform UI.</td><td class="ltr">Each channel has a cost per activated learner</td></tr>
-<tr><td class="ltr"><strong>4. Scale or stop</strong></td><td class="ltr">Owner</td><td class="ltr">Keep the channels under the owner's target cost per activated learner and stop the rest. Only then consider letting Claude make paused drafts through a write-enabled login.</td><td class="ltr">A written decision</td></tr>
-</tbody></table></div>
-  <h3><span class="ufuq-en">Owner decisions</span><span class="ufuq-ar" lang="ar">قرارات المالك</span></h3>
-  <ul class="checklist"><li><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Open</span><span class="ufuq-ar" lang="ar">مفتوح</span></span> <span class="ltr" dir="ltr" lang="en">Test budget per channel and total cap. No figure is written anywhere in this repo on purpose.</span></li>
-<li><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Open</span><span class="ufuq-ar" lang="ar">مفتوح</span></span> <span class="ltr" dir="ltr" lang="en">The first 2–3 channels.</span></li>
-<li><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Open</span><span class="ufuq-ar" lang="ar">مفتوح</span></span> <span class="ltr" dir="ltr" lang="en">Approval of the phase 1 UTM-capture PRs in FlyGACA and Captain-Adel.</span></li>
-<li><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Open</span><span class="ufuq-ar" lang="ar">مفتوح</span></span> <span class="ltr" dir="ltr" lang="en">Confirmed prices, before any ad for a paid plan.</span></li>
-<li><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Open</span><span class="ufuq-ar" lang="ar">مفتوح</span></span> <span class="ltr" dir="ltr" lang="en">A PDPL review (ksa-compliance / privacy-dpia) before any pixel, Conversions API or customer-list upload.</span></li>
-<li><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Open</span><span class="ufuq-ar" lang="ar">مفتوح</span></span> <span class="ltr" dir="ltr" lang="en">Influencer or creator ads, if wanted: check Saudi media-licensing rules with counsel first.</span></li></ul>
-  <h3><span class="ufuq-en">Open items</span><span class="ufuq-ar" lang="ar">البنود المفتوحة</span></h3>
-  <ul class="checklist"><li class="ltr" dir="ltr" lang="en">ads/platform-limits.json is written from general knowledge (verified: false). Check each platform's docs.</li>
-<li class="ltr" dir="ltr" lang="en">Connector facts for Meta, TikTok and Snapchat come from third-party guides. Meta's own docs page returned 404 on 2026-11-11.</li>
-<li class="ltr" dir="ltr" lang="en">The hook is tested end-to-end against a fake connector, not yet against a real one. Confirm its decisions the first time each real connector is used.</li>
-<li class="ltr" dir="ltr" lang="en">The installer is tested in throwaway directories, not yet in a fresh cloud session.</li></ul>
-  <p class="src"><span class="ufuq-en">Read from</span><span class="ufuq-ar" lang="ar">مقروء من</span> <code class="mono ltr">PLAN.md</code></p>
+<section aria-labelledby="pl">
+  <h2 id="pl"><span class="ufuq-en">Plan</span><span class="ufuq-ar" lang="ar">الخطة</span></h2>
+  <p><a href="plan.html"><span class="ufuq-en">The phases, owner decisions and open items of PLAN.md are on the Plan page.</span><span class="ufuq-ar" lang="ar">مراحل PLAN.md وقرارات المالك والبنود المفتوحة في صفحة الخطة.</span></a></p>
 </section>
 </main>
 <footer class="ufuq-shell-foot">

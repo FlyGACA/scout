@@ -20,7 +20,7 @@ export function norm(s) {
     .trim();
 }
 
-const BANNED = [
+export const BANNED = [
   // [pattern on normalized text, what it implies]
   [/\b(official|officially)\b/, 'implies official status'],
   [/\b(approved|endorsed|accredited|certified|authori[sz]ed|licensed)\b/, 'implies approval or accreditation'],
@@ -29,9 +29,9 @@ const BANNED = [
   [/معتمد|معتمده|معتمدة|مرخص|مرخصه|مرخصة/, 'يوحي بالاعتماد (implies approval)'],
   [/مضمون|مضمونه|مضمونة|ضمان|نضمن/, 'يعد بنتيجة (promises an outcome)'],
 ];
-const PRICE = /(?:[\d٠-٩][\d٠-٩,.]*\s*(?:sar|usd|ريال|ر\.?\s?س|﷼|\$))|(?:(?:sar|usd|﷼|\$)\s*[\d٠-٩][\d٠-٩,.]*)/g;
-const FREE = /\bfree\b|مجان/;
-const MARKER = {
+export const PRICE = /(?:[\d٠-٩][\d٠-٩,.]*\s*(?:sar|usd|ريال|ر\.?\s?س|﷼|\$))|(?:(?:sar|usd|﷼|\$)\s*[\d٠-٩][\d٠-٩,.]*)/g;
+export const FREE = /\bfree\b|مجان/;
+export const MARKER = {
   en: /not affiliated with/,
   ar: /غير تابعة? (?:ل\s*gaca|للهيئة العامة للطيران المدني)/,
 };

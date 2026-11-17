@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copy self-check · فحص النص ذاتيًا — Scout</title>
+<meta name="description" content="Check ad text against the length limits and banned claims in your browser.">
+<link rel="icon" href="ufuq/scout-mark.svg">
+<link rel="stylesheet" href="ufuq/ufuq.css">
+<link rel="stylesheet" href="ufuq/ufuq.components.css">
+<link rel="stylesheet" href="site.css">
+<script src="ufuq/ufuq.shell.js"></script>
+<script src="scout.js" defer></script>
+</head>
+<body class="page" data-page="copycheck">
+<a class="skip-link" href="#main"><span class="ufuq-en">Skip to content</span><span class="ufuq-ar" lang="ar">انتقل إلى المحتوى</span></a>
+<header class="ufuq-shell">
+  <a class="ufuq-shell__brand" href="index.html"><img class="on-night" src="ufuq/scout-mark.svg" alt="" width="32" height="32"><img class="on-day" src="ufuq/scout-mark-ink.svg" alt="" width="32" height="32"><span class="ufuq-en">Scout</span><span class="ufuq-ar" lang="ar">الكشّاف</span></a>
+  <nav class="ufuq-shell__nav" aria-label="Pages" data-label-en="Pages" data-label-ar="الصفحات"><a href="index.html"><span class="ufuq-en">Overview</span><span class="ufuq-ar" lang="ar">نظرة عامة</span></a><a href="ads.html"><span class="ufuq-en">Ads</span><span class="ufuq-ar" lang="ar">الإعلانات</span></a><a href="limits.html"><span class="ufuq-en">Limits</span><span class="ufuq-ar" lang="ar">الحدود</span></a><a href="playbook.html"><span class="ufuq-en">Playbook</span><span class="ufuq-ar" lang="ar">دليل الإعلانات</span></a><a href="gate.html"><span class="ufuq-en">Content gate</span><span class="ufuq-ar" lang="ar">بوابة المحتوى</span></a><a href="plan.html"><span class="ufuq-en">Plan</span><span class="ufuq-ar" lang="ar">الخطة</span></a><a href="schedule.html"><span class="ufuq-en">Schedule</span><span class="ufuq-ar" lang="ar">الجدولة</span></a><a href="checks.html"><span class="ufuq-en">Run the checks</span><span class="ufuq-ar" lang="ar">تشغيل الفحوص</span></a><a href="copycheck.html" aria-current="page"><span class="ufuq-en">Copy self-check</span><span class="ufuq-ar" lang="ar">فحص النص ذاتيًا</span></a></nav>
+  <div class="ufuq-shell__tools">
+    <span class="ufuq-shell__who" data-shell-who hidden></span>
+    <a class="ufuq-shell__tool" data-shell-out hidden><span class="ufuq-en">Sign out</span><span class="ufuq-ar" lang="ar">خروج</span></a>
+    <button type="button" class="ufuq-shell__tool" data-shell-theme aria-pressed="false"><span class="ufuq-en">Day / Night</span><span class="ufuq-ar" lang="ar">نهاري / ليلي</span></button>
+    <button type="button" class="ufuq-shell__tool" data-shell-lang><span class="ufuq-en" lang="ar">العربية</span><span class="ufuq-ar" lang="en">English</span></button>
+  </div>
+</header>
+<main class="ufuq-container wrap" id="main" tabindex="-1">
+<section aria-labelledby="t">
+  <p class="ufuq-eyebrow"><span class="ufuq-en">Copy self-check</span><span class="ufuq-ar" lang="ar">فحص النص ذاتيًا</span></p>
+  <h1 id="t"><span class="ufuq-en">Check ad text in your browser</span><span class="ufuq-ar" lang="ar">افحص نص الإعلان في متصفحك</span></h1>
+  <p class="lead"><span class="ufuq-en">Paste ad text and see it against the length limits and the banned-claim patterns that tools/ad-copy-lint.mjs uses.</span><span class="ufuq-ar" lang="ar">الصق نص الإعلان وقارنه بحدود الطول وأنماط الادعاءات الممنوعة التي يستخدمها tools/ad-copy-lint.mjs.</span></p>
+  
+</section>
+<div class="ufuq-callout ufuq-callout--important callout-wrap"><p class="ufuq-callout__title"><span class="ufuq-en">A subset of the real checker</span><span class="ufuq-ar" lang="ar">جزء من الفاحص الحقيقي</span></p><p><span class="ufuq-en">This page checks length, banned status and outcome claims, anything that looks like a price, the word free, and the not-affiliated disclaimer. It cannot check prices, offers, landing domains or tracking tags, because those come from the owner's approved facts, which are not on this site. Run node tools/ad-copy-lint.mjs before review: it is the checker that counts.</span><span class="ufuq-ar" lang="ar">تفحص هذه الصفحة الطول وادعاءات الصفة الرسمية والنتائج المضمونة وأي نص يشبه سعرًا وكلمة «مجاني» وعبارة عدم التبعية. ولا تستطيع فحص الأسعار أو العروض أو نطاقات الصفحات المقصودة أو وسوم التتبع لأنها من حقائق المالك المعتمدة وهي ليست على هذا الموقع. شغّل node tools/ad-copy-lint.mjs قبل المراجعة: فهو الفاحص المعتمد.</span> <span class="ufuq-en">Your text stays in this page: nothing is sent, stored or logged.</span><span class="ufuq-ar" lang="ar">يبقى نصك في هذه الصفحة: لا يُرسل ولا يُخزَّن ولا يُسجَّل.</span></p></div>
+<noscript><p class="ufuq-notice"><span class="ufuq-en">This check needs JavaScript.</span><span class="ufuq-ar" lang="ar">يحتاج هذا الفحص إلى JavaScript.</span></p></noscript>
+<form class="cc" id="cc" hidden novalidate>
+  <div class="cc-grid">
+    <div class="ufuq-field"><label class="ufuq-field__label" for="cc-format"><span class="ufuq-en">Ad format</span><span class="ufuq-ar" lang="ar">صيغة الإعلان</span></label><select class="ufuq-select" id="cc-format"><option value="google_search_rsa">Google Ads, responsive search ad (limits not verified)</option><option value="microsoft_search_rsa">Microsoft Advertising, responsive search ad (limits not verified)</option><option value="meta_feed">Meta (Facebook and Instagram) feed ad (limits not verified)</option><option value="tiktok_infeed">TikTok in-feed ad (limits not verified)</option><option value="snapchat_single">Snapchat single image or video ad (limits not verified)</option><option value="x_promoted">X promoted post (limits not verified)</option><option value="linkedin_single_image">LinkedIn single image ad (limits not verified)</option></select></div>
+    <div class="ufuq-field"><label class="ufuq-field__label" for="cc-field"><span class="ufuq-en">Field</span><span class="ufuq-ar" lang="ar">الحقل</span></label><select class="ufuq-select" id="cc-field"></select></div>
+    <div class="ufuq-field"><label class="ufuq-field__label" for="cc-lang"><span class="ufuq-en">Language of the text</span><span class="ufuq-ar" lang="ar">لغة النص</span></label><select class="ufuq-select" id="cc-lang"><option value="en">English</option><option value="ar">العربية</option></select></div>
+  </div>
+  <div class="ufuq-field"><label class="ufuq-field__label" for="cc-text"><span class="ufuq-en">Text, one item per line</span><span class="ufuq-ar" lang="ar">النص، عنصر في كل سطر</span></label><textarea class="ufuq-textarea" id="cc-text" rows="6" dir="auto" spellcheck="false" aria-describedby="cc-help"></textarea><p class="ufuq-field__help" id="cc-help"><span class="ufuq-en">Each line is counted on its own, as the checker counts each headline or description.</span><span class="ufuq-ar" lang="ar">يُحسب كل سطر وحده، كما يحسب الفاحص كل عنوان أو وصف.</span></p></div>
+  <label class="ufuq-choice cc-check"><input type="checkbox" id="cc-elsewhere"> <span><span class="ufuq-en">The disclaimer is shown in the creative or on the landing page, not in this text</span><span class="ufuq-ar" lang="ar">العبارة التحذيرية تظهر في التصميم أو في الصفحة المقصودة وليست في هذا النص</span></span></label>
+</form>
+<section aria-labelledby="r" aria-live="polite">
+  <h2 id="r"><span class="ufuq-en">Result</span><span class="ufuq-ar" lang="ar">النتيجة</span></h2>
+  <div id="cc-result"><p class="panel-note"><span class="ufuq-en">Paste some text to see the result.</span><span class="ufuq-ar" lang="ar">الصق نصًا لترى النتيجة.</span></p></div>
+</section>
+<script type="application/json" id="cc-data">{"formats":[{"id":"google_search_rsa","platform":"Google Ads, responsive search ad","verified":false,"source":null,"fields":[{"field":"headline","max":30,"recommended":null},{"field":"description","max":90,"recommended":null},{"field":"path","max":15,"recommended":null}]},{"id":"microsoft_search_rsa","platform":"Microsoft Advertising, responsive search ad","verified":false,"source":null,"fields":[{"field":"headline","max":30,"recommended":null},{"field":"description","max":90,"recommended":null},{"field":"path","max":15,"recommended":null}]},{"id":"meta_feed","platform":"Meta (Facebook and Instagram) feed ad","verified":false,"source":null,"fields":[{"field":"primary_text","max":null,"recommended":125},{"field":"headline","max":null,"recommended":40},{"field":"description","max":null,"recommended":30}]},{"id":"tiktok_infeed","platform":"TikTok in-feed ad","verified":false,"source":null,"fields":[{"field":"ad_text","max":100,"recommended":null},{"field":"display_name","max":40,"recommended":null}]},{"id":"snapchat_single","platform":"Snapchat single image or video ad","verified":false,"source":null,"fields":[{"field":"headline","max":34,"recommended":null},{"field":"brand_name","max":25,"recommended":null}]},{"id":"x_promoted","platform":"X promoted post","verified":false,"source":null,"fields":[{"field":"text","max":280,"recommended":null}]},{"id":"linkedin_single_image","platform":"LinkedIn single image ad","verified":false,"source":null,"fields":[{"field":"intro_text","max":600,"recommended":150},{"field":"headline","max":200,"recommended":70}]}],"banned":[{"source":"\\b(official|officially)\\b","flags":"","why":"implies official status"},{"source":"\\b(approved|endorsed|accredited|certified|authori[sz]ed|licensed)\\b","flags":"","why":"implies approval or accreditation"},{"source":"\\b(guarantee|guaranteed|guarantees)\\b|100\\s?%","flags":"","why":"promises an outcome"},{"source":"رسمي|رسميه|رسمية","flags":"","why":"يوحي بصفة رسمية (implies official status)"},{"source":"معتمد|معتمده|معتمدة|مرخص|مرخصه|مرخصة","flags":"","why":"يوحي بالاعتماد (implies approval)"},{"source":"مضمون|مضمونه|مضمونة|ضمان|نضمن","flags":"","why":"يعد بنتيجة (promises an outcome)"}],"price":{"source":"(?:[\\d٠-٩][\\d٠-٩,.]*\\s*(?:sar|usd|ريال|ر\\.?\\s?س|﷼|\\$))|(?:(?:sar|usd|﷼|\\$)\\s*[\\d٠-٩][\\d٠-٩,.]*)","flags":"g"},"free":{"source":"\\bfree\\b|مجان","flags":""},"marker":{"en":"not affiliated with","ar":"غير تابعة? (?:ل\\s*gaca|للهيئة العامة للطيران المدني)"},"notice":{"en":"Not affiliated with GACA. Always verify against the latest official GACA publication.","ar":"غير تابعة لـ GACA. تحقّق دائمًا من أحدث منشور رسمي صادر عن GACA."}}</script>
+<p class="src"><span class="ufuq-en">Read from</span><span class="ufuq-ar" lang="ar">مقروء من</span> <code class="mono ltr">ads/platform-limits.json</code> <code class="mono ltr">tools/ad-copy-lint.mjs</code></p>
+</main>
+<footer class="ufuq-shell-foot">
+  <a class="ufuq-shell-foot__family" href="https://office.flygaca.com/"><img src="ufuq/flygaca-mark.png" alt="" width="48" height="48"><span class="ufuq-en">Part of Fly GACA</span><span class="ufuq-ar" lang="ar">جزء من فلاي قاكا</span></a>
+  <ul class="ufuq-shell-foot__links">
+    <li><a href="https://airspace.flygaca.com/"><span class="ufuq-en">Airspace</span><span class="ufuq-ar" lang="ar">المجال الجوي</span></a></li>
+    <li><a href="https://c172.flygaca.com/"><span class="ufuq-en">C172 Twin</span><span class="ufuq-ar" lang="ar">توأم سيسنا 172</span></a></li>
+    <li><a href="https://office.flygaca.com/"><span class="ufuq-en">Office</span><span class="ufuq-ar" lang="ar">المكتب</span></a></li>
+    <li><a href="https://prompt.flygaca.com/"><span class="ufuq-en">Prompt Library</span><span class="ufuq-ar" lang="ar">مكتبة الأوامر</span></a></li>
+    <li><a href="https://skill.flygaca.com/"><span class="ufuq-en">Skills</span><span class="ufuq-ar" lang="ar">المهارات</span></a></li>
+  </ul>
+  <p><span class="ufuq-en">Read-only. This site changes no ad account and makes no network call. Built <bdi dir="ltr">2026-11-17</bdi>.</span><span class="ufuq-ar" lang="ar">للقراءة فقط. لا يغيّر هذا الموقع أي حساب إعلاني ولا يجري أي اتصال بالشبكة. بُني بتاريخ <bdi dir="ltr">2026-11-17</bdi>.</span></p>
+  <p lang="en" dir="ltr">Not affiliated with GACA. Always verify against the latest official GACA publication.</p>
+  <p lang="ar" dir="rtl">غير تابعة لـ GACA. تحقّق دائمًا من أحدث منشور رسمي صادر عن GACA.</p>
+</footer>
+</body>
+</html>

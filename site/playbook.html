@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playbook · دليل الإعلانات — Scout</title>
+<meta name="description" content="The ads playbook with a table of contents.">
+<link rel="icon" href="ufuq/scout-mark.svg">
+<link rel="stylesheet" href="ufuq/ufuq.css">
+<link rel="stylesheet" href="ufuq/ufuq.components.css">
+<link rel="stylesheet" href="site.css">
+<script src="ufuq/ufuq.shell.js"></script>
+<script src="scout.js" defer></script>
+</head>
+<body class="page" data-page="playbook">
+<a class="skip-link" href="#main"><span class="ufuq-en">Skip to content</span><span class="ufuq-ar" lang="ar">انتقل إلى المحتوى</span></a>
+<header class="ufuq-shell">
+  <a class="ufuq-shell__brand" href="index.html"><img class="on-night" src="ufuq/scout-mark.svg" alt="" width="32" height="32"><img class="on-day" src="ufuq/scout-mark-ink.svg" alt="" width="32" height="32"><span class="ufuq-en">Scout</span><span class="ufuq-ar" lang="ar">الكشّاف</span></a>
+  <nav class="ufuq-shell__nav" aria-label="Pages" data-label-en="Pages" data-label-ar="الصفحات"><a href="index.html"><span class="ufuq-en">Overview</span><span class="ufuq-ar" lang="ar">نظرة عامة</span></a><a href="ads.html"><span class="ufuq-en">Ads</span><span class="ufuq-ar" lang="ar">الإعلانات</span></a><a href="limits.html"><span class="ufuq-en">Limits</span><span class="ufuq-ar" lang="ar">الحدود</span></a><a href="playbook.html" aria-current="page"><span class="ufuq-en">Playbook</span><span class="ufuq-ar" lang="ar">دليل الإعلانات</span></a><a href="gate.html"><span class="ufuq-en">Content gate</span><span class="ufuq-ar" lang="ar">بوابة المحتوى</span></a><a href="plan.html"><span class="ufuq-en">Plan</span><span class="ufuq-ar" lang="ar">الخطة</span></a><a href="schedule.html"><span class="ufuq-en">Schedule</span><span class="ufuq-ar" lang="ar">الجدولة</span></a><a href="checks.html"><span class="ufuq-en">Run the checks</span><span class="ufuq-ar" lang="ar">تشغيل الفحوص</span></a><a href="copycheck.html"><span class="ufuq-en">Copy self-check</span><span class="ufuq-ar" lang="ar">فحص النص ذاتيًا</span></a></nav>
+  <div class="ufuq-shell__tools">
+    <span class="ufuq-shell__who" data-shell-who hidden></span>
+    <a class="ufuq-shell__tool" data-shell-out hidden><span class="ufuq-en">Sign out</span><span class="ufuq-ar" lang="ar">خروج</span></a>
+    <button type="button" class="ufuq-shell__tool" data-shell-theme aria-pressed="false"><span class="ufuq-en">Day / Night</span><span class="ufuq-ar" lang="ar">نهاري / ليلي</span></button>
+    <button type="button" class="ufuq-shell__tool" data-shell-lang><span class="ufuq-en" lang="ar">العربية</span><span class="ufuq-ar" lang="en">English</span></button>
+  </div>
+</header>
+<main class="ufuq-container wrap" id="main" tabindex="-1">
+<section aria-labelledby="t">
+  <p class="ufuq-eyebrow"><span class="ufuq-en">Ads playbook</span><span class="ufuq-ar" lang="ar">دليل الإعلانات</span></p>
+  <h1 id="t"><span class="ufuq-en">The ads playbook</span><span class="ufuq-ar" lang="ar">دليل الإعلانات</span></h1>
+  <p class="lead"><span class="ufuq-en">How Claude and the owner run paid ads together, rendered from ads/PLAYBOOK.md. The text is English, as in the file.</span><span class="ufuq-ar" lang="ar">كيف يدير Claude والمالك الإعلانات المدفوعة معًا، معروضًا من ads/PLAYBOOK.md. النص بالإنجليزية كما في الملف.</span></p>
+  <p class="ufuq-label built"><span class="ufuq-en">Checker results captured <bdi dir="ltr">2026-11-17</bdi></span><span class="ufuq-ar" lang="ar">نتائج الفحص التُقطت بتاريخ <bdi dir="ltr">2026-11-17</bdi></span></p>
+</section>
+<div class="ufuq-callout ufuq-callout--important callout-wrap"><p class="ufuq-callout__title"><span class="ufuq-en">Some passages are withheld</span><span class="ufuq-ar" lang="ar">بعض المقاطع محجوبة</span></p><p><span class="ufuq-en">4 passage(s) name the owner's approved facts (a domain or an offer) and are replaced by a notice. The owner's facts stay in ads/approved-facts.json and are never copied to this site.</span><span class="ufuq-ar" lang="ar">4 مقاطع تذكر الحقائق التي اعتمدها المالك (نطاقًا أو عرضًا) واستُبدلت بإشعار. تبقى حقائق المالك في ads/approved-facts.json ولا تُنسخ إلى هذا الموقع.</span></p></div>
+<nav class="toc" aria-label="Contents" data-label-en="Contents" data-label-ar="المحتويات">
+  <h2 class="toc-title"><span class="ufuq-en">Contents</span><span class="ufuq-ar" lang="ar">المحتويات</span></h2>
+  <ol>
+<li><a href="#1-connectors" lang="en">1. Connectors</a></li>
+<li><a href="#2-guardrails-in-the-order-they-stop-a-mistake" lang="en">2. Guardrails, in the order they stop a mistake</a></li>
+<li><a href="#3-measurement" lang="en">3. Measurement</a></li>
+<li><a href="#4-what-to-advertise" lang="en">4. What to advertise</a></li>
+<li><a href="#5-copy-rules-checked-by-toolsad-copy-lintmjs" lang="en">5. Copy rules (checked by tools/ad-copy-lint.mjs)</a></li>
+<li><a href="#6-working-with-claude" lang="en">6. Working with Claude</a></li>
+<li><a href="#7-before-any-of-these-get-a-review" lang="en">7. Before any of these, get a review</a></li>
+  </ol>
+</nav>
+<article class="playbook" lang="en" dir="ltr">
+<p><strong>Status: draft.</strong> Nothing here is live. It describes how Claude and the owner run paid ads together. The plan and phases are in <code class="mono ltr">../PLAN.md</code>.</p>
+<h2 id="1-connectors">1. Connectors <a class="anchor" href="#1-connectors" aria-label="Link to this section: 1. Connectors">#</a></h2>
+<p>What each platform offers Claude, as found on 2026-11-11. Lines marked <em>(3rd-party)</em> come from secondhand guides; check the platform's own docs when you connect.</p>
+<div class="ufuq-table-wrap table-wrap" tabindex="0" role="region" aria-label="Table: Platform, Official MCP server, Can write?, Notes"><table class="ufuq-table"><thead><tr><th scope="col">Platform</th><th scope="col">Official MCP server</th><th scope="col">Can write?</th><th scope="col">Notes</th></tr></thead><tbody>
+<tr><td>Google Ads</td><td>Yes: <a href="https://github.com/googleads/google-ads-mcp" rel="noopener noreferrer"><code class="mono ltr">googleads/google-ads-mcp</code></a>, self-hosted</td><td><strong>No, read-only</strong> per <a href="https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server" rel="noopener noreferrer">Google's docs</a></td><td>Three tools: <code class="mono ltr">list_accessible_customers</code>, <code class="mono ltr">search</code>, <code class="mono ltr">get_resource_metadata</code>. Needs a Google Cloud project and OAuth. Developer tokens were sunset on 2026-09-09.</td></tr>
+<tr><td>Meta (Facebook, Instagram)</td><td>Reported at <code class="mono ltr">mcp.facebook.com/ads</code> <em>(3rd-party)</em></td><td>Yes, 29 tools reported <em>(3rd-party)</em></td><td>New items reportedly start paused, and edits to live campaigns reportedly apply at once <em>(3rd-party)</em>. Meta's own docs page returned 404.</td></tr>
+<tr><td>TikTok</td><td>Announced May 2026 <em>(3rd-party)</em></td><td>Reported read and write <em>(3rd-party)</em></td><td>No published tool list was found.</td></tr>
+<tr><td>Snapchat</td><td>Reported at <code class="mono ltr">mcp.snapchat.com/ads</code>, August 2026 <em>(3rd-party, single source)</em></td><td>Reported read-only <em>(3rd-party)</em></td><td>Reportedly needs Organization Admin approval.</td></tr>
+<tr><td>LinkedIn, X, Microsoft</td><td>None found</td><td>—</td><td>Third-party servers exist. Prefer reporting exports, or the platform UI, over unknown write-enabled servers.</td></tr>
+</tbody></table></div>
+<p class="scroll-hint"><span class="ufuq-en">Scroll the table sideways to see every column.</span><span class="ufuq-ar" lang="ar">مرّر الجدول جانبيًا لرؤية كل الأعمدة.</span></p>
+<p><strong>Rule:</strong> use only first-party servers, or a well-known reporting tool, for reads. Never connect a third-party server that can write to an ad account.</p>
+<h2 id="2-guardrails-in-the-order-they-stop-a-mistake">2. Guardrails, in the order they stop a mistake <a class="anchor" href="#2-guardrails-in-the-order-they-stop-a-mistake" aria-label="Link to this section: 2. Guardrails, in the order they stop a mistake">#</a></h2>
+<ol>
+<li><strong>A spending cap on every ad account,</strong> set in the platform's own billing settings before connecting. It holds whatever any tool does.</li>
+<li><strong>A read-only login.</strong> Connect with a view-only role until a phase needs more. The platform then refuses writes itself.</li>
+<li><strong>The ads guard hook</strong> (<code class="mono ltr">claude-code/hooks/ads-guard.sh</code>, installed by scout):
+<div class="ufuq-table-wrap table-wrap" tabindex="0" role="region" aria-label="Table: Tool call, Decision"><table class="ufuq-table"><thead><tr><th scope="col">Tool call</th><th scope="col">Decision</th></tr></thead><tbody>
+<tr><td>Reads (get, list, search, report, insights…)</td><td>Normal flow</td></tr>
+<tr><td>Deletes</td><td><strong>Blocked</strong></td></tr>
+<tr><td>Audience, customer-list, lookalike, email or phone writes</td><td><strong>Blocked</strong> (PDPL review first)</td></tr>
+<tr><td>Pixel, conversion, CAPI or dataset writes</td><td><strong>Blocked</strong> (privacy review first)</td></tr>
+<tr><td>Any other write, or a tool it can't classify</td><td><strong>You approve each one</strong></td></tr>
+<tr><td>Any write in bypassPermissions mode</td><td><strong>Blocked</strong></td></tr>
+</tbody></table></div>
+<p class="scroll-hint"><span class="ufuq-en">Scroll the table sideways to see every column.</span><span class="ufuq-ar" lang="ar">مرّر الجدول جانبيًا لرؤية كل الأعمدة.</span></p></li>
+</ol>
+<ol>
+<li><strong>The copy checker</strong> (<code class="mono ltr">node tools/ad-copy-lint.mjs</code>). See section 5.</li>
+<li><strong>A person publishes.</strong> In phases 2–3, Claude drafts and the owner publishes in the platform UI.</li>
+</ol>
+<p>Also set the connector's own tool permissions in claude.ai (Settings → Connectors) to require approval for write tools. It costs nothing and adds one more layer.</p>
+<h2 id="3-measurement">3. Measurement <a class="anchor" href="#3-measurement" aria-label="Link to this section: 3. Measurement">#</a></h2>
+<p><strong>UTM convention.</strong> The checker enforces it on every ad link:</p>
+<div class="ufuq-table-wrap table-wrap" tabindex="0" role="region" aria-label="Table: Tag, Value"><table class="ufuq-table"><thead><tr><th scope="col">Tag</th><th scope="col">Value</th></tr></thead><tbody>
+<tr><td><code class="mono ltr">utm_source</code></td><td><code class="mono ltr">google</code>, <code class="mono ltr">bing</code>, <code class="mono ltr">facebook</code>, <code class="mono ltr">instagram</code>, <code class="mono ltr">tiktok</code>, <code class="mono ltr">snapchat</code>, <code class="mono ltr">x</code>, <code class="mono ltr">linkedin</code></td></tr>
+<tr><td><code class="mono ltr">utm_medium</code></td><td><code class="mono ltr">cpc</code> for search, <code class="mono ltr">paid_social</code> for social</td></tr>
+<tr><td><code class="mono ltr">utm_campaign</code></td><td>the campaign slug, the same as <code class="mono ltr">campaign</code> in the copy file</td></tr>
+<tr><td><code class="mono ltr">utm_content</code></td><td>the variant id</td></tr>
+</tbody></table></div>
+<p class="scroll-hint"><span class="ufuq-en">Scroll the table sideways to see every column.</span><span class="ufuq-ar" lang="ar">مرّر الجدول جانبيًا لرؤية كل الأعمدة.</span></p>
+<p><strong>Conversions,</strong> defined once and used on every platform:</p>
+<ol>
+<li>Signup: a new FlyGACA account. Captain Adel has no client sign-up, so it has none.</li>
+<li>Activation: on FlyGACA, the learner's first study activity, as defined in FlyGACA's attribution report. On Captain Adel, the browser's first answered question.</li>
+<li>Mock exam started.</li>
+</ol>
+<p>The headline number is <strong>cost per activated learner</strong>. Clicks and signups alone reward the wrong ads.</p>
+<p><strong>First-party, to start.</strong> Two small changes in our own systems:</p>
+<ul>
+<li>FlyGACA stores the first-visit UTM values with the new account in our own database.</li>
+<li>Captain Adel keeps daily counts per campaign, with nothing stored per person.</li>
+</ul>
+<p><span class="withheld"><span class="ufuq-en">Withheld: this passage names one of the owner's approved facts.</span><span class="ufuq-ar" lang="ar">محجوب: يذكر هذا المقطع إحدى الحقائق التي اعتمدها المالك.</span></span></p>
+<h2 id="4-what-to-advertise">4. What to advertise <a class="anchor" href="#4-what-to-advertise" aria-label="Link to this section: 4. What to advertise">#</a></h2>
+<p>Only offers listed in <code class="mono ltr">approved-facts.json</code>:</p>
+<div class="ufuq-table-wrap table-wrap" tabindex="0" role="region" aria-label="Table: Offer, Landing, Status"><table class="ufuq-table"><thead><tr><th scope="col">Offer</th><th scope="col">Landing</th><th scope="col">Status</th></tr></thead><tbody>
+<tr><td colspan="3"><span class="withheld"><span class="ufuq-en">Withheld: this passage names one of the owner's approved facts.</span><span class="ufuq-ar" lang="ar">محجوب: يذكر هذا المقطع إحدى الحقائق التي اعتمدها المالك.</span></span></td></tr>
+<tr><td colspan="3"><span class="withheld"><span class="ufuq-en">Withheld: this passage names one of the owner's approved facts.</span><span class="ufuq-ar" lang="ar">محجوب: يذكر هذا المقطع إحدى الحقائق التي اعتمدها المالك.</span></span></td></tr>
+<tr><td>Paid plans and study packs</td><td>—</td><td>Waiting for confirmed prices</td></tr>
+<tr><td>ELPT and AIP iOS apps</td><td>—</td><td>Waiting until they leave TestFlight</td></tr>
+<tr><td>FlightBag study pack</td><td>—</td><td>Waiting for the shop go-live checklist</td></tr>
+<tr><td>Gallery originals</td><td>—</td><td>Not planned for ads yet</td></tr>
+</tbody></table></div>
+<p class="scroll-hint"><span class="ufuq-en">Scroll the table sideways to see every column.</span><span class="ufuq-ar" lang="ar">مرّر الجدول جانبيًا لرؤية كل الأعمدة.</span></p>
+<p>Creatives can start from the Gallery's free aviation graphics, built in the Moda or Canva connectors, which are both connected. Never use GACA's logo or visual identity.</p>
+<h2 id="5-copy-rules-checked-by-toolsad-copy-lintmjs">5. Copy rules (checked by <code class="mono ltr">tools/ad-copy-lint.mjs</code>) <a class="anchor" href="#5-copy-rules-checked-by-toolsad-copy-lintmjs" aria-label="Link to this section: 5. Copy rules (checked by tools/ad-copy-lint.mjs)">#</a></h2>
+<ul>
+<li><strong>Disclaimer.</strong> Every ad says it is not affiliated with GACA, in its own language, using approved product wording. Where the format has no room (for example a Snapchat headline), set <code class="mono ltr">&quot;disclaimer_in&quot;: &quot;creative&quot;</code> and make sure the image or video shows it. The checker then warns, so a person checks it.</li>
+<li><strong>No status claims:</strong> no &quot;official&quot;, &quot;approved&quot;, &quot;accredited&quot; or &quot;guaranteed&quot;, and no رسمي، معتمد، مضمون، مرخص. The approved disclaimers are exempt even though they contain &quot;official&quot;.</li>
+<li><strong>Prices</strong> only as listed in <code class="mono ltr">approved-facts.json</code>, and &quot;free&quot; / &quot;مجاني&quot; only for free offers.</li>
+<li><strong>Arabic and English ship together.</strong></li>
+<li><strong>Length limits</strong> per format, from <code class="mono ltr">platform-limits.json</code>. They are not verified yet; check them against each platform's docs.</li>
+</ul>
+<p>Write copy as <code class="mono ltr">ads/copy/&lt;campaign&gt;.json</code>. See <code class="mono ltr">copy/captain-adel-free-test.json</code>.</p>
+<h2 id="6-working-with-claude">6. Working with Claude <a class="anchor" href="#6-working-with-claude" aria-label="Link to this section: 6. Working with Claude">#</a></h2>
+<p><strong>Weekly report</strong> (phase 2 onward):</p>
+<blockquote>Using only read tools on the connected ad platforms, report last week by channel: spend, impressions, clicks, CTR, signups and activated learners by <code class="mono ltr">utm_campaign</code>, and cost per activated learner. Put platform numbers and our own signup numbers side by side and flag any gap over 10%. No changes.</blockquote>
+<p><strong>New copy:</strong></p>
+<blockquote>Draft <code class="mono ltr">ads/copy/&lt;slug&gt;.json</code> for offer <code class="mono ltr">&lt;offer&gt;</code> on <code class="mono ltr">&lt;formats&gt;</code>, Arabic first and English to match. Use only facts in <code class="mono ltr">ads/approved-facts.json</code>. Run <code class="mono ltr">node tools/ad-copy-lint.mjs</code> and fix every error. Then list the warnings that need my eye.</blockquote>
+<p><strong>Changes on a live account</strong> (phase 4 and later only): one change per message, stating the account, campaign, field, old value and new value, and that the item stays paused if new. The guard will ask, and you approve or reject.</p>
+<h2 id="7-before-any-of-these-get-a-review">7. Before any of these, get a review <a class="anchor" href="#7-before-any-of-these-get-a-review" aria-label="Link to this section: 7. Before any of these, get a review">#</a></h2>
+<ul>
+<li>Uploading learner emails or phones for audiences: PDPL (<code class="mono ltr">ksa-compliance</code> / <code class="mono ltr">privacy-dpia</code>). It is personal data leaving the Kingdom.</li>
+<li><span class="withheld"><span class="ufuq-en">Withheld: this passage names one of the owner's approved facts.</span><span class="ufuq-ar" lang="ar">محجوب: يذكر هذا المقطع إحدى الحقائق التي اعتمدها المالك.</span></span></li>
+<li>Influencer or creator ads: check Saudi media-licensing rules with counsel.</li>
+<li>Any claim about pass rates, approvals or partnerships: owner and counsel.</li>
+</ul>
+</article>
+<p><a href="#main"><span class="ufuq-en">Back to top</span><span class="ufuq-ar" lang="ar">إلى الأعلى</span></a></p>
+<p class="src"><span class="ufuq-en">Read from</span><span class="ufuq-ar" lang="ar">مقروء من</span> <code class="mono ltr">ads/PLAYBOOK.md</code></p>
+</main>
+<footer class="ufuq-shell-foot">
+  <a class="ufuq-shell-foot__family" href="https://office.flygaca.com/"><img src="ufuq/flygaca-mark.png" alt="" width="48" height="48"><span class="ufuq-en">Part of Fly GACA</span><span class="ufuq-ar" lang="ar">جزء من فلاي قاكا</span></a>
+  <ul class="ufuq-shell-foot__links">
+    <li><a href="https://airspace.flygaca.com/"><span class="ufuq-en">Airspace</span><span class="ufuq-ar" lang="ar">المجال الجوي</span></a></li>
+    <li><a href="https://c172.flygaca.com/"><span class="ufuq-en">C172 Twin</span><span class="ufuq-ar" lang="ar">توأم سيسنا 172</span></a></li>
+    <li><a href="https://office.flygaca.com/"><span class="ufuq-en">Office</span><span class="ufuq-ar" lang="ar">المكتب</span></a></li>
+    <li><a href="https://prompt.flygaca.com/"><span class="ufuq-en">Prompt Library</span><span class="ufuq-ar" lang="ar">مكتبة الأوامر</span></a></li>
+    <li><a href="https://skill.flygaca.com/"><span class="ufuq-en">Skills</span><span class="ufuq-ar" lang="ar">المهارات</span></a></li>
+  </ul>
+  <p><span class="ufuq-en">Read-only. This site changes no ad account and makes no network call. Built <bdi dir="ltr">2026-11-17</bdi>.</span><span class="ufuq-ar" lang="ar">للقراءة فقط. لا يغيّر هذا الموقع أي حساب إعلاني ولا يجري أي اتصال بالشبكة. بُني بتاريخ <bdi dir="ltr">2026-11-17</bdi>.</span></p>
+  <p lang="en" dir="ltr">Not affiliated with GACA. Always verify against the latest official GACA publication.</p>
+  <p lang="ar" dir="rtl">غير تابعة لـ GACA. تحقّق دائمًا من أحدث منشور رسمي صادر عن GACA.</p>
+</footer>
+</body>
+</html>

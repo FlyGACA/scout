@@ -4,10 +4,13 @@
     "ads/approved-facts.json",
     "ads/platform-limits.json",
     "ads/copy/",
+    "ads/PLAYBOOK.md",
     "scripts/gate.config.json",
     "scripts/gate.mjs",
     ".qoder/scheduled_tasks.json",
-    "PLAN.md"
+    "PLAN.md",
+    "CLAUDE.md",
+    "package.json"
   ],
   "facts": {
     "keys": [
@@ -41,7 +44,10 @@
         "platform": "Google Ads, responsive search ad",
         "field": "headline",
         "limit": "max 30",
+        "max": 30,
+        "recommended": null,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -50,7 +56,10 @@
         "platform": "Google Ads, responsive search ad",
         "field": "description",
         "limit": "max 90",
+        "max": 90,
+        "recommended": null,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -59,7 +68,10 @@
         "platform": "Google Ads, responsive search ad",
         "field": "path",
         "limit": "max 15",
+        "max": 15,
+        "recommended": null,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -68,7 +80,10 @@
         "platform": "Microsoft Advertising, responsive search ad",
         "field": "headline",
         "limit": "max 30",
+        "max": 30,
+        "recommended": null,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -77,7 +92,10 @@
         "platform": "Microsoft Advertising, responsive search ad",
         "field": "description",
         "limit": "max 90",
+        "max": 90,
+        "recommended": null,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -86,7 +104,10 @@
         "platform": "Microsoft Advertising, responsive search ad",
         "field": "path",
         "limit": "max 15",
+        "max": 15,
+        "recommended": null,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -95,7 +116,10 @@
         "platform": "Meta (Facebook and Instagram) feed ad",
         "field": "primary_text",
         "limit": "recommended 125",
+        "max": null,
+        "recommended": 125,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -104,7 +128,10 @@
         "platform": "Meta (Facebook and Instagram) feed ad",
         "field": "headline",
         "limit": "recommended 40",
+        "max": null,
+        "recommended": 40,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -113,7 +140,10 @@
         "platform": "Meta (Facebook and Instagram) feed ad",
         "field": "description",
         "limit": "recommended 30",
+        "max": null,
+        "recommended": 30,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -122,7 +152,10 @@
         "platform": "TikTok in-feed ad",
         "field": "ad_text",
         "limit": "max 100",
+        "max": 100,
+        "recommended": null,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -131,7 +164,10 @@
         "platform": "TikTok in-feed ad",
         "field": "display_name",
         "limit": "max 40",
+        "max": 40,
+        "recommended": null,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -140,7 +176,10 @@
         "platform": "Snapchat single image or video ad",
         "field": "headline",
         "limit": "max 34",
+        "max": 34,
+        "recommended": null,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -149,7 +188,10 @@
         "platform": "Snapchat single image or video ad",
         "field": "brand_name",
         "limit": "max 25",
+        "max": 25,
+        "recommended": null,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -158,7 +200,10 @@
         "platform": "X promoted post",
         "field": "text",
         "limit": "max 280",
+        "max": 280,
+        "recommended": null,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -167,7 +212,10 @@
         "platform": "LinkedIn single image ad",
         "field": "intro_text",
         "limit": "max 600, recommended 150",
+        "max": 600,
+        "recommended": 150,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       },
@@ -176,7 +224,10 @@
         "platform": "LinkedIn single image ad",
         "field": "headline",
         "limit": "max 200, recommended 70",
+        "max": 200,
+        "recommended": 70,
         "verified": false,
+        "verifiedRaw": "false",
         "source": null,
         "thirdParty": false
       }
@@ -193,6 +244,143 @@
     }
   ],
   "gate": {
+    "rows": [
+      {
+        "check": "disclaimer",
+        "kind": "check",
+        "setting": "",
+        "value": "not configured",
+        "files": 0,
+        "on": false,
+        "description": "Required non-affiliation statement in English and Arabic."
+      },
+      {
+        "check": "gacar",
+        "kind": "check",
+        "setting": "",
+        "value": "on",
+        "files": 11,
+        "on": true,
+        "description": "GACAR citation hygiene: no FAA/CFR numbering, malformed §, or out-of-range parts."
+      },
+      {
+        "check": "gacar",
+        "kind": "scope",
+        "setting": "include",
+        "value": "**/*.md",
+        "files": null,
+        "on": true,
+        "description": ""
+      },
+      {
+        "check": "gacar",
+        "kind": "limit",
+        "setting": "maxPart",
+        "value": "199",
+        "files": null,
+        "on": true,
+        "description": ""
+      },
+      {
+        "check": "bilingual",
+        "kind": "check",
+        "setting": "",
+        "value": "not configured",
+        "files": 0,
+        "on": false,
+        "description": "Bilingual parity: Arabic documents have English counterparts."
+      },
+      {
+        "check": "register",
+        "kind": "check",
+        "setting": "",
+        "value": "not configured",
+        "files": 0,
+        "on": false,
+        "description": "Repository register: Repository rows carry an Owner column with a verified owner."
+      },
+      {
+        "check": "links",
+        "kind": "check",
+        "setting": "",
+        "value": "on",
+        "files": 11,
+        "on": true,
+        "description": "Links: relative paths and anchors resolve."
+      },
+      {
+        "check": "links",
+        "kind": "scope",
+        "setting": "include",
+        "value": "**/*.md",
+        "files": null,
+        "on": true,
+        "description": ""
+      },
+      {
+        "check": "links",
+        "kind": "scope",
+        "setting": "exclude",
+        "value": "node_modules/**",
+        "files": null,
+        "on": true,
+        "description": ""
+      },
+      {
+        "check": "links",
+        "kind": "limit",
+        "setting": "external",
+        "value": "false",
+        "files": null,
+        "on": true,
+        "description": ""
+      },
+      {
+        "check": "links",
+        "kind": "limit",
+        "setting": "maxExternal",
+        "value": "25",
+        "files": null,
+        "on": true,
+        "description": ""
+      },
+      {
+        "check": "sources",
+        "kind": "check",
+        "setting": "",
+        "value": "on",
+        "files": 11,
+        "on": true,
+        "description": "Source freshness: source-verified dates exist and are recent."
+      },
+      {
+        "check": "sources",
+        "kind": "scope",
+        "setting": "include",
+        "value": "**/*.md",
+        "files": null,
+        "on": true,
+        "description": ""
+      },
+      {
+        "check": "sources",
+        "kind": "limit",
+        "setting": "maxAgeDays",
+        "value": "180",
+        "files": null,
+        "on": true,
+        "description": ""
+      },
+      {
+        "check": "sources",
+        "kind": "limit",
+        "setting": "required",
+        "value": "(none)",
+        "files": null,
+        "on": true,
+        "description": ""
+      }
+    ],
     "checks": [
       {
         "name": "disclaimer",
@@ -276,31 +464,50 @@
         "phase": "0. Set up",
         "who": "Owner, about an hour",
         "what": "Install scout (cloud setup script and computer). Set a spending cap on every ad account. Decide the test budget and the first 2–3 channels.",
-        "doneWhen": "/advisor shows Fable 5.2, and each account has a cap"
+        "doneWhen": "/advisor shows Fable 5.2, and each account has a cap",
+        "status": null,
+        "links": []
       },
       {
         "phase": "1. Measure",
         "who": "Claude drafts, owner approves",
         "what": "Two separate draft PRs, both first-party, with no pixel and no third-party script. FlyGACA: keep the first-visit utm_* tags in the browser, then store them with the account after any kind of signup, in a table erased with the account. Add a report query: signups and activated learners per campaign. Captain Adel: daily aggregate counts per campaign of visit and first_question, once per browser, with nothing stored per person.",
-        "doneWhen": "A test signup from a tagged link shows its campaign on FlyGACA, and a tagged first question shows in Captain Adel's daily counts. PRs: FlyGACA#367, Captain-Adel#144. Both merged; Captain Adel stores its counts in Supabase through increment_campaign_count (migration 0031). Before data flows: apply migrations 0030 and 0031, deploy, and set SUPABASE_URL and SUPABASE_SECRET_KEY on Captain Adel's Vercel project."
+        "doneWhen": "A test signup from a tagged link shows its campaign on FlyGACA, and a tagged first question shows in Captain Adel's daily counts. PRs: FlyGACA#367, Captain-Adel#144. Both merged; Captain Adel stores its counts in Supabase through increment_campaign_count (migration 0031). Before data flows: apply migrations 0030 and 0031, deploy, and set SUPABASE_URL and SUPABASE_SECRET_KEY on Captain Adel's Vercel project.",
+        "status": null,
+        "links": [
+          {
+            "text": "FlyGACA#367",
+            "url": "https://github.com/FlyGACA/FlyGACA/pull/367"
+          },
+          {
+            "text": "Captain-Adel#144",
+            "url": "https://github.com/FlyGACA/Captain-Adel/pull/144"
+          }
+        ]
       },
       {
         "phase": "2. Read-only",
         "who": "Claude",
         "what": "Connect read-only: Google's official server is read-only, and Snapchat's is reported read-only. Meta uses a view-only login. Claude writes a weekly report across channels: spend, clicks, signups, activated learners, cost per activated learner.",
-        "doneWhen": "Two weekly reports match the platform dashboards"
+        "doneWhen": "Two weekly reports match the platform dashboards",
+        "status": null,
+        "links": []
       },
       {
         "phase": "3. Small tests",
         "who": "Claude drafts, owner publishes",
         "what": "2–3 channels, the same budget each, a fixed window (for example 14 days). Copy goes through the checker, then the owner reviews it and publishes in the platform UI.",
-        "doneWhen": "Each channel has a cost per activated learner"
+        "doneWhen": "Each channel has a cost per activated learner",
+        "status": null,
+        "links": []
       },
       {
         "phase": "4. Scale or stop",
         "who": "Owner",
         "what": "Keep the channels under the owner's target cost per activated learner and stop the rest. Only then consider letting Claude make paused drafts through a write-enabled login.",
-        "doneWhen": "A written decision"
+        "doneWhen": "A written decision",
+        "status": null,
+        "links": []
       }
     ],
     "decisions": [
@@ -335,5 +542,279 @@
       "The hook is tested end-to-end against a fake connector, not yet against a real one. Confirm its decisions the first time each real connector is used.",
       "The installer is tested in throwaway directories, not yet in a fresh cloud session."
     ]
+  },
+  "requirements": "No dependencies. Node 20 or later, POSIX sh, python3.",
+  "commands": [
+    {
+      "task": "Local checks and the test workflow",
+      "command": "npm run check",
+      "note": "installer up to date, copy checker, content gate, tests",
+      "script": "check",
+      "scriptExists": true
+    },
+    {
+      "task": "Regenerate the installer and the site",
+      "command": "npm run build",
+      "note": "after editing claude-code/agents/, claude-code/hooks/, claude-code/install.template.sh, the data files the dashboard reads, PLAN.md or tools/site/",
+      "script": "build",
+      "scriptExists": true
+    },
+    {
+      "task": "Check ad copy",
+      "command": "node tools/ad-copy-lint.mjs [file]",
+      "note": "",
+      "script": null,
+      "scriptExists": null
+    },
+    {
+      "task": "Check Markdown content",
+      "command": "node scripts/gate.mjs",
+      "note": "--strict also fails on warnings; --only links --external fetches external links",
+      "script": null,
+      "scriptExists": null
+    },
+    {
+      "task": "Count the tests",
+      "command": "npm test",
+      "note": "the tests summary line",
+      "script": "test",
+      "scriptExists": true
+    },
+    {
+      "task": "Extend the Qoder scheduled tasks",
+      "command": "node scripts/regenerate-scheduled-tasks.mjs",
+      "note": "",
+      "script": null,
+      "scriptExists": null
+    }
+  ],
+  "playbook": {
+    "html": "<p><strong>Status: draft.</strong> Nothing here is live. It describes how Claude and the owner run paid ads together. The plan and phases are in <code class=\"mono ltr\">../PLAN.md</code>.</p>\n<h2 id=\"1-connectors\">1. Connectors <a class=\"anchor\" href=\"#1-connectors\" aria-label=\"Link to this section: 1. Connectors\">#</a></h2>\n<p>What each platform offers Claude, as found on 2026-11-11. Lines marked <em>(3rd-party)</em> come from secondhand guides; check the platform's own docs when you connect.</p>\n<div class=\"ufuq-table-wrap table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table: Platform, Official MCP server, Can write?, Notes\"><table class=\"ufuq-table\"><thead><tr><th scope=\"col\">Platform</th><th scope=\"col\">Official MCP server</th><th scope=\"col\">Can write?</th><th scope=\"col\">Notes</th></tr></thead><tbody>\n<tr><td>Google Ads</td><td>Yes: <a href=\"https://github.com/googleads/google-ads-mcp\" rel=\"noopener noreferrer\"><code class=\"mono ltr\">googleads/google-ads-mcp</code></a>, self-hosted</td><td><strong>No, read-only</strong> per <a href=\"https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server\" rel=\"noopener noreferrer\">Google's docs</a></td><td>Three tools: <code class=\"mono ltr\">list_accessible_customers</code>, <code class=\"mono ltr\">search</code>, <code class=\"mono ltr\">get_resource_metadata</code>. Needs a Google Cloud project and OAuth. Developer tokens were sunset on 2026-09-09.</td></tr>\n<tr><td>Meta (Facebook, Instagram)</td><td>Reported at <code class=\"mono ltr\">mcp.facebook.com/ads</code> <em>(3rd-party)</em></td><td>Yes, 29 tools reported <em>(3rd-party)</em></td><td>New items reportedly start paused, and edits to live campaigns reportedly apply at once <em>(3rd-party)</em>. Meta's own docs page returned 404.</td></tr>\n<tr><td>TikTok</td><td>Announced May 2026 <em>(3rd-party)</em></td><td>Reported read and write <em>(3rd-party)</em></td><td>No published tool list was found.</td></tr>\n<tr><td>Snapchat</td><td>Reported at <code class=\"mono ltr\">mcp.snapchat.com/ads</code>, August 2026 <em>(3rd-party, single source)</em></td><td>Reported read-only <em>(3rd-party)</em></td><td>Reportedly needs Organization Admin approval.</td></tr>\n<tr><td>LinkedIn, X, Microsoft</td><td>None found</td><td>—</td><td>Third-party servers exist. Prefer reporting exports, or the platform UI, over unknown write-enabled servers.</td></tr>\n</tbody></table></div>\n<p class=\"scroll-hint\"><span class=\"ufuq-en\">Scroll the table sideways to see every column.</span><span class=\"ufuq-ar\" lang=\"ar\">مرّر الجدول جانبيًا لرؤية كل الأعمدة.</span></p>\n<p><strong>Rule:</strong> use only first-party servers, or a well-known reporting tool, for reads. Never connect a third-party server that can write to an ad account.</p>\n<h2 id=\"2-guardrails-in-the-order-they-stop-a-mistake\">2. Guardrails, in the order they stop a mistake <a class=\"anchor\" href=\"#2-guardrails-in-the-order-they-stop-a-mistake\" aria-label=\"Link to this section: 2. Guardrails, in the order they stop a mistake\">#</a></h2>\n<ol>\n<li><strong>A spending cap on every ad account,</strong> set in the platform's own billing settings before connecting. It holds whatever any tool does.</li>\n<li><strong>A read-only login.</strong> Connect with a view-only role until a phase needs more. The platform then refuses writes itself.</li>\n<li><strong>The ads guard hook</strong> (<code class=\"mono ltr\">claude-code/hooks/ads-guard.sh</code>, installed by scout):\n<div class=\"ufuq-table-wrap table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table: Tool call, Decision\"><table class=\"ufuq-table\"><thead><tr><th scope=\"col\">Tool call</th><th scope=\"col\">Decision</th></tr></thead><tbody>\n<tr><td>Reads (get, list, search, report, insights…)</td><td>Normal flow</td></tr>\n<tr><td>Deletes</td><td><strong>Blocked</strong></td></tr>\n<tr><td>Audience, customer-list, lookalike, email or phone writes</td><td><strong>Blocked</strong> (PDPL review first)</td></tr>\n<tr><td>Pixel, conversion, CAPI or dataset writes</td><td><strong>Blocked</strong> (privacy review first)</td></tr>\n<tr><td>Any other write, or a tool it can't classify</td><td><strong>You approve each one</strong></td></tr>\n<tr><td>Any write in bypassPermissions mode</td><td><strong>Blocked</strong></td></tr>\n</tbody></table></div>\n<p class=\"scroll-hint\"><span class=\"ufuq-en\">Scroll the table sideways to see every column.</span><span class=\"ufuq-ar\" lang=\"ar\">مرّر الجدول جانبيًا لرؤية كل الأعمدة.</span></p></li>\n</ol>\n<ol>\n<li><strong>The copy checker</strong> (<code class=\"mono ltr\">node tools/ad-copy-lint.mjs</code>). See section 5.</li>\n<li><strong>A person publishes.</strong> In phases 2–3, Claude drafts and the owner publishes in the platform UI.</li>\n</ol>\n<p>Also set the connector's own tool permissions in claude.ai (Settings → Connectors) to require approval for write tools. It costs nothing and adds one more layer.</p>\n<h2 id=\"3-measurement\">3. Measurement <a class=\"anchor\" href=\"#3-measurement\" aria-label=\"Link to this section: 3. Measurement\">#</a></h2>\n<p><strong>UTM convention.</strong> The checker enforces it on every ad link:</p>\n<div class=\"ufuq-table-wrap table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table: Tag, Value\"><table class=\"ufuq-table\"><thead><tr><th scope=\"col\">Tag</th><th scope=\"col\">Value</th></tr></thead><tbody>\n<tr><td><code class=\"mono ltr\">utm_source</code></td><td><code class=\"mono ltr\">google</code>, <code class=\"mono ltr\">bing</code>, <code class=\"mono ltr\">facebook</code>, <code class=\"mono ltr\">instagram</code>, <code class=\"mono ltr\">tiktok</code>, <code class=\"mono ltr\">snapchat</code>, <code class=\"mono ltr\">x</code>, <code class=\"mono ltr\">linkedin</code></td></tr>\n<tr><td><code class=\"mono ltr\">utm_medium</code></td><td><code class=\"mono ltr\">cpc</code> for search, <code class=\"mono ltr\">paid_social</code> for social</td></tr>\n<tr><td><code class=\"mono ltr\">utm_campaign</code></td><td>the campaign slug, the same as <code class=\"mono ltr\">campaign</code> in the copy file</td></tr>\n<tr><td><code class=\"mono ltr\">utm_content</code></td><td>the variant id</td></tr>\n</tbody></table></div>\n<p class=\"scroll-hint\"><span class=\"ufuq-en\">Scroll the table sideways to see every column.</span><span class=\"ufuq-ar\" lang=\"ar\">مرّر الجدول جانبيًا لرؤية كل الأعمدة.</span></p>\n<p><strong>Conversions,</strong> defined once and used on every platform:</p>\n<ol>\n<li>Signup: a new FlyGACA account. Captain Adel has no client sign-up, so it has none.</li>\n<li>Activation: on FlyGACA, the learner's first study activity, as defined in FlyGACA's attribution report. On Captain Adel, the browser's first answered question.</li>\n<li>Mock exam started.</li>\n</ol>\n<p>The headline number is <strong>cost per activated learner</strong>. Clicks and signups alone reward the wrong ads.</p>\n<p><strong>First-party, to start.</strong> Two small changes in our own systems:</p>\n<ul>\n<li>FlyGACA stores the first-visit UTM values with the new account in our own database.</li>\n<li>Captain Adel keeps daily counts per campaign, with nothing stored per person.</li>\n</ul>\n<p><span class=\"withheld\"><span class=\"ufuq-en\">Withheld: this passage names one of the owner's approved facts.</span><span class=\"ufuq-ar\" lang=\"ar\">محجوب: يذكر هذا المقطع إحدى الحقائق التي اعتمدها المالك.</span></span></p>\n<h2 id=\"4-what-to-advertise\">4. What to advertise <a class=\"anchor\" href=\"#4-what-to-advertise\" aria-label=\"Link to this section: 4. What to advertise\">#</a></h2>\n<p>Only offers listed in <code class=\"mono ltr\">approved-facts.json</code>:</p>\n<div class=\"ufuq-table-wrap table-wrap\" tabindex=\"0\" role=\"region\" aria-label=\"Table: Offer, Landing, Status\"><table class=\"ufuq-table\"><thead><tr><th scope=\"col\">Offer</th><th scope=\"col\">Landing</th><th scope=\"col\">Status</th></tr></thead><tbody>\n<tr><td colspan=\"3\"><span class=\"withheld\"><span class=\"ufuq-en\">Withheld: this passage names one of the owner's approved facts.</span><span class=\"ufuq-ar\" lang=\"ar\">محجوب: يذكر هذا المقطع إحدى الحقائق التي اعتمدها المالك.</span></span></td></tr>\n<tr><td colspan=\"3\"><span class=\"withheld\"><span class=\"ufuq-en\">Withheld: this passage names one of the owner's approved facts.</span><span class=\"ufuq-ar\" lang=\"ar\">محجوب: يذكر هذا المقطع إحدى الحقائق التي اعتمدها المالك.</span></span></td></tr>\n<tr><td>Paid plans and study packs</td><td>—</td><td>Waiting for confirmed prices</td></tr>\n<tr><td>ELPT and AIP iOS apps</td><td>—</td><td>Waiting until they leave TestFlight</td></tr>\n<tr><td>FlightBag study pack</td><td>—</td><td>Waiting for the shop go-live checklist</td></tr>\n<tr><td>Gallery originals</td><td>—</td><td>Not planned for ads yet</td></tr>\n</tbody></table></div>\n<p class=\"scroll-hint\"><span class=\"ufuq-en\">Scroll the table sideways to see every column.</span><span class=\"ufuq-ar\" lang=\"ar\">مرّر الجدول جانبيًا لرؤية كل الأعمدة.</span></p>\n<p>Creatives can start from the Gallery's free aviation graphics, built in the Moda or Canva connectors, which are both connected. Never use GACA's logo or visual identity.</p>\n<h2 id=\"5-copy-rules-checked-by-toolsad-copy-lintmjs\">5. Copy rules (checked by <code class=\"mono ltr\">tools/ad-copy-lint.mjs</code>) <a class=\"anchor\" href=\"#5-copy-rules-checked-by-toolsad-copy-lintmjs\" aria-label=\"Link to this section: 5. Copy rules (checked by tools/ad-copy-lint.mjs)\">#</a></h2>\n<ul>\n<li><strong>Disclaimer.</strong> Every ad says it is not affiliated with GACA, in its own language, using approved product wording. Where the format has no room (for example a Snapchat headline), set <code class=\"mono ltr\">&quot;disclaimer_in&quot;: &quot;creative&quot;</code> and make sure the image or video shows it. The checker then warns, so a person checks it.</li>\n<li><strong>No status claims:</strong> no &quot;official&quot;, &quot;approved&quot;, &quot;accredited&quot; or &quot;guaranteed&quot;, and no رسمي، معتمد، مضمون، مرخص. The approved disclaimers are exempt even though they contain &quot;official&quot;.</li>\n<li><strong>Prices</strong> only as listed in <code class=\"mono ltr\">approved-facts.json</code>, and &quot;free&quot; / &quot;مجاني&quot; only for free offers.</li>\n<li><strong>Arabic and English ship together.</strong></li>\n<li><strong>Length limits</strong> per format, from <code class=\"mono ltr\">platform-limits.json</code>. They are not verified yet; check them against each platform's docs.</li>\n</ul>\n<p>Write copy as <code class=\"mono ltr\">ads/copy/&lt;campaign&gt;.json</code>. See <code class=\"mono ltr\">copy/captain-adel-free-test.json</code>.</p>\n<h2 id=\"6-working-with-claude\">6. Working with Claude <a class=\"anchor\" href=\"#6-working-with-claude\" aria-label=\"Link to this section: 6. Working with Claude\">#</a></h2>\n<p><strong>Weekly report</strong> (phase 2 onward):</p>\n<blockquote>Using only read tools on the connected ad platforms, report last week by channel: spend, impressions, clicks, CTR, signups and activated learners by <code class=\"mono ltr\">utm_campaign</code>, and cost per activated learner. Put platform numbers and our own signup numbers side by side and flag any gap over 10%. No changes.</blockquote>\n<p><strong>New copy:</strong></p>\n<blockquote>Draft <code class=\"mono ltr\">ads/copy/&lt;slug&gt;.json</code> for offer <code class=\"mono ltr\">&lt;offer&gt;</code> on <code class=\"mono ltr\">&lt;formats&gt;</code>, Arabic first and English to match. Use only facts in <code class=\"mono ltr\">ads/approved-facts.json</code>. Run <code class=\"mono ltr\">node tools/ad-copy-lint.mjs</code> and fix every error. Then list the warnings that need my eye.</blockquote>\n<p><strong>Changes on a live account</strong> (phase 4 and later only): one change per message, stating the account, campaign, field, old value and new value, and that the item stays paused if new. The guard will ask, and you approve or reject.</p>\n<h2 id=\"7-before-any-of-these-get-a-review\">7. Before any of these, get a review <a class=\"anchor\" href=\"#7-before-any-of-these-get-a-review\" aria-label=\"Link to this section: 7. Before any of these, get a review\">#</a></h2>\n<ul>\n<li>Uploading learner emails or phones for audiences: PDPL (<code class=\"mono ltr\">ksa-compliance</code> / <code class=\"mono ltr\">privacy-dpia</code>). It is personal data leaving the Kingdom.</li>\n<li><span class=\"withheld\"><span class=\"ufuq-en\">Withheld: this passage names one of the owner's approved facts.</span><span class=\"ufuq-ar\" lang=\"ar\">محجوب: يذكر هذا المقطع إحدى الحقائق التي اعتمدها المالك.</span></span></li>\n<li>Influencer or creator ads: check Saudi media-licensing rules with counsel.</li>\n<li>Any claim about pass rates, approvals or partnerships: owner and counsel.</li>\n</ul>",
+    "toc": [
+      {
+        "level": 2,
+        "id": "1-connectors",
+        "text": "1. Connectors"
+      },
+      {
+        "level": 2,
+        "id": "2-guardrails-in-the-order-they-stop-a-mistake",
+        "text": "2. Guardrails, in the order they stop a mistake"
+      },
+      {
+        "level": 2,
+        "id": "3-measurement",
+        "text": "3. Measurement"
+      },
+      {
+        "level": 2,
+        "id": "4-what-to-advertise",
+        "text": "4. What to advertise"
+      },
+      {
+        "level": 2,
+        "id": "5-copy-rules-checked-by-toolsad-copy-lintmjs",
+        "text": "5. Copy rules (checked by tools/ad-copy-lint.mjs)"
+      },
+      {
+        "level": 2,
+        "id": "6-working-with-claude",
+        "text": "6. Working with Claude"
+      },
+      {
+        "level": 2,
+        "id": "7-before-any-of-these-get-a-review",
+        "text": "7. Before any of these, get a review"
+      }
+    ],
+    "withheld": 4
+  },
+  "copycheck": {
+    "formats": [
+      {
+        "id": "google_search_rsa",
+        "platform": "Google Ads, responsive search ad",
+        "verified": false,
+        "source": null,
+        "fields": [
+          {
+            "field": "headline",
+            "max": 30,
+            "recommended": null
+          },
+          {
+            "field": "description",
+            "max": 90,
+            "recommended": null
+          },
+          {
+            "field": "path",
+            "max": 15,
+            "recommended": null
+          }
+        ]
+      },
+      {
+        "id": "microsoft_search_rsa",
+        "platform": "Microsoft Advertising, responsive search ad",
+        "verified": false,
+        "source": null,
+        "fields": [
+          {
+            "field": "headline",
+            "max": 30,
+            "recommended": null
+          },
+          {
+            "field": "description",
+            "max": 90,
+            "recommended": null
+          },
+          {
+            "field": "path",
+            "max": 15,
+            "recommended": null
+          }
+        ]
+      },
+      {
+        "id": "meta_feed",
+        "platform": "Meta (Facebook and Instagram) feed ad",
+        "verified": false,
+        "source": null,
+        "fields": [
+          {
+            "field": "primary_text",
+            "max": null,
+            "recommended": 125
+          },
+          {
+            "field": "headline",
+            "max": null,
+            "recommended": 40
+          },
+          {
+            "field": "description",
+            "max": null,
+            "recommended": 30
+          }
+        ]
+      },
+      {
+        "id": "tiktok_infeed",
+        "platform": "TikTok in-feed ad",
+        "verified": false,
+        "source": null,
+        "fields": [
+          {
+            "field": "ad_text",
+            "max": 100,
+            "recommended": null
+          },
+          {
+            "field": "display_name",
+            "max": 40,
+            "recommended": null
+          }
+        ]
+      },
+      {
+        "id": "snapchat_single",
+        "platform": "Snapchat single image or video ad",
+        "verified": false,
+        "source": null,
+        "fields": [
+          {
+            "field": "headline",
+            "max": 34,
+            "recommended": null
+          },
+          {
+            "field": "brand_name",
+            "max": 25,
+            "recommended": null
+          }
+        ]
+      },
+      {
+        "id": "x_promoted",
+        "platform": "X promoted post",
+        "verified": false,
+        "source": null,
+        "fields": [
+          {
+            "field": "text",
+            "max": 280,
+            "recommended": null
+          }
+        ]
+      },
+      {
+        "id": "linkedin_single_image",
+        "platform": "LinkedIn single image ad",
+        "verified": false,
+        "source": null,
+        "fields": [
+          {
+            "field": "intro_text",
+            "max": 600,
+            "recommended": 150
+          },
+          {
+            "field": "headline",
+            "max": 200,
+            "recommended": 70
+          }
+        ]
+      }
+    ],
+    "banned": [
+      {
+        "source": "\\b(official|officially)\\b",
+        "flags": "",
+        "why": "implies official status"
+      },
+      {
+        "source": "\\b(approved|endorsed|accredited|certified|authori[sz]ed|licensed)\\b",
+        "flags": "",
+        "why": "implies approval or accreditation"
+      },
+      {
+        "source": "\\b(guarantee|guaranteed|guarantees)\\b|100\\s?%",
+        "flags": "",
+        "why": "promises an outcome"
+      },
+      {
+        "source": "رسمي|رسميه|رسمية",
+        "flags": "",
+        "why": "يوحي بصفة رسمية (implies official status)"
+      },
+      {
+        "source": "معتمد|معتمده|معتمدة|مرخص|مرخصه|مرخصة",
+        "flags": "",
+        "why": "يوحي بالاعتماد (implies approval)"
+      },
+      {
+        "source": "مضمون|مضمونه|مضمونة|ضمان|نضمن",
+        "flags": "",
+        "why": "يعد بنتيجة (promises an outcome)"
+      }
+    ],
+    "price": {
+      "source": "(?:[\\d٠-٩][\\d٠-٩,.]*\\s*(?:sar|usd|ريال|ر\\.?\\s?س|﷼|\\$))|(?:(?:sar|usd|﷼|\\$)\\s*[\\d٠-٩][\\d٠-٩,.]*)",
+      "flags": "g"
+    },
+    "free": {
+      "source": "\\bfree\\b|مجان",
+      "flags": ""
+    },
+    "marker": {
+      "en": "not affiliated with",
+      "ar": "غير تابعة? (?:ل\\s*gaca|للهيئة العامة للطيران المدني)"
+    },
+    "notice": {
+      "en": "Not affiliated with GACA. Always verify against the latest official GACA publication.",
+      "ar": "غير تابعة لـ GACA. تحقّق دائمًا من أحدث منشور رسمي صادر عن GACA."
+    }
   }
 }
