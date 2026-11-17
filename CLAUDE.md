@@ -7,7 +7,7 @@ FlyGACA's Claude Code setup (advisor, `repo-scout` agent, ads guard hook, instal
 | Task | Command |
 | --- | --- |
 | Local checks and the test workflow | `npm run check` (installer up to date, copy checker, content gate, tests) |
-| Regenerate the installer | `npm run build` (after editing `claude-code/agents/`, `claude-code/hooks/` or `claude-code/install.template.sh`) |
+| Regenerate the installer and the site | `npm run build` (after editing `claude-code/agents/`, `claude-code/hooks/`, `claude-code/install.template.sh`, the data files the dashboard reads, `PLAN.md` or `tools/site/`) |
 | Check ad copy | `node tools/ad-copy-lint.mjs [file]` |
 | Check Markdown content | `node scripts/gate.mjs` (`--strict` also fails on warnings; `--only links --external` fetches external links) |
 | Count the tests | `npm test` (the `tests` summary line) |
@@ -18,6 +18,7 @@ No dependencies. Node 20 or later, POSIX `sh`, `python3`.
 ## Rules
 
 - **Generated file:** never edit `claude-code/install.sh` by hand. `npm run check` fails when it is stale.
+- **`site/` is generated** by `tools/build-site.mjs` and never hand-edited; change `tools/site/` (stylesheet, script) or the generator, then `npm run build`. Only `site/ufuq/` is copied by hand from FlyGACA/UFUQ (see its `SOURCE.txt`; never edited here). The Cloudflare Worker `scout` serves `site/` (`wrangler.jsonc`); its build runs `npm run build`, so the build must need no dependency and no network, and must not fail on checker findings. Never copy `ads/approved-facts.json` values or the ad copy files into `site/`. Who may open it: `docs/ACCESS.md`.
 - **The hook is POSIX `sh`** and has to run on macOS and Linux (`dash`). Keep it dependency-free.
   - Add a test in `test/ads-guard.test.mjs` for every new decision rule.
   - A change that loosens a deny or an ask needs the owner's approval.

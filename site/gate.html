@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content gate · بوابة المحتوى — Scout</title>
+<meta name="description" content="The checks the content gate runs and what it found.">
+<link rel="icon" href="ufuq/scout-mark.svg">
+<link rel="stylesheet" href="ufuq/ufuq.css">
+<link rel="stylesheet" href="ufuq/ufuq.components.css">
+<link rel="stylesheet" href="site.css">
+<script src="ufuq/ufuq.shell.js"></script>
+<script src="scout.js" defer></script>
+</head>
+<body class="page">
+<header class="ufuq-shell">
+  <a class="ufuq-shell__brand" href="index.html"><img class="on-night" src="ufuq/scout-mark.svg" alt="" width="32" height="32"><img class="on-day" src="ufuq/scout-mark-ink.svg" alt="" width="32" height="32"><span class="ufuq-en">Scout</span><span class="ufuq-ar" lang="ar">الكشّاف</span></a>
+  <nav class="ufuq-shell__nav" aria-label="Pages" data-label-en="Pages" data-label-ar="الصفحات"><a href="index.html"><span class="ufuq-en">Overview</span><span class="ufuq-ar" lang="ar">نظرة عامة</span></a><a href="ads.html"><span class="ufuq-en">Ads</span><span class="ufuq-ar" lang="ar">الإعلانات</span></a><a href="gate.html" aria-current="page"><span class="ufuq-en">Content gate</span><span class="ufuq-ar" lang="ar">بوابة المحتوى</span></a><a href="schedule.html"><span class="ufuq-en">Schedule and plan</span><span class="ufuq-ar" lang="ar">الجدولة والخطة</span></a></nav>
+  <div class="ufuq-shell__tools">
+    <span class="ufuq-shell__who" data-shell-who hidden></span>
+    <a class="ufuq-shell__tool" data-shell-out hidden><span class="ufuq-en">Sign out</span><span class="ufuq-ar" lang="ar">خروج</span></a>
+    <button type="button" class="ufuq-shell__tool" data-shell-theme aria-pressed="false"><span class="ufuq-en">Day / Night</span><span class="ufuq-ar" lang="ar">نهاري / ليلي</span></button>
+    <button type="button" class="ufuq-shell__tool" data-shell-lang><span class="ufuq-en" lang="ar">العربية</span><span class="ufuq-ar" lang="en">English</span></button>
+  </div>
+</header>
+<main class="ufuq-container wrap">
+<section aria-labelledby="t">
+  <p class="ufuq-eyebrow"><span class="ufuq-en">Content gate</span><span class="ufuq-ar" lang="ar">بوابة المحتوى</span></p>
+  <h1 id="t"><span class="ufuq-en">What the gate checks and finds</span><span class="ufuq-ar" lang="ar">ما تفحصه البوابة وما تجده</span></h1>
+  <p class="lead"><span class="ufuq-en">The gate checks this repository's Markdown against Fly GACA's content policies. It ran when this site was built.</span><span class="ufuq-ar" lang="ar">تفحص البوابة ملفات Markdown في هذا المستودع وفق سياسات محتوى فلاي قاكا، وقد شُغّلت عند بناء هذا الموقع.</span></p>
+  <p class="ufuq-label built"><span class="ufuq-en">Checker results captured <bdi dir="ltr">2026-11-17</bdi></span><span class="ufuq-ar" lang="ar">نتائج الفحص التُقطت بتاريخ <bdi dir="ltr">2026-11-17</bdi></span></p>
+</section>
+<section aria-labelledby="k">
+  <h2 id="k"><span class="ufuq-en">Checks</span><span class="ufuq-ar" lang="ar">الفحوص</span></h2>
+  <p class="panel-note"><span class="ufuq-en">A check that is not configured does not run, so a passing gate does not replace a manual review of that policy.</span><span class="ufuq-ar" lang="ar">الفحص غير المضبوط لا يعمل، لذلك لا تغني بوابة ناجحة عن مراجعة يدوية لتلك السياسة.</span></p>
+  <div class="ufuq-table-wrap table-wrap" tabindex="0" role="region" aria-label="Gate checks" data-label-en="Gate checks" data-label-ar="فحوص البوابة"><table class="ufuq-table"><thead><tr><th scope="col"><span class="ufuq-en">Check</span><span class="ufuq-ar" lang="ar">الفحص</span></th><th scope="col"><span class="ufuq-en">State</span><span class="ufuq-ar" lang="ar">الحالة</span></th><th scope="col" class="ufuq-table__num"><span class="ufuq-en">Files</span><span class="ufuq-ar" lang="ar">الملفات</span></th><th scope="col"><span class="ufuq-en">Settings</span><span class="ufuq-ar" lang="ar">الإعدادات</span></th><th scope="col" class="ufuq-table__num"><span class="ufuq-en">Findings</span><span class="ufuq-ar" lang="ar">النتائج</span></th></tr></thead><tbody>
+<tr><td class="mono ltr">disclaimer</td><td><span class="ufuq-badge ufuq-badge--neutral"><span class="ufuq-en">Not configured</span><span class="ufuq-ar" lang="ar">غير مضبوط</span></span></td><td class="ufuq-table__num">–</td><td class="mono ltr"></td><td class="ufuq-table__num">0</td></tr>
+<tr><td class="mono ltr">gacar</td><td><span class="ufuq-badge ufuq-badge--success"><span class="ufuq-en">On</span><span class="ufuq-ar" lang="ar">مفعّل</span></span></td><td class="ufuq-table__num">11</td><td class="mono ltr">{&quot;maxPart&quot;:199}</td><td class="ufuq-table__num">0</td></tr>
+<tr><td class="mono ltr">bilingual</td><td><span class="ufuq-badge ufuq-badge--neutral"><span class="ufuq-en">Not configured</span><span class="ufuq-ar" lang="ar">غير مضبوط</span></span></td><td class="ufuq-table__num">–</td><td class="mono ltr"></td><td class="ufuq-table__num">0</td></tr>
+<tr><td class="mono ltr">register</td><td><span class="ufuq-badge ufuq-badge--neutral"><span class="ufuq-en">Not configured</span><span class="ufuq-ar" lang="ar">غير مضبوط</span></span></td><td class="ufuq-table__num">–</td><td class="mono ltr"></td><td class="ufuq-table__num">0</td></tr>
+<tr><td class="mono ltr">links</td><td><span class="ufuq-badge ufuq-badge--success"><span class="ufuq-en">On</span><span class="ufuq-ar" lang="ar">مفعّل</span></span></td><td class="ufuq-table__num">11</td><td class="mono ltr">{&quot;external&quot;:false,&quot;maxExternal&quot;:25}</td><td class="ufuq-table__num">0</td></tr>
+<tr><td class="mono ltr">sources</td><td><span class="ufuq-badge ufuq-badge--success"><span class="ufuq-en">On</span><span class="ufuq-ar" lang="ar">مفعّل</span></span></td><td class="ufuq-table__num">11</td><td class="mono ltr">{&quot;maxAgeDays&quot;:180,&quot;required&quot;:[]}</td><td class="ufuq-table__num">0</td></tr>
+</tbody></table></div>
+  <p class="src"><span class="ufuq-en">Read from</span><span class="ufuq-ar" lang="ar">مقروء من</span> <code class="mono ltr">scripts/gate.config.json</code></p>
+</section>
+<section aria-labelledby="r">
+  <h2 id="r"><span class="ufuq-en">Findings</span><span class="ufuq-ar" lang="ar">النتائج</span></h2>
+  <p><span class="ufuq-num">0</span> <span class="ufuq-en">error(s)</span><span class="ufuq-ar" lang="ar">أخطاء</span> · <span class="ufuq-num">0</span> <span class="ufuq-en">warning(s)</span><span class="ufuq-ar" lang="ar">تحذيرات</span></p>
+  <p><span class="ufuq-badge ufuq-badge--success"><span class="ufuq-en">No findings</span><span class="ufuq-ar" lang="ar">لا نتائج</span></span> <span class="ufuq-en">The gate reported 0 errors and 0 warnings.</span><span class="ufuq-ar" lang="ar">لم تُبلغ البوابة عن أي أخطاء أو تحذيرات.</span></p>
+  <p class="src"><span class="ufuq-en">Read from</span><span class="ufuq-ar" lang="ar">مقروء من</span> <code class="mono ltr">scripts/gate.mjs</code></p>
+</section>
+</main>
+<footer class="ufuq-shell-foot">
+  <a class="ufuq-shell-foot__family" href="https://office.flygaca.com/"><img src="ufuq/flygaca-mark.png" alt="" width="48" height="48"><span class="ufuq-en">Part of Fly GACA</span><span class="ufuq-ar" lang="ar">جزء من فلاي قاكا</span></a>
+  <ul class="ufuq-shell-foot__links">
+    <li><a href="https://airspace.flygaca.com/"><span class="ufuq-en">Airspace</span><span class="ufuq-ar" lang="ar">المجال الجوي</span></a></li>
+    <li><a href="https://c172.flygaca.com/"><span class="ufuq-en">C172 Twin</span><span class="ufuq-ar" lang="ar">توأم سيسنا 172</span></a></li>
+    <li><a href="https://office.flygaca.com/"><span class="ufuq-en">Office</span><span class="ufuq-ar" lang="ar">المكتب</span></a></li>
+    <li><a href="https://prompt.flygaca.com/"><span class="ufuq-en">Prompt Library</span><span class="ufuq-ar" lang="ar">مكتبة الأوامر</span></a></li>
+    <li><a href="https://skill.flygaca.com/"><span class="ufuq-en">Skills</span><span class="ufuq-ar" lang="ar">المهارات</span></a></li>
+  </ul>
+  <p><span class="ufuq-en">Read-only. This site changes no ad account and makes no network call. Built <bdi dir="ltr">2026-11-17</bdi>.</span><span class="ufuq-ar" lang="ar">للقراءة فقط. لا يغيّر هذا الموقع أي حساب إعلاني ولا يجري أي اتصال بالشبكة. بُني بتاريخ <bdi dir="ltr">2026-11-17</bdi>.</span></p>
+  <p lang="en" dir="ltr">Not affiliated with GACA. Always verify against the latest official GACA publication.</p>
+  <p lang="ar" dir="rtl">غير تابعة لـ GACA. تحقّق دائمًا من أحدث منشور رسمي صادر عن GACA.</p>
+</footer>
+</body>
+</html>

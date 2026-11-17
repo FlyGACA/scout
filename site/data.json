@@ -1,0 +1,339 @@
+{
+  "builtOn": "2026-11-17",
+  "sources": [
+    "ads/approved-facts.json",
+    "ads/platform-limits.json",
+    "ads/copy/",
+    "scripts/gate.config.json",
+    "scripts/gate.mjs",
+    ".qoder/scheduled_tasks.json",
+    "PLAN.md"
+  ],
+  "facts": {
+    "keys": [
+      {
+        "key": "offers",
+        "kind": "object",
+        "count": 2
+      },
+      {
+        "key": "prices",
+        "kind": "list",
+        "count": 0
+      },
+      {
+        "key": "landing_domains",
+        "kind": "list",
+        "count": 2
+      },
+      {
+        "key": "disclaimers",
+        "kind": "object",
+        "count": 2
+      }
+    ]
+  },
+  "limits": {
+    "note": "Text limits per ad format, in characters. max = the platform rejects longer text (error); recommended = longer text gets cut off in some placements (warning). verified=false: written from general knowledge on 2026-11-11, not yet checked against each platform's current docs. Check, then set verified=true and add the source URL.",
+    "rows": [
+      {
+        "id": "google_search_rsa",
+        "platform": "Google Ads, responsive search ad",
+        "field": "headline",
+        "limit": "max 30",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "google_search_rsa",
+        "platform": "Google Ads, responsive search ad",
+        "field": "description",
+        "limit": "max 90",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "google_search_rsa",
+        "platform": "Google Ads, responsive search ad",
+        "field": "path",
+        "limit": "max 15",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "microsoft_search_rsa",
+        "platform": "Microsoft Advertising, responsive search ad",
+        "field": "headline",
+        "limit": "max 30",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "microsoft_search_rsa",
+        "platform": "Microsoft Advertising, responsive search ad",
+        "field": "description",
+        "limit": "max 90",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "microsoft_search_rsa",
+        "platform": "Microsoft Advertising, responsive search ad",
+        "field": "path",
+        "limit": "max 15",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "meta_feed",
+        "platform": "Meta (Facebook and Instagram) feed ad",
+        "field": "primary_text",
+        "limit": "recommended 125",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "meta_feed",
+        "platform": "Meta (Facebook and Instagram) feed ad",
+        "field": "headline",
+        "limit": "recommended 40",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "meta_feed",
+        "platform": "Meta (Facebook and Instagram) feed ad",
+        "field": "description",
+        "limit": "recommended 30",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "tiktok_infeed",
+        "platform": "TikTok in-feed ad",
+        "field": "ad_text",
+        "limit": "max 100",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "tiktok_infeed",
+        "platform": "TikTok in-feed ad",
+        "field": "display_name",
+        "limit": "max 40",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "snapchat_single",
+        "platform": "Snapchat single image or video ad",
+        "field": "headline",
+        "limit": "max 34",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "snapchat_single",
+        "platform": "Snapchat single image or video ad",
+        "field": "brand_name",
+        "limit": "max 25",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "x_promoted",
+        "platform": "X promoted post",
+        "field": "text",
+        "limit": "max 280",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "linkedin_single_image",
+        "platform": "LinkedIn single image ad",
+        "field": "intro_text",
+        "limit": "max 600, recommended 150",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      },
+      {
+        "id": "linkedin_single_image",
+        "platform": "LinkedIn single image ad",
+        "field": "headline",
+        "limit": "max 200, recommended 70",
+        "verified": false,
+        "source": null,
+        "thirdParty": false
+      }
+    ]
+  },
+  "copy": [
+    {
+      "file": "ads/copy/captain-adel-free-test.json",
+      "errors": 0,
+      "warnings": 1,
+      "lines": [
+        "warn  captain-adel-free-test.json:snap-ar  no disclaimer in the text; check it is visible in the creative"
+      ]
+    }
+  ],
+  "gate": {
+    "checks": [
+      {
+        "name": "disclaimer",
+        "on": false,
+        "files": 0,
+        "settings": ""
+      },
+      {
+        "name": "gacar",
+        "on": true,
+        "files": 11,
+        "settings": "{\"maxPart\":199}"
+      },
+      {
+        "name": "bilingual",
+        "on": false,
+        "files": 0,
+        "settings": ""
+      },
+      {
+        "name": "register",
+        "on": false,
+        "files": 0,
+        "settings": ""
+      },
+      {
+        "name": "links",
+        "on": true,
+        "files": 11,
+        "settings": "{\"external\":false,\"maxExternal\":25}"
+      },
+      {
+        "name": "sources",
+        "on": true,
+        "files": 11,
+        "settings": "{\"maxAgeDays\":180,\"required\":[]}"
+      }
+    ],
+    "errors": 0,
+    "warnings": 0,
+    "findings": []
+  },
+  "tasks": {
+    "generatedAt": "2026-11-15",
+    "expiresAt": "2026-11-22",
+    "regenerateWith": "node scripts/regenerate-scheduled-tasks.mjs",
+    "notes": "Qoder scheduled tasks expire 7 days after generatedAt. Run the regenerator to extend them. Durable schedules (weekly external-link check, PR gate) live in .github/workflows/qoder-gate.yml and do not expire.",
+    "list": [
+      {
+        "id": "gate-triage",
+        "title": "Daily gate triage",
+        "schedule": "0 7 * * 1-5",
+        "promptFile": ".qoder/prompts/daily-gate-triage.md",
+        "permissionMode": "accept_edits",
+        "maxTurns": 20,
+        "expiresAt": "2026-11-22"
+      },
+      {
+        "id": "source-refresh",
+        "title": "Weekly GACAR / AIP source refresh",
+        "schedule": "0 8 * * 1",
+        "promptFile": ".qoder/prompts/weekly-source-refresh.md",
+        "permissionMode": "accept_edits",
+        "maxTurns": 20,
+        "expiresAt": "2026-11-22"
+      },
+      {
+        "id": "register-audit",
+        "title": "Weekly repository register audit",
+        "schedule": "0 9 * * 1",
+        "promptFile": ".qoder/prompts/weekly-register-audit.md",
+        "permissionMode": "accept_edits",
+        "maxTurns": 20,
+        "expiresAt": "2026-11-22"
+      }
+    ]
+  },
+  "plan": {
+    "phases": [
+      {
+        "phase": "0. Set up",
+        "who": "Owner, about an hour",
+        "what": "Install scout (cloud setup script and computer). Set a spending cap on every ad account. Decide the test budget and the first 2–3 channels.",
+        "doneWhen": "/advisor shows Fable 5.2, and each account has a cap"
+      },
+      {
+        "phase": "1. Measure",
+        "who": "Claude drafts, owner approves",
+        "what": "Two separate draft PRs, both first-party, with no pixel and no third-party script. FlyGACA: keep the first-visit utm_* tags in the browser, then store them with the account after any kind of signup, in a table erased with the account. Add a report query: signups and activated learners per campaign. Captain Adel: daily aggregate counts per campaign of visit and first_question, once per browser, with nothing stored per person.",
+        "doneWhen": "A test signup from a tagged link shows its campaign on FlyGACA, and a tagged first question shows in Captain Adel's daily counts. PRs: FlyGACA#367, Captain-Adel#144. Both merged; Captain Adel stores its counts in Supabase through increment_campaign_count (migration 0031). Before data flows: apply migrations 0030 and 0031, deploy, and set SUPABASE_URL and SUPABASE_SECRET_KEY on Captain Adel's Vercel project."
+      },
+      {
+        "phase": "2. Read-only",
+        "who": "Claude",
+        "what": "Connect read-only: Google's official server is read-only, and Snapchat's is reported read-only. Meta uses a view-only login. Claude writes a weekly report across channels: spend, clicks, signups, activated learners, cost per activated learner.",
+        "doneWhen": "Two weekly reports match the platform dashboards"
+      },
+      {
+        "phase": "3. Small tests",
+        "who": "Claude drafts, owner publishes",
+        "what": "2–3 channels, the same budget each, a fixed window (for example 14 days). Copy goes through the checker, then the owner reviews it and publishes in the platform UI.",
+        "doneWhen": "Each channel has a cost per activated learner"
+      },
+      {
+        "phase": "4. Scale or stop",
+        "who": "Owner",
+        "what": "Keep the channels under the owner's target cost per activated learner and stop the rest. Only then consider letting Claude make paused drafts through a write-enabled login.",
+        "doneWhen": "A written decision"
+      }
+    ],
+    "decisions": [
+      {
+        "done": false,
+        "text": "Test budget per channel and total cap. No figure is written anywhere in this repo on purpose."
+      },
+      {
+        "done": false,
+        "text": "The first 2–3 channels."
+      },
+      {
+        "done": false,
+        "text": "Approval of the phase 1 UTM-capture PRs in FlyGACA and Captain-Adel."
+      },
+      {
+        "done": false,
+        "text": "Confirmed prices, before any ad for a paid plan."
+      },
+      {
+        "done": false,
+        "text": "A PDPL review (ksa-compliance / privacy-dpia) before any pixel, Conversions API or customer-list upload."
+      },
+      {
+        "done": false,
+        "text": "Influencer or creator ads, if wanted: check Saudi media-licensing rules with counsel first."
+      }
+    ],
+    "open": [
+      "ads/platform-limits.json is written from general knowledge (verified: false). Check each platform's docs.",
+      "Connector facts for Meta, TikTok and Snapchat come from third-party guides. Meta's own docs page returned 404 on 2026-11-11.",
+      "The hook is tested end-to-end against a fake connector, not yet against a real one. Confirm its decisions the first time each real connector is used.",
+      "The installer is tested in throwaway directories, not yet in a fresh cloud session."
+    ]
+  }
+}

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ads · الإعلانات — Scout</title>
+<meta name="description" content="Approved facts status, platform limits and ad copy checker results.">
+<link rel="icon" href="ufuq/scout-mark.svg">
+<link rel="stylesheet" href="ufuq/ufuq.css">
+<link rel="stylesheet" href="ufuq/ufuq.components.css">
+<link rel="stylesheet" href="site.css">
+<script src="ufuq/ufuq.shell.js"></script>
+<script src="scout.js" defer></script>
+</head>
+<body class="page">
+<header class="ufuq-shell">
+  <a class="ufuq-shell__brand" href="index.html"><img class="on-night" src="ufuq/scout-mark.svg" alt="" width="32" height="32"><img class="on-day" src="ufuq/scout-mark-ink.svg" alt="" width="32" height="32"><span class="ufuq-en">Scout</span><span class="ufuq-ar" lang="ar">الكشّاف</span></a>
+  <nav class="ufuq-shell__nav" aria-label="Pages" data-label-en="Pages" data-label-ar="الصفحات"><a href="index.html"><span class="ufuq-en">Overview</span><span class="ufuq-ar" lang="ar">نظرة عامة</span></a><a href="ads.html" aria-current="page"><span class="ufuq-en">Ads</span><span class="ufuq-ar" lang="ar">الإعلانات</span></a><a href="gate.html"><span class="ufuq-en">Content gate</span><span class="ufuq-ar" lang="ar">بوابة المحتوى</span></a><a href="schedule.html"><span class="ufuq-en">Schedule and plan</span><span class="ufuq-ar" lang="ar">الجدولة والخطة</span></a></nav>
+  <div class="ufuq-shell__tools">
+    <span class="ufuq-shell__who" data-shell-who hidden></span>
+    <a class="ufuq-shell__tool" data-shell-out hidden><span class="ufuq-en">Sign out</span><span class="ufuq-ar" lang="ar">خروج</span></a>
+    <button type="button" class="ufuq-shell__tool" data-shell-theme aria-pressed="false"><span class="ufuq-en">Day / Night</span><span class="ufuq-ar" lang="ar">نهاري / ليلي</span></button>
+    <button type="button" class="ufuq-shell__tool" data-shell-lang><span class="ufuq-en" lang="ar">العربية</span><span class="ufuq-ar" lang="en">English</span></button>
+  </div>
+</header>
+<main class="ufuq-container wrap">
+<section aria-labelledby="t">
+  <p class="ufuq-eyebrow"><span class="ufuq-en">Ads guardrails</span><span class="ufuq-ar" lang="ar">حواجز الإعلانات</span></p>
+  <h1 id="t"><span class="ufuq-en">Facts, limits and copy status</span><span class="ufuq-ar" lang="ar">الحقائق والحدود وحالة النص</span></h1>
+  <p class="ufuq-label built"><span class="ufuq-en">Checker results captured <bdi dir="ltr">2026-11-17</bdi></span><span class="ufuq-ar" lang="ar">نتائج الفحص التُقطت بتاريخ <bdi dir="ltr">2026-11-17</bdi></span></p>
+</section>
+<section id="facts" aria-labelledby="f">
+  <h2 id="f"><span class="ufuq-en">Approved facts</span><span class="ufuq-ar" lang="ar">الحقائق المعتمدة</span></h2>
+  <div class="ufuq-callout ufuq-callout--important callout-wrap"><p class="ufuq-callout__title"><span class="ufuq-en">The values are deliberately not shown</span><span class="ufuq-ar" lang="ar">القيم غير معروضة عمدًا</span></p><p><span class="ufuq-en">The file holds the owner's prices, offers and domains. Only the owner changes it, and this site shows its shape only: which keys exist and how many entries each holds. The owner may decide later to show more.</span><span class="ufuq-ar" lang="ar">يحوي الملف أسعار المالك وعروضه ونطاقاته. المالك وحده يغيّره، ويعرض هذا الموقع شكله فقط: المفاتيح الموجودة وعدد المدخلات في كل منها. وللمالك أن يقرر لاحقًا عرض المزيد.</span></p></div>
+  <p><span class="ufuq-en">4 top-level keys (name · kind · entries):</span><span class="ufuq-ar" lang="ar">4 مفاتيح رئيسية (الاسم · النوع · عدد المدخلات):</span></p>
+  <ul class="keys"><li>offers · object · 2</li><li>prices · list · 0</li><li>landing_domains · list · 2</li><li>disclaimers · object · 2</li></ul>
+  <p class="src"><span class="ufuq-en">Read from</span><span class="ufuq-ar" lang="ar">مقروء من</span> <code class="mono ltr">ads/approved-facts.json</code></p>
+</section>
+<section id="limits" aria-labelledby="l">
+  <h2 id="l"><span class="ufuq-en">Platform limits</span><span class="ufuq-ar" lang="ar">حدود المنصات</span></h2>
+  <p class="panel-note"><span class="ufuq-en">One row per platform and field. A limit counts as verified only when the file says so and names the platform's own documentation as its source. Anything else is shown as not verified; a claim taken from a third-party guide is labelled as third-party.</span><span class="ufuq-ar" lang="ar">صف لكل منصة وحقل. لا يُعدّ الحد موثّقًا إلا إذا نصّ الملف على ذلك وسمّى وثائق المنصة نفسها مصدرًا. وما سوى ذلك يظهر غير موثّق، وما أُخذ من دليل طرف ثالث يُوسم بأنه من طرف ثالث.</span></p>
+  <div class="ufuq-table-wrap table-wrap" tabindex="0" role="region" aria-label="Platform limits" data-label-en="Platform limits" data-label-ar="حدود المنصات"><table class="ufuq-table"><thead><tr><th scope="col"><span class="ufuq-en">Platform</span><span class="ufuq-ar" lang="ar">المنصة</span></th><th scope="col"><span class="ufuq-en">Field</span><span class="ufuq-ar" lang="ar">الحقل</span></th><th scope="col"><span class="ufuq-en">Limit (characters)</span><span class="ufuq-ar" lang="ar">الحد (بالأحرف)</span></th><th scope="col"><span class="ufuq-en">Status</span><span class="ufuq-ar" lang="ar">الحالة</span></th><th scope="col"><span class="ufuq-en">Source</span><span class="ufuq-ar" lang="ar">المصدر</span></th></tr></thead><tbody>
+<tr><td class="ltr">Google Ads, responsive search ad</td><td class="mono ltr">headline</td><td class="mono ltr">max 30</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">Google Ads, responsive search ad</td><td class="mono ltr">description</td><td class="mono ltr">max 90</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">Google Ads, responsive search ad</td><td class="mono ltr">path</td><td class="mono ltr">max 15</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">Microsoft Advertising, responsive search ad</td><td class="mono ltr">headline</td><td class="mono ltr">max 30</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">Microsoft Advertising, responsive search ad</td><td class="mono ltr">description</td><td class="mono ltr">max 90</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">Microsoft Advertising, responsive search ad</td><td class="mono ltr">path</td><td class="mono ltr">max 15</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">Meta (Facebook and Instagram) feed ad</td><td class="mono ltr">primary_text</td><td class="mono ltr">recommended 125</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">Meta (Facebook and Instagram) feed ad</td><td class="mono ltr">headline</td><td class="mono ltr">recommended 40</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">Meta (Facebook and Instagram) feed ad</td><td class="mono ltr">description</td><td class="mono ltr">recommended 30</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">TikTok in-feed ad</td><td class="mono ltr">ad_text</td><td class="mono ltr">max 100</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">TikTok in-feed ad</td><td class="mono ltr">display_name</td><td class="mono ltr">max 40</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">Snapchat single image or video ad</td><td class="mono ltr">headline</td><td class="mono ltr">max 34</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">Snapchat single image or video ad</td><td class="mono ltr">brand_name</td><td class="mono ltr">max 25</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">X promoted post</td><td class="mono ltr">text</td><td class="mono ltr">max 280</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">LinkedIn single image ad</td><td class="mono ltr">intro_text</td><td class="mono ltr">max 600, recommended 150</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+<tr><td class="ltr">LinkedIn single image ad</td><td class="mono ltr">headline</td><td class="mono ltr">max 200, recommended 70</td><td><span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Not verified</span><span class="ufuq-ar" lang="ar">غير موثّق</span></span></td><td class="ltr"><span class="ufuq-en">none</span><span class="ufuq-ar" lang="ar">لا يوجد</span></td></tr>
+</tbody></table></div>
+  <p class="src"><span class="ufuq-en">The file says:</span><span class="ufuq-ar" lang="ar">يقول الملف:</span></p><div class="out" dir="ltr" lang="en"><p>Text limits per ad format, in characters. max = the platform rejects longer text (error); recommended = longer text gets cut off in some placements (warning). verified=false: written from general knowledge on 2026-11-11, not yet checked against each platform's current docs. Check, then set verified=true and add the source URL.</p></div>
+  <p class="src"><span class="ufuq-en">Read from</span><span class="ufuq-ar" lang="ar">مقروء من</span> <code class="mono ltr">ads/platform-limits.json</code></p>
+</section>
+<section id="copy" aria-labelledby="c">
+  <h2 id="c"><span class="ufuq-en">Ad copy status</span><span class="ufuq-ar" lang="ar">حالة نص الإعلان</span></h2>
+  <p class="panel-note"><span class="ufuq-en">The copy checker ran on each file when this site was built. Its output is shown as the tool printed it. A warning does not fail the checker; a person still reviews every file.</span><span class="ufuq-ar" lang="ar">شغّل فاحص النص على كل ملف عند بناء هذا الموقع، وتظهر مخرجاته كما طبعتها الأداة. لا يُفشل التحذير الفاحص، ويراجع شخص كل ملف في النهاية.</span></p>
+  <h3><code class="mono ltr">ads/copy/captain-adel-free-test.json</code> <span class="ufuq-badge ufuq-badge--warning"><span class="ufuq-en">Passes with warnings</span><span class="ufuq-ar" lang="ar">يجتاز مع تحذيرات</span></span></h3>
+<div class="out" dir="ltr" lang="en"><p>warn  captain-adel-free-test.json:snap-ar  no disclaimer in the text; check it is visible in the creative</p></div>
+  <p class="src"><span class="ufuq-en">Read from</span><span class="ufuq-ar" lang="ar">مقروء من</span> <code class="mono ltr">ads/copy/</code> <code class="mono ltr">tools/ad-copy-lint.mjs</code></p>
+</section>
+</main>
+<footer class="ufuq-shell-foot">
+  <a class="ufuq-shell-foot__family" href="https://office.flygaca.com/"><img src="ufuq/flygaca-mark.png" alt="" width="48" height="48"><span class="ufuq-en">Part of Fly GACA</span><span class="ufuq-ar" lang="ar">جزء من فلاي قاكا</span></a>
+  <ul class="ufuq-shell-foot__links">
+    <li><a href="https://airspace.flygaca.com/"><span class="ufuq-en">Airspace</span><span class="ufuq-ar" lang="ar">المجال الجوي</span></a></li>
+    <li><a href="https://c172.flygaca.com/"><span class="ufuq-en">C172 Twin</span><span class="ufuq-ar" lang="ar">توأم سيسنا 172</span></a></li>
+    <li><a href="https://office.flygaca.com/"><span class="ufuq-en">Office</span><span class="ufuq-ar" lang="ar">المكتب</span></a></li>
+    <li><a href="https://prompt.flygaca.com/"><span class="ufuq-en">Prompt Library</span><span class="ufuq-ar" lang="ar">مكتبة الأوامر</span></a></li>
+    <li><a href="https://skill.flygaca.com/"><span class="ufuq-en">Skills</span><span class="ufuq-ar" lang="ar">المهارات</span></a></li>
+  </ul>
+  <p><span class="ufuq-en">Read-only. This site changes no ad account and makes no network call. Built <bdi dir="ltr">2026-11-17</bdi>.</span><span class="ufuq-ar" lang="ar">للقراءة فقط. لا يغيّر هذا الموقع أي حساب إعلاني ولا يجري أي اتصال بالشبكة. بُني بتاريخ <bdi dir="ltr">2026-11-17</bdi>.</span></p>
+  <p lang="en" dir="ltr">Not affiliated with GACA. Always verify against the latest official GACA publication.</p>
+  <p lang="ar" dir="rtl">غير تابعة لـ GACA. تحقّق دائمًا من أحدث منشور رسمي صادر عن GACA.</p>
+</footer>
+</body>
+</html>

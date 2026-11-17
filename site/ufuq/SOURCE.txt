@@ -1,0 +1,7 @@
+Copied from FlyGACA/UFUQ version 0.5.0 on 2026-11-17, from the branch of pull request FlyGACA/UFUQ#10 (not yet merged at copy time). Never edited here: change them in Ufuq and copy them again.
+
+ufuq.css, ufuq.components.css, ufuq.shell.js    from dist/
+scout-mark.svg, scout-mark-ink.svg              from assets/sub-brands/scout/mark.svg and mark-ink.svg
+flygaca-mark.png                                from assets/mark/mark-full-colour.png
+
+The Scout mark is a first draft awaiting the owner's review. The marks are never redrawn, recoloured or stretched. The Scout mark stands alone in the header; the Fly GACA mark leads in the footer.
