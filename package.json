@@ -7,10 +7,10 @@
     "node": ">=20"
   },
   "scripts": {
-    "build": "node tools/build-install.mjs",
+    "build": "node tools/build-install.mjs && node tools/build-site.mjs",
     "lint:copy": "node tools/ad-copy-lint.mjs",
     "gate": "node scripts/gate.mjs",
     "test": "node --test \"test/*.test.mjs\"",
-    "check": "node tools/build-install.mjs --check && node tools/ad-copy-lint.mjs && node scripts/gate.mjs && node --test \"test/*.test.mjs\""
+    "check": "node tools/build-install.mjs --check && node tools/build-site.mjs --check && node tools/ad-copy-lint.mjs && node scripts/gate.mjs && node --test \"test/*.test.mjs\""
   }
 }

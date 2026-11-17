@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · نظرة عامة — Scout</title>
+<meta name="description" content="The state of the Fly GACA ads and content guardrails, read from the repository.">
+<link rel="icon" href="ufuq/scout-mark.svg">
+<link rel="stylesheet" href="ufuq/ufuq.css">
+<link rel="stylesheet" href="ufuq/ufuq.components.css">
+<link rel="stylesheet" href="site.css">
+<script src="ufuq/ufuq.shell.js"></script>
+<script src="scout.js" defer></script>
+</head>
+<body class="page">
+<header class="ufuq-shell">
+  <a class="ufuq-shell__brand" href="index.html"><img class="on-night" src="ufuq/scout-mark.svg" alt="" width="32" height="32"><img class="on-day" src="ufuq/scout-mark-ink.svg" alt="" width="32" height="32"><span class="ufuq-en">Scout</span><span class="ufuq-ar" lang="ar">الكشّاف</span></a>
+  <nav class="ufuq-shell__nav" aria-label="Pages" data-label-en="Pages" data-label-ar="الصفحات"><a href="index.html" aria-current="page"><span class="ufuq-en">Overview</span><span class="ufuq-ar" lang="ar">نظرة عامة</span></a><a href="ads.html"><span class="ufuq-en">Ads</span><span class="ufuq-ar" lang="ar">الإعلانات</span></a><a href="gate.html"><span class="ufuq-en">Content gate</span><span class="ufuq-ar" lang="ar">بوابة المحتوى</span></a><a href="schedule.html"><span class="ufuq-en">Schedule and plan</span><span class="ufuq-ar" lang="ar">الجدولة والخطة</span></a></nav>
+  <div class="ufuq-shell__tools">
+    <span class="ufuq-shell__who" data-shell-who hidden></span>
+    <a class="ufuq-shell__tool" data-shell-out hidden><span class="ufuq-en">Sign out</span><span class="ufuq-ar" lang="ar">خروج</span></a>
+    <button type="button" class="ufuq-shell__tool" data-shell-theme aria-pressed="false"><span class="ufuq-en">Day / Night</span><span class="ufuq-ar" lang="ar">نهاري / ليلي</span></button>
+    <button type="button" class="ufuq-shell__tool" data-shell-lang><span class="ufuq-en" lang="ar">العربية</span><span class="ufuq-ar" lang="en">English</span></button>
+  </div>
+</header>
+<main class="ufuq-container wrap">
+<section class="hero" aria-labelledby="t">
+  <img class="hero-mark on-night" src="ufuq/scout-mark.svg" alt="" width="120" height="120"><img class="hero-mark on-day" src="ufuq/scout-mark-ink.svg" alt="" width="120" height="120">
+  <div>
+    <p class="ufuq-eyebrow"><span class="ufuq-en">Fly GACA Scout</span><span class="ufuq-ar" lang="ar">الكشّاف من فلاي قاكا</span></p>
+    <h1 id="t"><span class="ufuq-en">The guardrails, at a glance</span><span class="ufuq-ar" lang="ar">حواجز الأمان بنظرة واحدة</span></h1>
+    <p class="lead"><span class="ufuq-en">The state of the rules that protect Fly GACA's ads and content: the owner's approved facts, the platform text limits, the ad copy checks, the content gate and the Qoder scheduled tasks.</span><span class="ufuq-ar" lang="ar">حالة القواعد التي تحمي إعلانات فلاي قاكا ومحتواها: الحقائق التي اعتمدها المالك وحدود نصوص المنصات وفحوص نص الإعلان وبوابة المحتوى ومهام Qoder المجدولة.</span></p>
+    <p class="ufuq-label built"><span class="ufuq-en">Checker results captured <bdi dir="ltr">2026-11-17</bdi></span><span class="ufuq-ar" lang="ar">نتائج الفحص التُقطت بتاريخ <bdi dir="ltr">2026-11-17</bdi></span></p>
+    <div class="ufuq-callout ufuq-callout--caution callout-wrap"><p class="ufuq-callout__title"><span class="ufuq-en">Read-only</span><span class="ufuq-ar" lang="ar">للقراءة فقط</span></p><p><span class="ufuq-en">This page connects to no ad account, publishes nothing and makes no network call. Each number names the file it was read from. Only the browser works out the days left on the scheduled tasks.</span><span class="ufuq-ar" lang="ar">لا تتصل هذه الصفحة بأي حساب إعلاني ولا تنشر شيئًا ولا تجري أي اتصال بالشبكة. كل رقم يسمّي الملف الذي قُرئ منه. المتصفح وحده يحسب الأيام المتبقية للمهام المجدولة.</span></p></div>
+  </div>
+</section>
+<section aria-labelledby="s">
+  <h2 id="s"><span class="ufuq-en">State</span><span class="ufuq-ar" lang="ar">الحالة</span></h2>
+  <dl class="stats">
+    <div><dt><span class="ufuq-en">Approved facts (owner)</span><span class="ufuq-ar" lang="ar">الحقائق المعتمدة (المالك)</span></dt><dd><span class="big ufuq-num">4</span> <span class="more"><span class="ufuq-en">top-level keys; values are not shown</span><span class="ufuq-ar" lang="ar">مفاتيح رئيسية؛ القيم غير معروضة</span></span></dd><dd class="src"><a href="ads.html#facts"><span class="ufuq-en">Details</span><span class="ufuq-ar" lang="ar">التفاصيل</span></a> · <code class="mono ltr">ads/approved-facts.json</code></dd></div>
+    <div><dt><span class="ufuq-en">Platform limits verified</span><span class="ufuq-ar" lang="ar">حدود المنصات الموثّقة</span></dt><dd><span class="big ufuq-num">0 / 16</span> <span class="more"><span class="ufuq-en">fields</span><span class="ufuq-ar" lang="ar">حقلًا</span></span></dd><dd class="src"><a href="ads.html#limits"><span class="ufuq-en">Details</span><span class="ufuq-ar" lang="ar">التفاصيل</span></a> · <code class="mono ltr">ads/platform-limits.json</code></dd></div>
+    <div><dt><span class="ufuq-en">Ad copy files without errors</span><span class="ufuq-ar" lang="ar">ملفات نص الإعلان بلا أخطاء</span></dt><dd><span class="big ufuq-num">1 / 1</span> <span class="more"><span class="ufuq-en">1 warning(s)</span><span class="ufuq-ar" lang="ar">1 تحذيرات</span></span></dd><dd class="src"><a href="ads.html#copy"><span class="ufuq-en">Details</span><span class="ufuq-ar" lang="ar">التفاصيل</span></a> · <code class="mono ltr">ads/copy/</code></dd></div>
+    <div><dt><span class="ufuq-en">Content gate</span><span class="ufuq-ar" lang="ar">بوابة المحتوى</span></dt><dd><span class="ufuq-badge ufuq-badge--success"><span class="ufuq-en">No findings</span><span class="ufuq-ar" lang="ar">لا نتائج</span></span> <span class="more ufuq-num">0 / 0</span> <span class="more"><span class="ufuq-en">errors / warnings</span><span class="ufuq-ar" lang="ar">أخطاء / تحذيرات</span></span></dd><dd class="src"><a href="gate.html"><span class="ufuq-en">Details</span><span class="ufuq-ar" lang="ar">التفاصيل</span></a> · <code class="mono ltr">scripts/gate.mjs</code></dd></div>
+    <div><dt><span class="ufuq-en">Soonest Qoder task expiry</span><span class="ufuq-ar" lang="ar">أقرب انتهاء لمهام Qoder</span></dt><dd><span class="big" data-expires="2026-11-22"><span class="ufuq-en">expires <bdi dir="ltr">2026-11-22</bdi></span><span class="ufuq-ar" lang="ar">تنتهي في <bdi dir="ltr">2026-11-22</bdi></span></span> <span data-expires-badge="2026-11-22" class="ufuq-badge ufuq-badge--neutral"><span class="ufuq-en">Check the date</span><span class="ufuq-ar" lang="ar">تحقق من التاريخ</span></span></dd><dd class="src"><a href="schedule.html"><span class="ufuq-en">Details</span><span class="ufuq-ar" lang="ar">التفاصيل</span></a> · <code class="mono ltr">.qoder/scheduled_tasks.json</code></dd></div>
+    <div><dt><span class="ufuq-en">Owner decisions still open</span><span class="ufuq-ar" lang="ar">قرارات المالك المفتوحة</span></dt><dd><span class="big ufuq-num">6 / 6</span></dd><dd class="src"><a href="schedule.html#plan"><span class="ufuq-en">Details</span><span class="ufuq-ar" lang="ar">التفاصيل</span></a> · <code class="mono ltr">PLAN.md</code></dd></div>
+  </dl>
+</section>
+<section aria-labelledby="p">
+  <h2 id="p"><span class="ufuq-en">Pages</span><span class="ufuq-ar" lang="ar">الصفحات</span></h2>
+  <div class="cards">
+    <article class="ufuq-card ufuq-card--interactive"><h3 class="ufuq-card__title"><span class="ufuq-en">Ads</span><span class="ufuq-ar" lang="ar">الإعلانات</span></h3><p class="ufuq-card__body"><span class="ufuq-en">Approved facts (status only), platform text limits and the copy checker's result for each file.</span><span class="ufuq-ar" lang="ar">الحقائق المعتمدة (الحالة فقط) وحدود نصوص المنصات ونتيجة فاحص النص لكل ملف.</span></p><div class="ufuq-card__actions"><a class="ufuq-btn ufuq-btn--primary" href="ads.html"><span class="ufuq-en">Open ads</span><span class="ufuq-ar" lang="ar">افتح الإعلانات</span></a></div></article>
+    <article class="ufuq-card ufuq-card--interactive"><h3 class="ufuq-card__title"><span class="ufuq-en">Content gate</span><span class="ufuq-ar" lang="ar">بوابة المحتوى</span></h3><p class="ufuq-card__body"><span class="ufuq-en">Which checks the gate runs, and what it found in the Markdown.</span><span class="ufuq-ar" lang="ar">الفحوص التي تجريها البوابة وما وجدته في ملفات Markdown.</span></p><div class="ufuq-card__actions"><a class="ufuq-btn ufuq-btn--secondary" href="gate.html"><span class="ufuq-en">Open the gate</span><span class="ufuq-ar" lang="ar">افتح البوابة</span></a></div></article>
+    <article class="ufuq-card ufuq-card--interactive"><h3 class="ufuq-card__title"><span class="ufuq-en">Schedule and plan</span><span class="ufuq-ar" lang="ar">الجدولة والخطة</span></h3><p class="ufuq-card__body"><span class="ufuq-en">The Qoder scheduled tasks with the days left, and the plan's phases as PLAN.md states them.</span><span class="ufuq-ar" lang="ar">مهام Qoder المجدولة مع الأيام المتبقية، ومراحل الخطة كما يذكرها PLAN.md.</span></p><div class="ufuq-card__actions"><a class="ufuq-btn ufuq-btn--secondary" href="schedule.html"><span class="ufuq-en">Open the schedule</span><span class="ufuq-ar" lang="ar">افتح الجدولة</span></a></div></article>
+  </div>
+</section>
+</main>
+<footer class="ufuq-shell-foot">
+  <a class="ufuq-shell-foot__family" href="https://office.flygaca.com/"><img src="ufuq/flygaca-mark.png" alt="" width="48" height="48"><span class="ufuq-en">Part of Fly GACA</span><span class="ufuq-ar" lang="ar">جزء من فلاي قاكا</span></a>
+  <ul class="ufuq-shell-foot__links">
+    <li><a href="https://airspace.flygaca.com/"><span class="ufuq-en">Airspace</span><span class="ufuq-ar" lang="ar">المجال الجوي</span></a></li>
+    <li><a href="https://c172.flygaca.com/"><span class="ufuq-en">C172 Twin</span><span class="ufuq-ar" lang="ar">توأم سيسنا 172</span></a></li>
+    <li><a href="https://office.flygaca.com/"><span class="ufuq-en">Office</span><span class="ufuq-ar" lang="ar">المكتب</span></a></li>
+    <li><a href="https://prompt.flygaca.com/"><span class="ufuq-en">Prompt Library</span><span class="ufuq-ar" lang="ar">مكتبة الأوامر</span></a></li>
+    <li><a href="https://skill.flygaca.com/"><span class="ufuq-en">Skills</span><span class="ufuq-ar" lang="ar">المهارات</span></a></li>
+  </ul>
+  <p><span class="ufuq-en">Read-only. This site changes no ad account and makes no network call. Built <bdi dir="ltr">2026-11-17</bdi>.</span><span class="ufuq-ar" lang="ar">للقراءة فقط. لا يغيّر هذا الموقع أي حساب إعلاني ولا يجري أي اتصال بالشبكة. بُني بتاريخ <bdi dir="ltr">2026-11-17</bdi>.</span></p>
+  <p lang="en" dir="ltr">Not affiliated with GACA. Always verify against the latest official GACA publication.</p>
+  <p lang="ar" dir="rtl">غير تابعة لـ GACA. تحقّق دائمًا من أحدث منشور رسمي صادر عن GACA.</p>
+</footer>
+</body>
+</html>

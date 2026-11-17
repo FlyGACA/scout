@@ -1,0 +1,1531 @@
+/* Ufuq (أفق) 0.5.0: components. Needs dist/ufuq.css.
+   Generated from components/*.css by `npm run build`. Do not edit by hand.
+
+   Everything sits in cascade layers, so any rule you write outside a layer wins
+   without a specificity contest. */
+@layer ufuq.base, ufuq.components, ufuq.utilities;
+
+/* Base: the page ground, type, focus and selection. Every selector is wrapped
+   in :where(), so it has no specificity and any rule of yours wins. */
+@layer ufuq.base {
+  :where(html) {
+    background-color: var(--ufuq-bg);
+    color: var(--ufuq-text);
+    font-family: var(--ufuq-font-body);
+    font-size: var(--ufuq-fs-base);
+    line-height: var(--ufuq-lh-body);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* A themed region repaints itself: colour is inherited as a value, not as a
+     reference, so it has to be read again where the theme changes. */
+  :where([data-theme]) {
+    background-color: var(--ufuq-bg);
+    color: var(--ufuq-text);
+  }
+
+  :where(body) {
+    margin: 0;
+  }
+
+  :where(h1, h2, h3, h4) {
+    font-family: var(--ufuq-font-display);
+    line-height: var(--ufuq-lh-tight);
+    letter-spacing: var(--ufuq-tracking-heading);
+    text-wrap: balance;
+  }
+
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: var(--ufuq-focus-ring-width) solid var(--ufuq-focus);
+    outline-offset: var(--ufuq-focus-ring-offset);
+    box-shadow: 0 0 0 var(--ufuq-focus-halo-width) var(--ufuq-focus-halo);
+  }
+
+  /* Arabic is never letter-spaced. The tracking tokens are already zero in
+     Arabic; this also covers an Arabic phrase inside tracked Latin text, which
+     would otherwise inherit the spacing as a length. */
+  :where(:lang(ar)) {
+    letter-spacing: 0;
+  }
+
+  ::selection {
+    background-color: var(--ufuq-brand);
+    color: var(--ufuq-on-brand);
+  }
+}
+
+/* Button. Teal is the only filled action colour, so there is one filled
+   variant. Every button is at least the minimum touch target in both
+   directions. */
+@layer ufuq.components {
+  .ufuq-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ufuq-space-2);
+    min-block-size: var(--ufuq-control-min-size);
+    min-inline-size: var(--ufuq-control-min-size);
+    padding: var(--ufuq-space-2) var(--ufuq-space-5);
+    border: 1px solid transparent;
+    border-radius: var(--ufuq-radius-pill);
+    background-color: transparent;
+    color: var(--ufuq-text);
+    font: inherit;
+    font-size: var(--ufuq-fs-sm);
+    font-weight: var(--ufuq-fw-semibold);
+    line-height: var(--ufuq-lh-tight);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color var(--ufuq-dur) var(--ufuq-ease),
+      border-color var(--ufuq-dur) var(--ufuq-ease),
+      color var(--ufuq-dur) var(--ufuq-ease),
+      box-shadow var(--ufuq-dur) var(--ufuq-ease),
+      transform var(--ufuq-dur-fast) var(--ufuq-ease-glide);
+  }
+  .ufuq-btn:active {
+    transform: scale(var(--ufuq-control-press-scale));
+  }
+  .ufuq-btn:disabled,
+  .ufuq-btn[aria-disabled='true'] {
+    opacity: var(--ufuq-control-disabled-opacity);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .ufuq-btn--primary {
+    background-color: var(--ufuq-brand);
+    color: var(--ufuq-on-brand);
+  }
+  .ufuq-btn--primary:hover {
+    background-color: var(--ufuq-brand-hover);
+    box-shadow: var(--ufuq-elev-2);
+  }
+
+  /* Outline that fills on hover. */
+  .ufuq-btn--secondary {
+    border-color: var(--ufuq-brand);
+    color: var(--ufuq-link);
+  }
+  .ufuq-btn--secondary:hover {
+    background-color: var(--ufuq-brand);
+    color: var(--ufuq-on-brand);
+  }
+
+  .ufuq-btn--quiet {
+    border-color: var(--ufuq-border-input);
+  }
+  .ufuq-btn--quiet:hover {
+    background-color: var(--ufuq-brand-tint);
+    border-color: var(--ufuq-link);
+  }
+
+  .ufuq-btn--block {
+    inline-size: 100%;
+  }
+
+  /* A button that holds only an icon. Give it an aria-label. */
+  .ufuq-btn--icon {
+    padding: 0;
+    inline-size: var(--ufuq-control-min-size);
+  }
+
+  /* aria-busy="true" shows a spinner in place of the label's leading space. */
+  .ufuq-btn[aria-busy='true']::before {
+    content: '';
+    inline-size: 1em;
+    block-size: 1em;
+    border: 2px solid currentColor;
+    border-block-start-color: transparent;
+    border-radius: var(--ufuq-radius-pill);
+    animation: ufuq-spin 0.8s linear infinite;
+  }
+  @keyframes ufuq-spin {
+    to {
+      rotate: 1turn;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ufuq-btn[aria-busy='true']::before {
+      animation: none;
+    }
+  }
+}
+
+/* Link. Links use the link role, never the brand fill, which is too low in
+   contrast as text on Night. The underline stays: colour alone does not mark a link. */
+@layer ufuq.components {
+  .ufuq-link {
+    color: var(--ufuq-link);
+    text-decoration-line: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-thickness var(--ufuq-dur) var(--ufuq-ease);
+  }
+  .ufuq-link:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* Card. The surface a group of content sits on. */
+@layer ufuq.components {
+  .ufuq-card {
+    padding: var(--ufuq-space-5);
+    background-color: var(--ufuq-surface);
+    border: 1px solid var(--ufuq-border);
+    border-radius: var(--ufuq-radius-lg);
+    box-shadow: var(--ufuq-elev-1);
+    color: var(--ufuq-text);
+  }
+  .ufuq-card--raised {
+    background-color: var(--ufuq-surface-raised);
+    border-color: var(--ufuq-border-strong);
+    box-shadow: var(--ufuq-elev-2);
+  }
+
+  /* A card that is itself a link or a button. */
+  .ufuq-card--interactive {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      border-color var(--ufuq-dur) var(--ufuq-ease),
+      box-shadow var(--ufuq-dur) var(--ufuq-ease),
+      translate var(--ufuq-dur) var(--ufuq-ease-entry);
+  }
+  .ufuq-card--interactive:hover {
+    border-color: var(--ufuq-border-input);
+    box-shadow: var(--ufuq-elev-3);
+    translate: 0 var(--ufuq-control-hover-raise);
+  }
+
+  /* Anything Captain Adel produced. */
+  .ufuq-card--adel {
+    border-inline-start: 3px solid var(--ufuq-adel);
+  }
+
+  .ufuq-card__title {
+    margin: 0;
+    font-family: var(--ufuq-font-display);
+    font-size: var(--ufuq-fs-h3);
+    font-weight: var(--ufuq-fw-semibold);
+    line-height: var(--ufuq-lh-snug);
+    letter-spacing: var(--ufuq-tracking-heading);
+  }
+  .ufuq-card__body {
+    margin-block: var(--ufuq-space-2) 0;
+    color: var(--ufuq-text-muted);
+  }
+  .ufuq-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ufuq-space-2);
+    margin-block-start: var(--ufuq-space-4);
+  }
+}
+
+/* Eyebrow and label. The small line above a heading, and the instrument-style
+   label for codes and metadata. Uppercase and tracking apply to Latin only:
+   Arabic has no capitals and is never letter-spaced. */
+@layer ufuq.components {
+  .ufuq-eyebrow,
+  .ufuq-label {
+    margin: 0;
+    font-family: var(--ufuq-font-mono);
+    font-size: var(--ufuq-fs-xs);
+    font-weight: var(--ufuq-fw-medium);
+    line-height: var(--ufuq-lh-snug);
+    text-transform: uppercase;
+  }
+  .ufuq-eyebrow {
+    color: var(--ufuq-heritage);
+    letter-spacing: var(--ufuq-tracking-eyebrow);
+  }
+  .ufuq-label {
+    color: var(--ufuq-text-muted);
+    letter-spacing: var(--ufuq-tracking-caps);
+  }
+  /* Arabic text is set in the body family: a monospace fallback can break its joins. */
+  .ufuq-eyebrow:lang(ar),
+  .ufuq-label:lang(ar) {
+    font-family: var(--ufuq-font-body);
+  }
+  .ufuq-eyebrow--adel {
+    color: var(--ufuq-adel);
+  }
+}
+
+/* Badge. A short status. The state is carried by the words; the dot and the
+   tinted ground support them. Text on a tinted ground is always the primary
+   text colour, because a status colour on its own tint can fall below 4.5:1. */
+@layer ufuq.components {
+  .ufuq-badge {
+    --_tone: var(--ufuq-text-dim);
+    --_ground: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ufuq-space-2);
+    padding: var(--ufuq-space-1) var(--ufuq-space-3);
+    background-color: var(--_ground);
+    border: 1px solid var(--ufuq-border-strong);
+    border-radius: var(--ufuq-radius-pill);
+    color: var(--ufuq-text);
+    font-size: var(--ufuq-fs-sm);
+    font-weight: var(--ufuq-fw-medium);
+    line-height: var(--ufuq-lh-snug);
+    white-space: nowrap;
+  }
+  .ufuq-badge::before {
+    content: '';
+    flex: none;
+    inline-size: 0.5em;
+    block-size: 0.5em;
+    background-color: var(--_tone);
+    border-radius: var(--ufuq-radius-pill);
+  }
+  .ufuq-badge--brand {
+    --_tone: var(--ufuq-link);
+    --_ground: var(--ufuq-brand-tint);
+  }
+  .ufuq-badge--success {
+    --_tone: var(--ufuq-success);
+    --_ground: var(--ufuq-success-tint);
+  }
+  .ufuq-badge--warning {
+    --_tone: var(--ufuq-warning);
+    --_ground: var(--ufuq-warning-tint);
+  }
+  .ufuq-badge--caution {
+    --_tone: var(--ufuq-caution);
+    --_ground: var(--ufuq-caution-tint);
+  }
+  .ufuq-badge--danger {
+    --_tone: var(--ufuq-danger);
+    --_ground: var(--ufuq-danger-tint);
+  }
+  .ufuq-badge--adel {
+    --_tone: var(--ufuq-adel);
+    --_ground: var(--ufuq-adel-tint);
+  }
+  .ufuq-badge:not(.ufuq-badge--neutral)[class*='ufuq-badge--'] {
+    border-color: transparent;
+  }
+
+  @media (forced-colors: active) {
+    .ufuq-badge,
+    .ufuq-badge:not(.ufuq-badge--neutral)[class*='ufuq-badge--'] {
+      border-color: CanvasText;
+    }
+    .ufuq-badge::before {
+      background-color: CanvasText;
+    }
+  }
+}
+
+/* Citation. The regulation reference Captain Adel attaches to an answer.
+   Codes stay in Latin script and read left to right, also inside Arabic. */
+@layer ufuq.components {
+  .ufuq-cite {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ufuq-space-1);
+    padding: var(--ufuq-space-1) var(--ufuq-space-3);
+    border: 1px solid var(--ufuq-adel);
+    border-radius: var(--ufuq-radius-pill);
+    color: var(--ufuq-adel);
+    font-family: var(--ufuq-font-mono);
+    font-size: var(--ufuq-fs-xs);
+    font-weight: var(--ufuq-fw-medium);
+    line-height: var(--ufuq-lh-snug);
+    text-decoration: none;
+    white-space: nowrap;
+    direction: ltr;
+    unicode-bidi: isolate;
+    transition: background-color var(--ufuq-dur) var(--ufuq-ease);
+  }
+  a.ufuq-cite:hover {
+    background-color: var(--ufuq-adel-tint);
+  }
+}
+
+/* Callout. A note set apart from the text around it. The kinds match the
+   admonitions of the printed documents: note, tip, important, warning, caution. */
+@layer ufuq.components {
+  .ufuq-callout {
+    --_tone: var(--ufuq-link);
+    --_ground: var(--ufuq-brand-tint);
+    --_rule: 3px;
+    padding: var(--ufuq-space-4) var(--ufuq-space-5);
+    background-color: var(--_ground);
+    border-inline-start: var(--_rule) solid var(--_tone);
+    border-radius: var(--ufuq-radius-md);
+    color: var(--ufuq-text);
+  }
+  .ufuq-callout--tip {
+    --_tone: var(--ufuq-adel);
+    --_ground: var(--ufuq-adel-tint);
+  }
+  /* Important is the same teal as a note with a heavier rule: the palette has
+     no further alert colour to spend on it. */
+  .ufuq-callout--important {
+    --_rule: 6px;
+  }
+  .ufuq-callout--warning {
+    --_tone: var(--ufuq-warning);
+    --_ground: var(--ufuq-warning-tint);
+  }
+  .ufuq-callout--caution {
+    --_tone: var(--ufuq-caution);
+    --_ground: var(--ufuq-caution-tint);
+  }
+  .ufuq-callout--danger {
+    --_tone: var(--ufuq-danger);
+    --_ground: var(--ufuq-danger-tint);
+  }
+  .ufuq-callout__title {
+    margin: 0 0 var(--ufuq-space-1);
+    font-weight: var(--ufuq-fw-bold);
+  }
+  .ufuq-callout > :last-child {
+    margin-block-end: 0;
+  }
+  .ufuq-callout > p {
+    margin-block: 0 var(--ufuq-space-2);
+  }
+
+  @media (forced-colors: active) {
+    .ufuq-callout {
+      border: 1px solid CanvasText;
+      border-inline-start-width: var(--_rule);
+    }
+  }
+}
+
+/* Field. A label, a control, and the help or error text beneath it. Controls
+   take the input outline, which clears 3:1 on every surface: the canvas, the
+   alternate band, a card and a raised card. */
+@layer ufuq.components {
+  .ufuq-field {
+    display: grid;
+    gap: var(--ufuq-space-1);
+  }
+  .ufuq-field__label {
+    color: var(--ufuq-text);
+    font-size: var(--ufuq-fs-sm);
+    font-weight: var(--ufuq-fw-medium);
+  }
+  .ufuq-field__help,
+  .ufuq-field__error {
+    margin: 0;
+    font-size: var(--ufuq-fs-sm);
+  }
+  .ufuq-field__help {
+    color: var(--ufuq-text-muted);
+  }
+  .ufuq-field__error {
+    color: var(--ufuq-danger);
+    font-weight: var(--ufuq-fw-medium);
+  }
+
+  .ufuq-input,
+  .ufuq-select,
+  .ufuq-textarea {
+    inline-size: 100%;
+    min-block-size: var(--ufuq-control-min-size);
+    padding: var(--ufuq-space-2) var(--ufuq-space-3);
+    background-color: var(--ufuq-bg);
+    border: 1px solid var(--ufuq-border-input);
+    border-radius: var(--ufuq-radius-md);
+    color: var(--ufuq-text);
+    font: inherit;
+    transition:
+      border-color var(--ufuq-dur) var(--ufuq-ease),
+      box-shadow var(--ufuq-dur) var(--ufuq-ease);
+  }
+  .ufuq-textarea {
+    min-block-size: calc(var(--ufuq-control-min-size) * 2);
+    resize: block;
+  }
+  .ufuq-input::placeholder,
+  .ufuq-textarea::placeholder {
+    color: var(--ufuq-text-dim);
+    opacity: 1;
+  }
+  .ufuq-input:hover,
+  .ufuq-select:hover,
+  .ufuq-textarea:hover {
+    border-color: var(--ufuq-text-muted);
+  }
+  .ufuq-input:focus-visible,
+  .ufuq-select:focus-visible,
+  .ufuq-textarea:focus-visible {
+    border-color: var(--ufuq-focus);
+    outline: var(--ufuq-focus-ring-width) solid var(--ufuq-focus);
+    outline-offset: 0;
+    box-shadow: 0 0 0 var(--ufuq-focus-halo-width) var(--ufuq-focus-halo);
+  }
+  /* An invalid control gets a heavier edge in the danger role, a change of shape as well as of
+     colour. It keeps its plain ground: placeholder text on a tint falls below 4.5:1. */
+  .ufuq-input[aria-invalid='true'],
+  .ufuq-select[aria-invalid='true'],
+  .ufuq-textarea[aria-invalid='true'] {
+    border-color: var(--ufuq-danger);
+    box-shadow: inset 0 0 0 1px var(--ufuq-danger);
+  }
+  .ufuq-input:disabled,
+  .ufuq-select:disabled,
+  .ufuq-textarea:disabled {
+    opacity: var(--ufuq-control-disabled-opacity);
+    cursor: not-allowed;
+  }
+}
+
+/* Checkbox, radio and switch. Native controls, so they keep their keyboard
+   and screen-reader behaviour; the row is a full touch target. */
+@layer ufuq.components {
+  .ufuq-choice {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ufuq-space-3);
+    min-block-size: var(--ufuq-control-min-size);
+    color: var(--ufuq-text);
+    cursor: pointer;
+  }
+  .ufuq-choice > input[type='checkbox']:not(.ufuq-switch),
+  .ufuq-choice > input[type='radio'] {
+    flex: none;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    margin: 0;
+    accent-color: var(--ufuq-brand);
+  }
+
+  /* <input type="checkbox" role="switch" class="ufuq-switch"> */
+  .ufuq-switch {
+    appearance: none;
+    position: relative;
+    flex: none;
+    inline-size: 2.75rem;
+    block-size: 1.5rem;
+    margin: 0;
+    background-color: transparent;
+    border: 1px solid var(--ufuq-border-input);
+    border-radius: var(--ufuq-radius-pill);
+    cursor: pointer;
+    transition:
+      background-color var(--ufuq-dur) var(--ufuq-ease),
+      border-color var(--ufuq-dur) var(--ufuq-ease);
+  }
+  .ufuq-switch::before {
+    content: '';
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 0.1875rem;
+    inline-size: 1rem;
+    block-size: 1rem;
+    background-color: var(--ufuq-text-muted);
+    border-radius: var(--ufuq-radius-pill);
+    translate: 0 -50%;
+    transition:
+      inset-inline-start var(--ufuq-dur) var(--ufuq-ease-glide),
+      background-color var(--ufuq-dur) var(--ufuq-ease);
+  }
+  .ufuq-switch:checked {
+    background-color: var(--ufuq-brand);
+    border-color: var(--ufuq-brand);
+  }
+  .ufuq-switch:checked::before {
+    inset-inline-start: calc(100% - 1.1875rem);
+    background-color: var(--ufuq-on-brand);
+  }
+  .ufuq-choice > input:disabled {
+    opacity: var(--ufuq-control-disabled-opacity);
+    cursor: not-allowed;
+  }
+
+  @media (forced-colors: active) {
+    .ufuq-switch::before {
+      background-color: ButtonText;
+    }
+    .ufuq-switch:checked {
+      background-color: Highlight;
+      border-color: Highlight;
+    }
+    .ufuq-switch:checked::before {
+      background-color: HighlightText;
+    }
+  }
+}
+
+/* Answer option. One choice in a quiz or a mock exam. The chosen option is
+   marked by a border and a tint; a marked option also says "Correct" or
+   "Incorrect" in words, so the result never rests on colour. */
+@layer ufuq.components {
+  .ufuq-option {
+    --_edge: var(--ufuq-border-input);
+    --_ground: transparent;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--ufuq-space-3);
+    min-block-size: var(--ufuq-control-min-size);
+    padding: var(--ufuq-space-3) var(--ufuq-space-4);
+    background-color: var(--_ground);
+    border: 1px solid var(--_edge);
+    border-radius: var(--ufuq-radius-md);
+    color: var(--ufuq-text);
+    cursor: pointer;
+    transition:
+      background-color var(--ufuq-dur) var(--ufuq-ease),
+      border-color var(--ufuq-dur) var(--ufuq-ease);
+  }
+  .ufuq-option:hover {
+    --_edge: var(--ufuq-text-muted);
+  }
+  .ufuq-option > input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .ufuq-option__key {
+    display: grid;
+    place-items: center;
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    border: 1px solid var(--_edge);
+    border-radius: var(--ufuq-radius-pill);
+    font-family: var(--ufuq-font-mono);
+    font-size: var(--ufuq-fs-xs);
+    font-weight: var(--ufuq-fw-semibold);
+  }
+  .ufuq-option__state {
+    font-size: var(--ufuq-fs-sm);
+    font-weight: var(--ufuq-fw-semibold);
+  }
+  /* Chosen and not yet marked. Once an option carries a result, the result decides how it looks. */
+  .ufuq-option:has(input:checked):not([data-state]) {
+    --_edge: var(--ufuq-link);
+    --_ground: var(--ufuq-brand-tint);
+  }
+  .ufuq-option:has(input:focus-visible) {
+    outline: var(--ufuq-focus-ring-width) solid var(--ufuq-focus);
+    outline-offset: var(--ufuq-focus-ring-offset);
+    box-shadow: 0 0 0 var(--ufuq-focus-halo-width) var(--ufuq-focus-halo);
+  }
+  .ufuq-option[data-state='correct'] {
+    --_edge: var(--ufuq-success);
+    --_ground: var(--ufuq-success-tint);
+  }
+  .ufuq-option[data-state='incorrect'] {
+    --_edge: var(--ufuq-danger);
+    --_ground: var(--ufuq-danger-tint);
+  }
+  .ufuq-option[data-state] {
+    cursor: default;
+  }
+  .ufuq-option:has(input:checked) .ufuq-option__key,
+  .ufuq-option[data-state] .ufuq-option__key {
+    border-width: 2px;
+  }
+
+  /* Forced colours drop the tint and repaint every border alike, so the chosen
+     option gets a second line and a marked one a heavier edge. */
+  @media (forced-colors: active) {
+    .ufuq-option:has(input:checked) {
+      outline: 2px solid Highlight;
+      outline-offset: -4px;
+    }
+    .ufuq-option[data-state] {
+      border-width: 3px;
+    }
+  }
+}
+
+/* Segmented control and tabs. One choice of a few is on, and takes the brand
+   fill. As a group of toggle buttons: role="group" and aria-pressed. As tabs
+   that switch panels: role="tablist", role="tab" and aria-selected, with a
+   panel for each and arrow keys, which need a script of yours. */
+@layer ufuq.components {
+  .ufuq-tabs {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--ufuq-space-1);
+    padding: var(--ufuq-space-1);
+    background-color: var(--ufuq-surface);
+    border: 1px solid var(--ufuq-border-strong);
+    border-radius: var(--ufuq-radius-pill);
+  }
+  .ufuq-tab {
+    min-block-size: var(--ufuq-control-min-size);
+    padding: var(--ufuq-space-2) var(--ufuq-space-4);
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--ufuq-radius-pill);
+    color: var(--ufuq-text-muted);
+    font: inherit;
+    font-size: var(--ufuq-fs-sm);
+    font-weight: var(--ufuq-fw-semibold);
+    cursor: pointer;
+    transition:
+      background-color var(--ufuq-dur) var(--ufuq-ease),
+      color var(--ufuq-dur) var(--ufuq-ease);
+  }
+  .ufuq-tab:hover {
+    background-color: var(--ufuq-brand-tint);
+    color: var(--ufuq-text);
+  }
+  .ufuq-tab[aria-selected='true'],
+  .ufuq-tab[aria-pressed='true'] {
+    background-color: var(--ufuq-brand);
+    color: var(--ufuq-on-brand);
+  }
+
+  @media (forced-colors: active) {
+    .ufuq-tab[aria-selected='true'],
+    .ufuq-tab[aria-pressed='true'] {
+      border-color: Highlight;
+    }
+  }
+}
+
+/* Table. Put it inside .ufuq-table-wrap with tabindex="0" so a wide table
+   scrolls by itself and can be scrolled from the keyboard. */
+@layer ufuq.components {
+  .ufuq-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--ufuq-border);
+    border-radius: var(--ufuq-radius-lg);
+  }
+  .ufuq-table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    color: var(--ufuq-text);
+    font-size: var(--ufuq-fs-sm);
+    line-height: var(--ufuq-lh-snug);
+  }
+  .ufuq-table th,
+  .ufuq-table td {
+    padding: var(--ufuq-space-3) var(--ufuq-space-4);
+    border-block-end: 1px solid var(--ufuq-border);
+    text-align: start;
+    vertical-align: top;
+  }
+  .ufuq-table thead th {
+    background-color: var(--ufuq-surface);
+    color: var(--ufuq-text-muted);
+    font-family: var(--ufuq-font-mono);
+    font-size: var(--ufuq-fs-xs);
+    font-weight: var(--ufuq-fw-medium);
+    letter-spacing: var(--ufuq-tracking-caps);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .ufuq-table thead th:lang(ar) {
+    font-family: var(--ufuq-font-body);
+  }
+  .ufuq-table tbody tr:last-child > * {
+    border-block-end: 0;
+  }
+  .ufuq-table tbody tr:hover {
+    background-color: var(--ufuq-brand-tint);
+  }
+  /* Numbers line up on the trailing edge, in both directions of reading. */
+  .ufuq-table .ufuq-table__num {
+    font-family: var(--ufuq-font-mono);
+    font-variant-numeric: tabular-nums;
+    text-align: end;
+    white-space: nowrap;
+  }
+}
+
+/* Progress. A native <progress>, so its value is announced. The bar uses the
+   link role: brand teal on the track is below 3:1 on Night. */
+@layer ufuq.components {
+  .ufuq-progress {
+    appearance: none;
+    display: block;
+    inline-size: 100%;
+    block-size: 0.5rem;
+    overflow: hidden;
+    background-color: var(--ufuq-border);
+    border: 0;
+    border-radius: var(--ufuq-radius-pill);
+    color: var(--ufuq-link);
+  }
+  .ufuq-progress::-webkit-progress-bar {
+    background-color: var(--ufuq-border);
+  }
+  .ufuq-progress::-webkit-progress-value {
+    background-color: var(--ufuq-link);
+    border-radius: var(--ufuq-radius-pill);
+    transition: inline-size var(--ufuq-dur-slow) var(--ufuq-ease);
+  }
+  .ufuq-progress::-moz-progress-bar {
+    background-color: var(--ufuq-link);
+    border-radius: var(--ufuq-radius-pill);
+  }
+
+  @media (forced-colors: active) {
+    /* The browser would repaint the bar and its track the same colour. Opt out,
+       and paint both with system colours ourselves. */
+    .ufuq-progress {
+      forced-color-adjust: none;
+      background-color: Canvas;
+      border: 1px solid CanvasText;
+      color: Highlight;
+    }
+    .ufuq-progress::-webkit-progress-bar {
+      background-color: Canvas;
+    }
+    .ufuq-progress::-webkit-progress-value {
+      background-color: Highlight;
+    }
+    .ufuq-progress::-moz-progress-bar {
+      background-color: Highlight;
+    }
+  }
+}
+
+/* Dialog. A native <dialog> opened with showModal(), which traps focus and
+   closes on Escape without a script of ours. */
+@layer ufuq.components {
+  .ufuq-dialog {
+    inline-size: min(100% - 2 * var(--ufuq-space-4), 32rem);
+    max-block-size: min(100% - 2 * var(--ufuq-space-4), 40rem);
+    padding: var(--ufuq-space-6);
+    background-color: var(--ufuq-surface-raised);
+    border: 1px solid var(--ufuq-border-strong);
+    border-radius: var(--ufuq-radius-xl);
+    box-shadow: var(--ufuq-elev-3);
+    color: var(--ufuq-text);
+    transition:
+      opacity var(--ufuq-dur) var(--ufuq-ease),
+      translate var(--ufuq-dur-slow) var(--ufuq-ease-entry),
+      overlay var(--ufuq-dur-slow) allow-discrete,
+      display var(--ufuq-dur-slow) allow-discrete;
+  }
+  .ufuq-dialog:not([open]) {
+    opacity: 0;
+    translate: 0 var(--ufuq-space-3);
+  }
+  @starting-style {
+    .ufuq-dialog[open] {
+      opacity: 0;
+      translate: 0 var(--ufuq-space-3);
+    }
+  }
+  .ufuq-dialog::backdrop {
+    background-color: var(--ufuq-scrim);
+  }
+  .ufuq-dialog__title {
+    margin: 0 0 var(--ufuq-space-2);
+    font-family: var(--ufuq-font-display);
+    font-size: var(--ufuq-fs-h3);
+    line-height: var(--ufuq-lh-snug);
+  }
+  .ufuq-dialog__body {
+    margin: 0;
+    color: var(--ufuq-text-muted);
+  }
+  .ufuq-dialog__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--ufuq-space-2);
+    margin-block-start: var(--ufuq-space-5);
+  }
+}
+
+/* Message. One turn in a conversation with Captain Adel. His turns carry the
+   sage rule and his sources; the learner's turns sit on the trailing side. */
+@layer ufuq.components {
+  .ufuq-message {
+    display: grid;
+    gap: var(--ufuq-space-2);
+    max-inline-size: min(100%, 42rem);
+    padding: var(--ufuq-space-4);
+    background-color: var(--ufuq-surface);
+    border: 1px solid var(--ufuq-border);
+    border-radius: var(--ufuq-radius-lg);
+    color: var(--ufuq-text);
+  }
+  .ufuq-message > p {
+    margin: 0;
+  }
+  .ufuq-message--adel {
+    border-inline-start: 3px solid var(--ufuq-adel);
+  }
+  .ufuq-message--learner {
+    margin-inline-start: auto;
+    background-color: var(--ufuq-brand-tint);
+    border-color: transparent;
+  }
+  .ufuq-message__author {
+    color: var(--ufuq-adel);
+    font-family: var(--ufuq-font-mono);
+    font-size: var(--ufuq-fs-xs);
+    font-weight: var(--ufuq-fw-medium);
+    letter-spacing: var(--ufuq-tracking-caps);
+    text-transform: uppercase;
+  }
+  .ufuq-message__author:lang(ar) {
+    font-family: var(--ufuq-font-body);
+  }
+  .ufuq-message__sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ufuq-space-2);
+  }
+
+  @media (forced-colors: active) {
+    .ufuq-message--learner {
+      border-color: CanvasText;
+    }
+  }
+}
+
+/* Menu. A short list of actions that opens from a button: a native popover,
+   so it opens, closes on Escape and on a press outside, and returns focus
+   with no script. It is a list of buttons and links, not role="menu", which
+   would promise arrow-key behaviour it does not have. */
+@layer ufuq.components {
+  .ufuq-menu {
+    inset: auto;
+    margin: 0;
+    margin-block-start: var(--ufuq-space-1);
+    padding: var(--ufuq-space-1);
+    min-inline-size: 12rem;
+    background-color: var(--ufuq-surface-raised);
+    border: 1px solid var(--ufuq-border-strong);
+    border-radius: var(--ufuq-radius-md);
+    box-shadow: var(--ufuq-elev-3);
+    color: var(--ufuq-text);
+  }
+  /* Where anchor positioning exists the menu hangs from its button and flips
+     when there is no room. Elsewhere it opens where it sits in the page,
+     which is directly after the button. */
+  @supports (position-area: block-end) {
+    .ufuq-menu {
+      position-area: block-end span-inline-end;
+      position-try-fallbacks: flip-block, flip-inline;
+    }
+  }
+  .ufuq-menu__item {
+    display: flex;
+    align-items: center;
+    gap: var(--ufuq-space-2);
+    inline-size: 100%;
+    min-block-size: var(--ufuq-control-min-size);
+    padding: var(--ufuq-space-2) var(--ufuq-space-3);
+    background-color: transparent;
+    border: 0;
+    border-radius: var(--ufuq-radius-sm);
+    color: var(--ufuq-text);
+    font: inherit;
+    font-size: var(--ufuq-fs-sm);
+    text-align: start;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--ufuq-dur) var(--ufuq-ease);
+  }
+  .ufuq-menu__item:hover {
+    background-color: var(--ufuq-brand-tint);
+  }
+  .ufuq-menu__rule {
+    block-size: 1px;
+    margin: var(--ufuq-space-1) 0;
+    background-color: var(--ufuq-border);
+    border: 0;
+  }
+}
+
+/* Tooltip. A short description shown while its control is hovered or focused.
+   Point the control at it with aria-describedby. It is plain CSS, so it
+   cannot be dismissed with Escape: add that with a script where the text
+   could cover something the reader needs. Never put essential or interactive
+   content in a tooltip. */
+@layer ufuq.components {
+  .ufuq-tooltip {
+    position: relative;
+    display: inline-flex;
+  }
+  .ufuq-tooltip__text {
+    position: absolute;
+    inset-block-end: calc(100% + var(--ufuq-space-2));
+    inset-inline-start: 0;
+    z-index: var(--ufuq-z-tooltip);
+    inline-size: max-content;
+    max-inline-size: 16rem;
+    padding: var(--ufuq-space-2) var(--ufuq-space-3);
+    background-color: var(--ufuq-surface-raised);
+    border: 1px solid var(--ufuq-border-input);
+    border-radius: var(--ufuq-radius-md);
+    box-shadow: var(--ufuq-elev-2);
+    color: var(--ufuq-text);
+    font-size: var(--ufuq-fs-xs);
+    font-weight: var(--ufuq-fw-regular);
+    line-height: var(--ufuq-lh-snug);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity var(--ufuq-dur) var(--ufuq-ease),
+      visibility var(--ufuq-dur);
+  }
+  .ufuq-tooltip:hover > .ufuq-tooltip__text,
+  .ufuq-tooltip:focus-within > .ufuq-tooltip__text {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Toast. A short message that appears without taking focus. Give it
+   role="status", or role="alert" for an error, so it is announced. Put toasts
+   in .ufuq-toasts to stack them in the trailing bottom corner. */
+@layer ufuq.components {
+  .ufuq-toasts {
+    position: fixed;
+    inset-block-end: var(--ufuq-space-5);
+    inset-inline-end: var(--ufuq-space-5);
+    z-index: var(--ufuq-z-toast);
+    display: grid;
+    gap: var(--ufuq-space-2);
+    inline-size: min(100% - 2 * var(--ufuq-space-5), 24rem);
+  }
+  .ufuq-toast {
+    --_tone: var(--ufuq-link);
+    display: grid;
+    gap: var(--ufuq-space-1);
+    padding: var(--ufuq-space-3) var(--ufuq-space-4);
+    background-color: var(--ufuq-surface-raised);
+    border: 1px solid var(--ufuq-border-strong);
+    border-inline-start: 3px solid var(--_tone);
+    border-radius: var(--ufuq-radius-md);
+    box-shadow: var(--ufuq-elev-3);
+    color: var(--ufuq-text);
+    font-size: var(--ufuq-fs-sm);
+    line-height: var(--ufuq-lh-snug);
+    transition:
+      opacity var(--ufuq-dur) var(--ufuq-ease),
+      translate var(--ufuq-dur-slow) var(--ufuq-ease-entry);
+  }
+  @starting-style {
+    .ufuq-toast {
+      opacity: 0;
+      translate: 0 var(--ufuq-space-3);
+    }
+  }
+  .ufuq-toast--success {
+    --_tone: var(--ufuq-success);
+  }
+  .ufuq-toast--warning {
+    --_tone: var(--ufuq-warning);
+  }
+  .ufuq-toast--danger {
+    --_tone: var(--ufuq-danger);
+  }
+  .ufuq-toast__title {
+    margin: 0;
+    font-weight: var(--ufuq-fw-semibold);
+  }
+  .ufuq-toast__body {
+    margin: 0;
+    color: var(--ufuq-text-muted);
+  }
+}
+
+/* Accordion. A native <details>, so it opens from the keyboard, is found by
+   the browser's search, and needs no script. */
+@layer ufuq.components {
+  .ufuq-accordion {
+    border-block-end: 1px solid var(--ufuq-border);
+    color: var(--ufuq-text);
+  }
+  .ufuq-accordion > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--ufuq-space-4);
+    min-block-size: var(--ufuq-control-min-size);
+    padding-block: var(--ufuq-space-3);
+    font-weight: var(--ufuq-fw-semibold);
+    list-style: none;
+    cursor: pointer;
+  }
+  .ufuq-accordion > summary::-webkit-details-marker {
+    display: none;
+  }
+  /* The chevron: two borders of a small square, turned. */
+  .ufuq-accordion > summary::after {
+    content: '';
+    flex: none;
+    inline-size: 0.5em;
+    block-size: 0.5em;
+    margin-inline-end: var(--ufuq-space-1);
+    border-inline-end: 2px solid currentColor;
+    border-block-end: 2px solid currentColor;
+    rotate: 45deg;
+    transition: rotate var(--ufuq-dur) var(--ufuq-ease);
+  }
+  .ufuq-accordion[open] > summary::after {
+    rotate: -135deg;
+  }
+  .ufuq-accordion__body {
+    padding-block-end: var(--ufuq-space-4);
+    color: var(--ufuq-text-muted);
+  }
+  .ufuq-accordion__body > :first-child {
+    margin-block-start: 0;
+  }
+  .ufuq-accordion__body > :last-child {
+    margin-block-end: 0;
+  }
+}
+
+/* Breadcrumb. A nav with a label holding an ordered list; the last item is
+   the page being read and carries aria-current="page". */
+@layer ufuq.components {
+  .ufuq-breadcrumb > ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--ufuq-space-2);
+    margin: 0;
+    padding: 0;
+    font-size: var(--ufuq-fs-sm);
+    list-style: none;
+  }
+  .ufuq-breadcrumb li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ufuq-space-2);
+    color: var(--ufuq-text);
+  }
+  .ufuq-breadcrumb li + li::before {
+    content: '/';
+    color: var(--ufuq-text-dim);
+  }
+  .ufuq-breadcrumb a {
+    color: var(--ufuq-text-muted);
+    text-decoration-line: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.2em;
+  }
+  .ufuq-breadcrumb a:hover {
+    color: var(--ufuq-link);
+  }
+}
+
+/* Pagination. A nav with a label, and aria-current="page" on the page being
+   read, which takes the brand fill. */
+@layer ufuq.components {
+  .ufuq-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--ufuq-space-1);
+  }
+  .ufuq-page {
+    display: inline-grid;
+    place-items: center;
+    min-inline-size: var(--ufuq-control-min-size);
+    min-block-size: var(--ufuq-control-min-size);
+    padding-inline: var(--ufuq-space-3);
+    border: 1px solid transparent;
+    border-radius: var(--ufuq-radius-pill);
+    color: var(--ufuq-text-muted);
+    font-size: var(--ufuq-fs-sm);
+    font-weight: var(--ufuq-fw-medium);
+    font-variant-numeric: tabular-nums;
+    text-decoration: none;
+    transition:
+      background-color var(--ufuq-dur) var(--ufuq-ease),
+      color var(--ufuq-dur) var(--ufuq-ease);
+  }
+  a.ufuq-page:hover {
+    background-color: var(--ufuq-brand-tint);
+    color: var(--ufuq-text);
+  }
+  .ufuq-page[aria-current='page'] {
+    background-color: var(--ufuq-brand);
+    color: var(--ufuq-on-brand);
+  }
+  .ufuq-page[aria-disabled='true'] {
+    opacity: var(--ufuq-control-disabled-opacity);
+    pointer-events: none;
+  }
+
+  @media (forced-colors: active) {
+    .ufuq-page[aria-current='page'] {
+      border-color: Highlight;
+    }
+  }
+}
+
+/* Empty state. What a list or a page shows when there is nothing in it yet:
+   what is missing, and one thing to do about it. */
+@layer ufuq.components {
+  .ufuq-empty {
+    display: grid;
+    justify-items: center;
+    gap: var(--ufuq-space-3);
+    padding: var(--ufuq-space-8) var(--ufuq-space-5);
+    border: 1px dashed var(--ufuq-border-input);
+    border-radius: var(--ufuq-radius-lg);
+    color: var(--ufuq-text-muted);
+    text-align: center;
+  }
+  .ufuq-empty > p {
+    margin: 0;
+    max-inline-size: 28rem;
+  }
+  .ufuq-empty__title {
+    margin: 0;
+    color: var(--ufuq-text);
+    font-family: var(--ufuq-font-display);
+    font-size: var(--ufuq-fs-h3);
+    font-weight: var(--ufuq-fw-semibold);
+    line-height: var(--ufuq-lh-snug);
+  }
+}
+
+/* Keyboard key. */
+@layer ufuq.components {
+  .ufuq-kbd {
+    display: inline-block;
+    min-inline-size: 1.5rem;
+    padding: 0 var(--ufuq-space-1);
+    background-color: var(--ufuq-surface-raised);
+    border: 1px solid var(--ufuq-border-input);
+    border-block-end-width: 2px;
+    border-radius: var(--ufuq-radius-sm);
+    color: var(--ufuq-text);
+    font-family: var(--ufuq-font-mono);
+    font-size: var(--ufuq-fs-2xs);
+    line-height: 1.6;
+    text-align: center;
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+}
+
+/* Skeleton. A placeholder while content loads. Mark the region aria-busy and
+   hide the skeleton itself from assistive technology. */
+@layer ufuq.components {
+  .ufuq-skeleton {
+    display: block;
+    min-block-size: 1em;
+    background-color: var(--ufuq-border);
+    background-image: linear-gradient(90deg, transparent 25%, var(--ufuq-border-strong) 50%, transparent 75%);
+    background-size: 200% 100%;
+    border-radius: var(--ufuq-radius-sm);
+    animation: ufuq-shimmer 1.4s ease-in-out infinite;
+  }
+  @keyframes ufuq-shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ufuq-skeleton {
+      animation: none;
+      background-image: none;
+    }
+  }
+}
+
+/* Notice. The independence notice that ends every public piece. The wording
+   is fixed, in both languages; take it from identity/brand.json or dist/ufuq.json. */
+@layer ufuq.components {
+  .ufuq-notice {
+    display: grid;
+    gap: var(--ufuq-space-1);
+    padding-block: var(--ufuq-space-5);
+    border-block-start: 1px solid var(--ufuq-border);
+    color: var(--ufuq-text-muted);
+    font-size: var(--ufuq-fs-sm);
+    line-height: var(--ufuq-lh-snug);
+  }
+  .ufuq-notice > p {
+    margin: 0;
+  }
+}
+
+/* Shell. The frame every Fly GACA site shares: a slim header with the site's
+   own mark, its pages and the language and theme switches, and a footer that
+   names the family and carries the notice. dist/ufuq.shell.js gives the
+   switches their behaviour; the frame reads and works without it. */
+@layer ufuq.components {
+  .ufuq-shell {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--ufuq-space-2) var(--ufuq-space-5);
+    padding-block: var(--ufuq-space-2);
+    padding-inline: var(--ufuq-space-5);
+    border-block-end: 1px solid var(--ufuq-border);
+    background: var(--ufuq-bg);
+    color: var(--ufuq-text);
+    font-family: var(--ufuq-font-body);
+    font-size: var(--ufuq-fs-sm);
+    line-height: var(--ufuq-lh-snug);
+  }
+  .ufuq-shell__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ufuq-space-2);
+    color: var(--ufuq-text);
+    font-family: var(--ufuq-font-display);
+    font-size: var(--ufuq-fs-base);
+    font-weight: var(--ufuq-fw-bold);
+    text-decoration: none;
+  }
+  .ufuq-shell__brand > img {
+    inline-size: var(--ufuq-space-6);
+    block-size: var(--ufuq-space-6);
+  }
+  .ufuq-shell__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ufuq-space-1);
+    margin-inline-end: auto;
+  }
+  .ufuq-shell__nav > a {
+    padding-block: var(--ufuq-space-1);
+    padding-inline: var(--ufuq-space-3);
+    border-radius: var(--ufuq-radius-pill);
+    color: var(--ufuq-text-muted);
+    text-decoration: none;
+  }
+  .ufuq-shell__nav > a:hover {
+    background: var(--ufuq-brand-tint);
+    color: var(--ufuq-text);
+  }
+  /* The page being read: a filled pill and a heavier weight, not colour alone. */
+  .ufuq-shell__nav > a[aria-current='page'] {
+    background: var(--ufuq-brand-tint-strong);
+    color: var(--ufuq-text);
+    font-weight: var(--ufuq-fw-semibold);
+  }
+  .ufuq-shell__tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--ufuq-space-2);
+  }
+  /* Who is signed in. An address stays in Latin script and is cut, not wrapped. */
+  .ufuq-shell__who {
+    max-inline-size: 24ch;
+    overflow: hidden;
+    color: var(--ufuq-text-muted);
+    font-size: var(--ufuq-fs-xs);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+  .ufuq-shell__tool {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--ufuq-space-6);
+    padding-block: 0;
+    padding-inline: var(--ufuq-space-3);
+    border: 1px solid var(--ufuq-border-strong);
+    border-radius: var(--ufuq-radius-pill);
+    background: none;
+    color: var(--ufuq-text);
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  /* Shown only once the script knows who is signed in. */
+  .ufuq-shell__tool[hidden],
+  .ufuq-shell__who[hidden] {
+    display: none;
+  }
+  .ufuq-shell__tool:hover {
+    background: var(--ufuq-brand-tint);
+  }
+
+  .ufuq-shell-foot {
+    display: grid;
+    gap: var(--ufuq-space-3);
+    padding-block: var(--ufuq-space-5);
+    padding-inline: var(--ufuq-space-5);
+    border-block-start: 1px solid var(--ufuq-border);
+    background: var(--ufuq-bg-alt);
+    color: var(--ufuq-text-muted);
+    font-family: var(--ufuq-font-body);
+    font-size: var(--ufuq-fs-sm);
+    line-height: var(--ufuq-lh-snug);
+  }
+  .ufuq-shell-foot__family {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ufuq-space-2);
+    justify-self: start;
+    color: var(--ufuq-text);
+    font-weight: var(--ufuq-fw-semibold);
+    text-decoration: none;
+  }
+  .ufuq-shell-foot__family > img {
+    inline-size: var(--ufuq-space-8);
+    block-size: var(--ufuq-space-8);
+  }
+  .ufuq-shell-foot__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ufuq-space-1) var(--ufuq-space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ufuq-shell-foot__links a {
+    color: var(--ufuq-link);
+    text-decoration-line: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.2em;
+  }
+  .ufuq-shell-foot > p {
+    margin: 0;
+  }
+
+  /* Text written in both languages: the page's language picks one. */
+  :root:lang(ar) .ufuq-en,
+  :root:not(:lang(ar)) .ufuq-ar {
+    display: none;
+  }
+}
+
+/* Prose. Long-form reading: a guide, a handbook chapter, a regulation with
+   commentary. Made for the Day theme, and it works on Night. */
+@layer ufuq.components {
+  .ufuq-prose {
+    max-inline-size: var(--ufuq-container-narrow);
+    color: var(--ufuq-text);
+    font-size: var(--ufuq-fs-base);
+    line-height: var(--ufuq-lh-body);
+    overflow-wrap: break-word;
+  }
+  .ufuq-prose > * {
+    margin-block: 0;
+  }
+  .ufuq-prose > * + * {
+    margin-block-start: var(--ufuq-space-4);
+  }
+  .ufuq-prose :is(h1, h2, h3) {
+    font-family: var(--ufuq-font-display);
+    font-weight: var(--ufuq-fw-bold);
+    line-height: var(--ufuq-lh-tight);
+    letter-spacing: var(--ufuq-tracking-heading);
+    text-wrap: balance;
+  }
+  .ufuq-prose h1 {
+    font-size: var(--ufuq-fs-h1);
+  }
+  .ufuq-prose h2 {
+    font-size: var(--ufuq-fs-h2);
+  }
+  .ufuq-prose h3 {
+    font-size: var(--ufuq-fs-h3);
+  }
+  .ufuq-prose > * + :is(h2, h3) {
+    margin-block-start: var(--ufuq-space-7);
+  }
+  .ufuq-prose p {
+    text-wrap: pretty;
+  }
+  .ufuq-prose a {
+    color: var(--ufuq-link);
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.2em;
+  }
+  .ufuq-prose :is(ul, ol) {
+    padding-inline-start: var(--ufuq-space-5);
+  }
+  .ufuq-prose li + li {
+    margin-block-start: var(--ufuq-space-2);
+  }
+  .ufuq-prose blockquote {
+    margin-inline: 0;
+    padding-inline-start: var(--ufuq-space-4);
+    border-inline-start: 3px solid var(--ufuq-border-input);
+    color: var(--ufuq-text-muted);
+  }
+  .ufuq-prose :is(code, kbd, samp) {
+    font-family: var(--ufuq-font-mono);
+    font-size: 0.9em;
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+  .ufuq-prose pre {
+    padding: var(--ufuq-space-4);
+    overflow-x: auto;
+    background-color: var(--ufuq-surface);
+    border: 1px solid var(--ufuq-border);
+    border-radius: var(--ufuq-radius-md);
+    direction: ltr;
+    text-align: start;
+  }
+  .ufuq-prose hr {
+    block-size: 1px;
+    background-color: var(--ufuq-border);
+    border: 0;
+  }
+  .ufuq-prose small {
+    color: var(--ufuq-text-muted);
+    font-size: var(--ufuq-fs-sm);
+  }
+}
+
+/* Utilities. A few layout and language helpers. */
+@layer ufuq.utilities {
+  .ufuq-container {
+    inline-size: min(100% - 2 * var(--ufuq-space-4), var(--ufuq-container));
+    margin-inline: auto;
+  }
+  .ufuq-container--narrow {
+    inline-size: min(100% - 2 * var(--ufuq-space-4), var(--ufuq-container-narrow));
+  }
+
+  /* Children stacked with even space between them. Set --ufuq-gap to change it. */
+  .ufuq-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ufuq-gap, var(--ufuq-space-4));
+  }
+  /* Children in a row that wraps. */
+  .ufuq-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--ufuq-gap, var(--ufuq-space-2));
+  }
+
+  /* A code that stays in Latin script and reads left to right inside Arabic:
+     GACAR, AIP, PPL, an ICAO code, a section number. */
+  .ufuq-latin {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+  .ufuq-num {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Present for a screen reader, absent from the screen. */
+  .ufuq-sr-only {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+}

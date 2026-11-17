@@ -1,0 +1,225 @@
+/* Ufuq (أفق) 0.5.0: the Fly GACA identity as CSS custom properties.
+   Generated from tokens/ufuq.tokens.json by `npm run build`. Do not edit by hand. */
+
+:root {
+  /* Palette: the colours of the mark */
+  --ufuq-night: #0A0E12;
+  --ufuq-deep: #0F1A24;
+  --ufuq-mist: #1A2A38;
+  --ufuq-teal: #2D6E8A;
+  --ufuq-teal-bright: #4A9CB8;
+  --ufuq-sage: #8FC9A8;
+  --ufuq-sage-bright: #B5DDC2;
+  --ufuq-gold: #C8A04A;
+  --ufuq-clay: #D9774B;
+  --ufuq-ivory: #F5F2ED;
+
+  /* Print: accents for text on white paper */
+  --ufuq-print-paper: #FFFFFF;
+  --ufuq-print-ink: #16212C;
+  --ufuq-print-ink-medium: #3F4A55;
+  --ufuq-print-ink-light: #5C6873;
+  --ufuq-print-rule: #E5DFD3;
+  --ufuq-print-teal: #2A6580;
+  --ufuq-print-teal-bright: #1C5A72;
+  --ufuq-print-gold: #9A7623;
+  --ufuq-print-clay: #B1442B;
+  --ufuq-print-sage: #2F7D4F;
+
+  /* Type families, per surface (not settled; see docs/open-decisions.md) */
+  --ufuq-font-display: 'Space Grotesk', 'IBM Plex Sans Arabic', 'Readex Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ufuq-font-body: 'IBM Plex Sans', 'IBM Plex Sans Arabic', 'Readex Pro', system-ui, -apple-system, sans-serif;
+  --ufuq-font-mono: 'IBM Plex Mono', 'IBM Plex Sans Arabic', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --ufuq-font-print: 'Readex Pro', system-ui, sans-serif;
+  --ufuq-font-print-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Type scale */
+  --ufuq-fs-display: clamp(2.5rem, 1.5rem + 4.2vi, 4rem);
+  --ufuq-fs-h1: clamp(2rem, 1.5rem + 2.1vi, 3rem);
+  --ufuq-fs-h2: clamp(1.45rem, 1.25rem + 0.9vi, 1.75rem);
+  --ufuq-fs-h3: 1.3rem;
+  --ufuq-fs-lg: 1.15rem;
+  --ufuq-fs-base: 1rem;
+  --ufuq-fs-sm: 0.9rem;
+  --ufuq-fs-xs: 0.78rem;
+  --ufuq-fs-2xs: 0.7rem;
+
+  /* Weights */
+  --ufuq-fw-regular: 400;
+  --ufuq-fw-medium: 500;
+  --ufuq-fw-semibold: 600;
+  --ufuq-fw-bold: 700;
+  --ufuq-fw-black: 800;
+
+  /* Line heights */
+  --ufuq-lh-heading: 1.08;
+  --ufuq-lh-tight: 1.15;
+  --ufuq-lh-snug: 1.35;
+  --ufuq-lh-body: 1.65;
+
+  /* Tracking */
+  --ufuq-tracking-eyebrow: 0.12em;
+  --ufuq-tracking-caps: 0.08em;
+  --ufuq-tracking-heading: -0.01em;
+  --ufuq-tracking-tight: -0.02em;
+
+  /* Spacing (4px base) */
+  --ufuq-space-1: 0.25rem;
+  --ufuq-space-2: 0.5rem;
+  --ufuq-space-3: 0.75rem;
+  --ufuq-space-4: 1rem;
+  --ufuq-space-5: 1.5rem;
+  --ufuq-space-6: 2rem;
+  --ufuq-space-7: 2.5rem;
+  --ufuq-space-8: 3rem;
+  --ufuq-space-10: 4rem;
+  --ufuq-space-12: 6rem;
+  --ufuq-space-16: 8rem;
+
+  /* Radii */
+  --ufuq-radius-sm: 4px;
+  --ufuq-radius-md: 8px;
+  --ufuq-radius-lg: 14px;
+  --ufuq-radius-xl: 20px;
+  --ufuq-radius-pill: 9999px;
+
+  /* Focus indicator */
+  --ufuq-focus-ring-width: 2px;
+  --ufuq-focus-ring-offset: 2px;
+  --ufuq-focus-halo-width: 4px;
+
+  /* Controls */
+  --ufuq-control-min-size: 44px;
+  --ufuq-control-disabled-opacity: 0.45;
+  --ufuq-control-press-scale: 0.97;
+  --ufuq-control-hover-raise: -2px;
+
+  /* Motion */
+  --ufuq-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ufuq-ease-glide: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ufuq-ease-entry: cubic-bezier(0.16, 1, 0.3, 1);
+  --ufuq-dur-fast: 120ms;
+  --ufuq-dur: 200ms;
+  --ufuq-dur-slow: 400ms;
+
+  /* Layout */
+  --ufuq-container: 1180px;
+  --ufuq-container-narrow: 760px;
+
+  /* Z-index scale */
+  --ufuq-z-base: 0;
+  --ufuq-z-raised: 10;
+  --ufuq-z-dropdown: 20;
+  --ufuq-z-sticky: 40;
+  --ufuq-z-popover: 60;
+  --ufuq-z-overlay: 100;
+  --ufuq-z-modal: 200;
+  --ufuq-z-toast: 300;
+  --ufuq-z-tooltip: 400;
+}
+
+/* Roles: dark theme, the default. Naming it brings a region back to dark inside another theme. */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --ufuq-bg: var(--ufuq-night);
+  --ufuq-bg-alt: #0C141B;
+  --ufuq-surface: var(--ufuq-deep);
+  --ufuq-surface-raised: #16213A;
+  --ufuq-border: var(--ufuq-mist);
+  --ufuq-border-strong: #24394B;
+  --ufuq-border-input: #5F718C;
+  --ufuq-text: #E8EDF5;
+  --ufuq-text-muted: #8A9BB5;
+  --ufuq-text-dim: #7C8DA8;
+  --ufuq-brand: var(--ufuq-teal);
+  --ufuq-brand-hover: #245A72;
+  --ufuq-on-brand: #FFFFFF;
+  --ufuq-link: var(--ufuq-teal-bright);
+  --ufuq-focus: var(--ufuq-teal-bright);
+  --ufuq-adel: var(--ufuq-sage);
+  --ufuq-adel-strong: var(--ufuq-sage-bright);
+  --ufuq-heritage: var(--ufuq-gold);
+  --ufuq-caution: var(--ufuq-clay);
+  --ufuq-success: #2ECC71;
+  --ufuq-warning: var(--ufuq-gold);
+  --ufuq-danger: #F05252;
+  --ufuq-brand-tint: color-mix(in srgb, var(--ufuq-brand) 12%, transparent);
+  --ufuq-brand-tint-strong: color-mix(in srgb, var(--ufuq-brand) 18%, transparent);
+  --ufuq-success-tint: color-mix(in srgb, var(--ufuq-success) 12%, transparent);
+  --ufuq-warning-tint: color-mix(in srgb, var(--ufuq-warning) 12%, transparent);
+  --ufuq-danger-tint: color-mix(in srgb, var(--ufuq-danger) 12%, transparent);
+  --ufuq-caution-tint: color-mix(in srgb, var(--ufuq-caution) 12%, transparent);
+  --ufuq-adel-tint: color-mix(in srgb, var(--ufuq-adel) 12%, transparent);
+  --ufuq-focus-halo: color-mix(in srgb, var(--ufuq-focus) 25%, transparent);
+  --ufuq-scrim: color-mix(in srgb, var(--ufuq-night) 70%, transparent);
+  --ufuq-elev-1: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --ufuq-elev-2: 0 2px 6px rgba(0, 0, 0, 0.3), 0 10px 32px -8px rgba(0, 0, 0, 0.45);
+  --ufuq-elev-3: 0 4px 12px rgba(0, 0, 0, 0.35), 0 24px 64px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* Roles: day theme. Opt-in with data-theme="day"; it is never switched on automatically. */
+[data-theme='day'] {
+  color-scheme: light;
+  --ufuq-bg: var(--ufuq-ivory);
+  --ufuq-bg-alt: #ECE7DB;
+  --ufuq-surface: #FBF8F2;
+  --ufuq-surface-raised: #FFFFFF;
+  --ufuq-border: #E5DFD3;
+  --ufuq-border-strong: #D8CFBE;
+  --ufuq-border-input: #7B8692;
+  --ufuq-text: #16212C;
+  --ufuq-text-muted: #3F4A55;
+  --ufuq-text-dim: #5C6873;
+  --ufuq-brand: #2A6580;
+  --ufuq-brand-hover: #1F4F65;
+  --ufuq-on-brand: #FFFFFF;
+  --ufuq-link: #1C5A72;
+  --ufuq-focus: #1C5A72;
+  --ufuq-adel: #276B43;
+  --ufuq-adel-strong: #1F5636;
+  --ufuq-heritage: #725512;
+  --ufuq-caution: #A84A22;
+  --ufuq-success: #176A39;
+  --ufuq-warning: #74500F;
+  --ufuq-danger: #B82A2A;
+  --ufuq-brand-tint: color-mix(in srgb, var(--ufuq-brand) 10%, transparent);
+  --ufuq-brand-tint-strong: color-mix(in srgb, var(--ufuq-brand) 16%, transparent);
+  --ufuq-success-tint: color-mix(in srgb, var(--ufuq-success) 12%, transparent);
+  --ufuq-warning-tint: color-mix(in srgb, var(--ufuq-warning) 12%, transparent);
+  --ufuq-danger-tint: color-mix(in srgb, var(--ufuq-danger) 12%, transparent);
+  --ufuq-caution-tint: color-mix(in srgb, var(--ufuq-caution) 12%, transparent);
+  --ufuq-adel-tint: color-mix(in srgb, var(--ufuq-adel) 12%, transparent);
+  --ufuq-focus-halo: color-mix(in srgb, var(--ufuq-focus) 25%, transparent);
+  --ufuq-scrim: color-mix(in srgb, var(--ufuq-night) 70%, transparent);
+  --ufuq-elev-1: 0 1px 2px rgba(15, 26, 36, 0.04), 0 1px 3px rgba(15, 26, 36, 0.06);
+  --ufuq-elev-2: 0 4px 8px -2px rgba(15, 26, 36, 0.08), 0 2px 4px -2px rgba(15, 26, 36, 0.04);
+  --ufuq-elev-3: 0 12px 24px -8px rgba(15, 26, 36, 0.14), 0 4px 8px -4px rgba(15, 26, 36, 0.06);
+}
+
+/* Arabic is never letter-spaced. */
+:lang(ar) {
+  --ufuq-tracking-eyebrow: 0;
+  --ufuq-tracking-caps: 0;
+  --ufuq-tracking-heading: 0;
+  --ufuq-tracking-tight: 0;
+}
+
+/* Text in another language inside Arabic gets its tracking back: a custom property is inherited, zero included. */
+:lang(ar) :not(:lang(ar)) {
+  --ufuq-tracking-eyebrow: 0.12em;
+  --ufuq-tracking-caps: 0.08em;
+  --ufuq-tracking-heading: -0.01em;
+  --ufuq-tracking-tight: -0.02em;
+}
+
+/* A reader who asks for reduced motion gets none from these tokens. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ufuq-control-press-scale: 1;
+    --ufuq-control-hover-raise: 0px;
+    --ufuq-dur-fast: 0.01ms;
+    --ufuq-dur: 0.01ms;
+    --ufuq-dur-slow: 0.01ms;
+  }
+}
